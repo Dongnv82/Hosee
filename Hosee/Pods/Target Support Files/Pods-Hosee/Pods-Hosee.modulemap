@@ -1,0 +1,6 @@
+framework module Pods_Hosee {
+  umbrella header "Pods-Hosee-umbrella.h"
+
+  export *
+  module * { export * }
+}
