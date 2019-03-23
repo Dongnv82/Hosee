@@ -9,11 +9,18 @@
 import UIKit
 import GooglePlaces
 import GoogleMaps
-class ViewController: UIViewController, GMSMapViewDelegate {
 
+protocol ViewCotrollerDelegate: class {
+    var isLeftSlideMenuOpen: Bool {get set}
+    
+}
+
+class ViewController: UIViewController, GMSMapViewDelegate {
+    
     @IBOutlet weak var khuyenMaiBtn: UIButton!
     @IBOutlet weak var ghiChuBtn: UIButton!
     
+    weak var delegate: ViewCotrollerDelegate?
     var locationManager = CLLocationManager()
     var infoMarker = GMSMarker()
     
@@ -50,6 +57,9 @@ class ViewController: UIViewController, GMSMapViewDelegate {
             
         }
     }
-
+    @IBAction func leftSlideBtn(_ sender: Any) {
+        delegate?.isLeftSlideMenuOpen = true
+    }
+    
 }
 

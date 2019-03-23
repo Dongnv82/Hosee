@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5721F9BF22447D0800267BEC /* Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5721F9BE22447D0800267BEC /* Custom.swift */; };
+		5765DDA52244BEB800133B81 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5765DDA42244BEB800133B81 /* ContainerViewController.swift */; };
+		5765DDA72244BECC00133B81 /* LeftSlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5765DDA62244BECC00133B81 /* LeftSlideViewController.swift */; };
 		6F10B9F8BBA0D44ADC411EE2 /* Pods_Hosee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8DE8763683B800D619B1C0 /* Pods_Hosee.framework */; };
 		CD8DF1C5C683A64280A800CD /* Pods_HoseeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EAC0832D3F9A9E935365C47 /* Pods_HoseeUITests.framework */; };
 		D2C22B466E9095AD1D084675 /* Pods_HoseeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BBACBAAB6E9E152157E27BE /* Pods_HoseeTests.framework */; };
@@ -41,6 +43,8 @@
 /* Begin PBXFileReference section */
 		42A9325C7BF8D568C9915993 /* Pods-HoseeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HoseeTests.release.xcconfig"; path = "Target Support Files/Pods-HoseeTests/Pods-HoseeTests.release.xcconfig"; sourceTree = "<group>"; };
 		5721F9BE22447D0800267BEC /* Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Custom.swift; sourceTree = "<group>"; };
+		5765DDA42244BEB800133B81 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		5765DDA62244BECC00133B81 /* LeftSlideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftSlideViewController.swift; sourceTree = "<group>"; };
 		5B6EE60FA64FCF0F3CE499D8 /* Pods-Hosee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hosee.debug.xcconfig"; path = "Target Support Files/Pods-Hosee/Pods-Hosee.debug.xcconfig"; sourceTree = "<group>"; };
 		774DFF3F8ED8E30DDA6BC4D9 /* Pods-HoseeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HoseeUITests.release.xcconfig"; path = "Target Support Files/Pods-HoseeUITests/Pods-HoseeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7EAC0832D3F9A9E935365C47 /* Pods_HoseeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HoseeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,7 +146,9 @@
 			isa = PBXGroup;
 			children = (
 				EBFC664C2243864000CE8578 /* AppDelegate.swift */,
+				5765DDA42244BEB800133B81 /* ContainerViewController.swift */,
 				EBFC664E2243864000CE8578 /* ViewController.swift */,
+				5765DDA62244BECC00133B81 /* LeftSlideViewController.swift */,
 				5721F9BE22447D0800267BEC /* Custom.swift */,
 				EBFC66502243864000CE8578 /* Main.storyboard */,
 				EBFC66562243864100CE8578 /* Assets.xcassets */,
@@ -401,6 +407,8 @@
 			files = (
 				EBFC664F2243864000CE8578 /* ViewController.swift in Sources */,
 				EBFC664D2243864000CE8578 /* AppDelegate.swift in Sources */,
+				5765DDA52244BEB800133B81 /* ContainerViewController.swift in Sources */,
+				5765DDA72244BECC00133B81 /* LeftSlideViewController.swift in Sources */,
 				5721F9BF22447D0800267BEC /* Custom.swift in Sources */,
 				EBFC66552243864000CE8578 /* Hosee.xcdatamodeld in Sources */,
 			);
