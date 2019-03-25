@@ -50,7 +50,7 @@ class ContainerViewController: UIViewController, ViewCotrollerDelegate {
     // MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        let destination = segue.destination as? UINavigationController
-        let mainVC = destination?.topViewController as? ViewController
+        let mainVC = destination?.topViewController as? HomeViewController
         mainVC?.delegate = self
     }
 

@@ -7,14 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5721F9BF22447D0800267BEC /* Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5721F9BE22447D0800267BEC /* Custom.swift */; };
+		5721F9BF22447D0800267BEC /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5721F9BE22447D0800267BEC /* UIView+Extension.swift */; };
 		5765DDA52244BEB800133B81 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5765DDA42244BEB800133B81 /* ContainerViewController.swift */; };
 		5765DDA72244BECC00133B81 /* LeftSlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5765DDA62244BECC00133B81 /* LeftSlideViewController.swift */; };
+		57F7C2932248607B001CDD56 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57F7C2922248607B001CDD56 /* Home.storyboard */; };
 		6F10B9F8BBA0D44ADC411EE2 /* Pods_Hosee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8DE8763683B800D619B1C0 /* Pods_Hosee.framework */; };
 		CD8DF1C5C683A64280A800CD /* Pods_HoseeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EAC0832D3F9A9E935365C47 /* Pods_HoseeUITests.framework */; };
 		D2C22B466E9095AD1D084675 /* Pods_HoseeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BBACBAAB6E9E152157E27BE /* Pods_HoseeTests.framework */; };
 		EBFC664D2243864000CE8578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC664C2243864000CE8578 /* AppDelegate.swift */; };
-		EBFC664F2243864000CE8578 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC664E2243864000CE8578 /* ViewController.swift */; };
+		EBFC664F2243864000CE8578 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC664E2243864000CE8578 /* HomeViewController.swift */; };
 		EBFC66522243864000CE8578 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBFC66502243864000CE8578 /* Main.storyboard */; };
 		EBFC66552243864000CE8578 /* Hosee.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EBFC66532243864000CE8578 /* Hosee.xcdatamodeld */; };
 		EBFC66572243864100CE8578 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBFC66562243864100CE8578 /* Assets.xcassets */; };
@@ -42,9 +43,10 @@
 
 /* Begin PBXFileReference section */
 		42A9325C7BF8D568C9915993 /* Pods-HoseeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HoseeTests.release.xcconfig"; path = "Target Support Files/Pods-HoseeTests/Pods-HoseeTests.release.xcconfig"; sourceTree = "<group>"; };
-		5721F9BE22447D0800267BEC /* Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Custom.swift; sourceTree = "<group>"; };
+		5721F9BE22447D0800267BEC /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		5765DDA42244BEB800133B81 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		5765DDA62244BECC00133B81 /* LeftSlideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftSlideViewController.swift; sourceTree = "<group>"; };
+		57F7C2922248607B001CDD56 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		5B6EE60FA64FCF0F3CE499D8 /* Pods-Hosee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hosee.debug.xcconfig"; path = "Target Support Files/Pods-Hosee/Pods-Hosee.debug.xcconfig"; sourceTree = "<group>"; };
 		774DFF3F8ED8E30DDA6BC4D9 /* Pods-HoseeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HoseeUITests.release.xcconfig"; path = "Target Support Files/Pods-HoseeUITests/Pods-HoseeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7EAC0832D3F9A9E935365C47 /* Pods_HoseeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HoseeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,7 +56,7 @@
 		E781E4B6EF67C7EF26C3E77C /* Pods-HoseeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HoseeTests.debug.xcconfig"; path = "Target Support Files/Pods-HoseeTests/Pods-HoseeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EBFC66492243864000CE8578 /* Hosee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hosee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBFC664C2243864000CE8578 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EBFC664E2243864000CE8578 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EBFC664E2243864000CE8578 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		EBFC66512243864000CE8578 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EBFC66542243864000CE8578 /* Hosee.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hosee.xcdatamodel; sourceTree = "<group>"; };
 		EBFC66562243864100CE8578 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -110,6 +112,35 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		57F7C294224875DC001CDD56 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				EBFC66582243864100CE8578 /* LaunchScreen.storyboard */,
+				EBFC664C2243864000CE8578 /* AppDelegate.swift */,
+				EBFC66562243864100CE8578 /* Assets.xcassets */,
+				EBFC665B2243864100CE8578 /* Info.plist */,
+				EBFC66532243864000CE8578 /* Hosee.xcdatamodeld */,
+			);
+			name = SupportFiles;
+			sourceTree = "<group>";
+		};
+		57F7C29522487623001CDD56 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				5765DDA42244BEB800133B81 /* ContainerViewController.swift */,
+				5765DDA62244BECC00133B81 /* LeftSlideViewController.swift */,
+			);
+			name = SideMenu;
+			sourceTree = "<group>";
+		};
+		57F7C2962248763E001CDD56 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5721F9BE22447D0800267BEC /* UIView+Extension.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		BF5C182493FEFABBE99C6AF9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,16 +176,12 @@
 		EBFC664B2243864000CE8578 /* Hosee */ = {
 			isa = PBXGroup;
 			children = (
-				EBFC664C2243864000CE8578 /* AppDelegate.swift */,
-				5765DDA42244BEB800133B81 /* ContainerViewController.swift */,
-				EBFC664E2243864000CE8578 /* ViewController.swift */,
-				5765DDA62244BECC00133B81 /* LeftSlideViewController.swift */,
-				5721F9BE22447D0800267BEC /* Custom.swift */,
+				EBFC664E2243864000CE8578 /* HomeViewController.swift */,
 				EBFC66502243864000CE8578 /* Main.storyboard */,
-				EBFC66562243864100CE8578 /* Assets.xcassets */,
-				EBFC66582243864100CE8578 /* LaunchScreen.storyboard */,
-				EBFC665B2243864100CE8578 /* Info.plist */,
-				EBFC66532243864000CE8578 /* Hosee.xcdatamodeld */,
+				57F7C2922248607B001CDD56 /* Home.storyboard */,
+				57F7C2962248763E001CDD56 /* Utils */,
+				57F7C29522487623001CDD56 /* SideMenu */,
+				57F7C294224875DC001CDD56 /* SupportFiles */,
 			);
 			path = Hosee;
 			sourceTree = "<group>";
@@ -288,6 +315,7 @@
 				EBFC665A2243864100CE8578 /* LaunchScreen.storyboard in Resources */,
 				EBFC66572243864100CE8578 /* Assets.xcassets in Resources */,
 				EBFC66522243864000CE8578 /* Main.storyboard in Resources */,
+				57F7C2932248607B001CDD56 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,11 +433,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBFC664F2243864000CE8578 /* ViewController.swift in Sources */,
+				EBFC664F2243864000CE8578 /* HomeViewController.swift in Sources */,
 				EBFC664D2243864000CE8578 /* AppDelegate.swift in Sources */,
 				5765DDA52244BEB800133B81 /* ContainerViewController.swift in Sources */,
 				5765DDA72244BECC00133B81 /* LeftSlideViewController.swift in Sources */,
-				5721F9BF22447D0800267BEC /* Custom.swift in Sources */,
+				5721F9BF22447D0800267BEC /* UIView+Extension.swift in Sources */,
 				EBFC66552243864000CE8578 /* Hosee.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

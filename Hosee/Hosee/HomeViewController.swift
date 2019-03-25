@@ -15,7 +15,7 @@ protocol ViewCotrollerDelegate: class {
     
 }
 
-class ViewController: UIViewController, GMSMapViewDelegate {
+class HomeViewController: UIViewController, GMSMapViewDelegate {
     
     @IBOutlet weak var khuyenMaiBtn: UIButton!
     @IBOutlet weak var ghiChuBtn: UIButton!
