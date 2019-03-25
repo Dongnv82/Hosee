@@ -10,7 +10,12 @@
 		5721F9BF22447D0800267BEC /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5721F9BE22447D0800267BEC /* UIView+Extension.swift */; };
 		5765DDA52244BEB800133B81 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5765DDA42244BEB800133B81 /* ContainerViewController.swift */; };
 		5765DDA72244BECC00133B81 /* LeftSlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5765DDA62244BECC00133B81 /* LeftSlideViewController.swift */; };
-		57F7C2932248607B001CDD56 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57F7C2922248607B001CDD56 /* Home.storyboard */; };
+		603F40C822487A76007FA914 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 603F40C422487A75007FA914 /* Home.storyboard */; };
+		603F40C922487A76007FA914 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 603F40C622487A75007FA914 /* History.storyboard */; };
+		603F40CC22487A94007FA914 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603F40CA22487A93007FA914 /* HistoryTableViewCell.swift */; };
+		603F40CD22487A94007FA914 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603F40CB22487A93007FA914 /* HistoryTableViewController.swift */; };
+		603F40D122487AB4007FA914 /* WorkingItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603F40CF22487AB4007FA914 /* WorkingItems.swift */; };
+		603F40D222487AB4007FA914 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603F40D022487AB4007FA914 /* DataService.swift */; };
 		6F10B9F8BBA0D44ADC411EE2 /* Pods_Hosee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8DE8763683B800D619B1C0 /* Pods_Hosee.framework */; };
 		CD8DF1C5C683A64280A800CD /* Pods_HoseeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EAC0832D3F9A9E935365C47 /* Pods_HoseeUITests.framework */; };
 		D2C22B466E9095AD1D084675 /* Pods_HoseeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BBACBAAB6E9E152157E27BE /* Pods_HoseeTests.framework */; };
@@ -46,8 +51,13 @@
 		5721F9BE22447D0800267BEC /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		5765DDA42244BEB800133B81 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		5765DDA62244BECC00133B81 /* LeftSlideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftSlideViewController.swift; sourceTree = "<group>"; };
-		57F7C2922248607B001CDD56 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		5B6EE60FA64FCF0F3CE499D8 /* Pods-Hosee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hosee.debug.xcconfig"; path = "Target Support Files/Pods-Hosee/Pods-Hosee.debug.xcconfig"; sourceTree = "<group>"; };
+		603F40C522487A75007FA914 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
+		603F40C722487A75007FA914 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/History.storyboard; sourceTree = "<group>"; };
+		603F40CA22487A93007FA914 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		603F40CB22487A93007FA914 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
+		603F40CF22487AB4007FA914 /* WorkingItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkingItems.swift; sourceTree = "<group>"; };
+		603F40D022487AB4007FA914 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		774DFF3F8ED8E30DDA6BC4D9 /* Pods-HoseeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HoseeUITests.release.xcconfig"; path = "Target Support Files/Pods-HoseeUITests/Pods-HoseeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7EAC0832D3F9A9E935365C47 /* Pods_HoseeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HoseeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BBACBAAB6E9E152157E27BE /* Pods_HoseeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HoseeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +151,31 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		603F40CE22487A98007FA914 /* HistoryScene */ = {
+			isa = PBXGroup;
+			children = (
+				603F40CA22487A93007FA914 /* HistoryTableViewCell.swift */,
+				603F40CB22487A93007FA914 /* HistoryTableViewController.swift */,
+			);
+			name = HistoryScene;
+			sourceTree = "<group>";
+		};
+		603F40D322487ABE007FA914 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				603F40CF22487AB4007FA914 /* WorkingItems.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		603F40D422487AC7007FA914 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				603F40D022487AB4007FA914 /* DataService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		BF5C182493FEFABBE99C6AF9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,7 +213,11 @@
 			children = (
 				EBFC664E2243864000CE8578 /* HomeViewController.swift */,
 				EBFC66502243864000CE8578 /* Main.storyboard */,
-				57F7C2922248607B001CDD56 /* Home.storyboard */,
+				603F40C622487A75007FA914 /* History.storyboard */,
+				603F40C422487A75007FA914 /* Home.storyboard */,
+				603F40CE22487A98007FA914 /* HistoryScene */,
+				603F40D422487AC7007FA914 /* Network */,
+				603F40D322487ABE007FA914 /* Model */,
 				57F7C2962248763E001CDD56 /* Utils */,
 				57F7C29522487623001CDD56 /* SideMenu */,
 				57F7C294224875DC001CDD56 /* SupportFiles */,
@@ -315,7 +354,8 @@
 				EBFC665A2243864100CE8578 /* LaunchScreen.storyboard in Resources */,
 				EBFC66572243864100CE8578 /* Assets.xcassets in Resources */,
 				EBFC66522243864000CE8578 /* Main.storyboard in Resources */,
-				57F7C2932248607B001CDD56 /* Home.storyboard in Resources */,
+				603F40C922487A76007FA914 /* History.storyboard in Resources */,
+				603F40C822487A76007FA914 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,12 +473,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				603F40CD22487A94007FA914 /* HistoryTableViewController.swift in Sources */,
 				EBFC664F2243864000CE8578 /* HomeViewController.swift in Sources */,
 				EBFC664D2243864000CE8578 /* AppDelegate.swift in Sources */,
+				603F40CC22487A94007FA914 /* HistoryTableViewCell.swift in Sources */,
 				5765DDA52244BEB800133B81 /* ContainerViewController.swift in Sources */,
 				5765DDA72244BECC00133B81 /* LeftSlideViewController.swift in Sources */,
 				5721F9BF22447D0800267BEC /* UIView+Extension.swift in Sources */,
 				EBFC66552243864000CE8578 /* Hosee.xcdatamodeld in Sources */,
+				603F40D122487AB4007FA914 /* WorkingItems.swift in Sources */,
+				603F40D222487AB4007FA914 /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +518,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		603F40C422487A75007FA914 /* Home.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				603F40C522487A75007FA914 /* Base */,
+			);
+			name = Home.storyboard;
+			sourceTree = "<group>";
+		};
+		603F40C622487A75007FA914 /* History.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				603F40C722487A75007FA914 /* Base */,
+			);
+			name = History.storyboard;
+			sourceTree = "<group>";
+		};
 		EBFC66502243864000CE8578 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
