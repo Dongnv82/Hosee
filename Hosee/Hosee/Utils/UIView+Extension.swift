@@ -1,22 +1,50 @@
 //
-//  Custom.swift
-//  ModulPlacePicker
+//  CustomRadiusAndBoder.swift
+//  BookCancleDemo
 //
-//  Created by Duc Anh on 3/21/19.
-//  Copyright © 2019 Duc Anh. All rights reserved.
+//  Created by apple on 20/03/2019.
+//  Copyright © 2019 apple. All rights reserved.
 //
+
+import Foundation
 
 import UIKit
 
 
 @IBDesignable
-class DesignableImageView: UIImageView {}
+class ImageView: UIImageView {
+    @IBInspectable var cornerRadius: CGFloat = 0
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        rounderCorner(radius: cornerRadius)
+    }
+}
 
 @IBDesignable
-class DesignableView: UIView {}
+class View: UIView {
+    @IBInspectable var cornerRadius: CGFloat = 0
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        rounderCorner(radius: cornerRadius)
+    }
+}
 
 @IBDesignable
-class DesignableButton: UIButton {}
+class Button: UIButton {
+    @IBInspectable var cornerRadius: CGFloat = 0
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        rounderCorner(radius: cornerRadius)
+    }
+}
+@IBDesignable
+class Label: UILabel {
+    @IBInspectable var cornerRadius: CGFloat = 0
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        rounderCorner(radius: cornerRadius)
+    }
+}
 
 // MARK: - Height for View with text
 
@@ -49,20 +77,14 @@ extension UIView {
 // MARK: - Attribute
 extension UIView {
     
-    @IBInspectable var cornerRadius: CGFloat {
-        get {
-            return layer.cornerRadius
+    func rounderCorner(radius: CGFloat) {
+        if radius == -1 {
+            layer.cornerRadius = frame.width < frame.height ? frame.width * 0.5 : frame.height * 0.5
+        } else {
+            layer.cornerRadius = radius
         }
-        set {
-            if newValue == -1 {
-                layer.cornerRadius = frame.width < frame.height ? frame.width * 0.5 : frame.height * 0.5
-            } else {
-                layer.cornerRadius = newValue
-            }
-            contentMode = .scaleToFill
-            clipsToBounds = true
-            layer.masksToBounds = true
-        }
+        contentMode = .scaleToFill
+        layer.masksToBounds = true
     }
     
     @IBInspectable var borderWidth: CGFloat {
@@ -302,26 +324,3 @@ extension UIView {
     }
 }
 
-class customLabel: UILabel {
-    
-    @IBInspectable var topInset: CGFloat = 5.0
-    @IBInspectable var bottomInset: CGFloat = 5.0
-    @IBInspectable var leftInset: CGFloat = 5.0
-    @IBInspectable var rightInset: CGFloat = 5.0
-    
-    override func drawText(in rect: CGRect) {
-        let insets = UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
-        super.drawText(in: rect.inset(by: insets))
-    }
-    
-    override var intrinsicContentSize: CGSize {
-        get {
-            var contentSize = super.intrinsicContentSize
-            contentSize.height += topInset + bottomInset
-            contentSize.width += rightInset + leftInset
-            return contentSize
-        }
-    }
-    
-
-}
