@@ -22,7 +22,7 @@ class ContainerViewController: UIViewController, ViewCotrollerDelegate {
               leftContraint.constant = 0
             btnLeflSlide.isHidden = false
             } else {
-                leftContraint.constant = -(UIScreen.main.bounds.width)*2/3
+                leftContraint.constant = -(leftSlideMenu.bounds.size.width + 15)
                 btnLeflSlide.isHidden = true
             }
             UIView.animate(withDuration: 0.35) {
@@ -40,7 +40,13 @@ class ContainerViewController: UIViewController, ViewCotrollerDelegate {
         super.viewDidLoad()
         
         isLeftSlideMenuOpen = false
-        
+        setShadow()
+    }
+    
+    func setShadow() {
+        leftSlideMenu.layer.shadowColor = UIColor.gray.cgColor
+        leftSlideMenu.layer.shadowOffset = CGSize(width: 15, height: 0)
+        leftSlideMenu.layer.shadowOpacity = 0.35
     }
     
     @IBAction func onClickBack(_ sender: UIButton) {
