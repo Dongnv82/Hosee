@@ -14,83 +14,123 @@
             <objects>
                 <viewController id="3kV-2B-oKj" customClass="HomeViewController" customModule="Hosee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iFK-gq-1FI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Kp-m5-aXO" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" text="🥚" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Om-bh-T3s">
-                                <rect key="frame" x="8" y="96" width="359" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="6LZ-KN-Dqh"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                        <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3rA-bU-4Nz">
-                                <rect key="frame" x="8" y="154" width="359" height="50"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hHj-iM-7cp">
+                                <rect key="frame" x="16" y="32" width="343" height="108"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j8R-79-rTQ" customClass="DesignableButton" customModule="Hosee" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="299" height="50"/>
-                                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" image="promotion">
-                                            <attributedString key="attributedTitle">
-                                                <fragment content="Khuyến mãi">
-                                                    <attributes>
-                                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                        <font key="NSFont" metaFont="system" size="17"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rightBorder" value="NO"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aIa-1r-Yhb">
-                                        <rect key="frame" x="299" y="0.0" width="60" height="50"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kta-27-Ysa">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="IRi-ey-mzF">
-                                                <rect key="frame" x="0.0" y="0.0" width="60" height="50"/>
-                                                <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LUy-9v-TdI">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🔵" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMU-xM-lKA">
+                                                        <rect key="frame" x="0.0" y="0.0" width="32" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="32" id="hCJ-dB-rai"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Om-bh-T3s">
+                                                        <rect key="frame" x="32" y="0.0" width="311" height="50"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                                <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="IRi-ey-mzF" firstAttribute="leading" secondItem="aIa-1r-Yhb" secondAttribute="leading" id="6JH-sh-5PJ"/>
-                                            <constraint firstItem="IRi-ey-mzF" firstAttribute="top" secondItem="aIa-1r-Yhb" secondAttribute="top" id="MuM-mu-jrE"/>
-                                            <constraint firstAttribute="bottom" secondItem="IRi-ey-mzF" secondAttribute="bottom" id="ipy-jR-EYW"/>
-                                            <constraint firstAttribute="trailing" secondItem="IRi-ey-mzF" secondAttribute="trailing" id="vby-F9-IWz"/>
+                                            <constraint firstAttribute="trailing" secondItem="LUy-9v-TdI" secondAttribute="trailing" id="C9a-4Y-WfS"/>
+                                            <constraint firstAttribute="bottom" secondItem="LUy-9v-TdI" secondAttribute="bottom" id="CNR-qY-Jud"/>
+                                            <constraint firstItem="LUy-9v-TdI" firstAttribute="leading" secondItem="kta-27-Ysa" secondAttribute="leading" id="Mfe-wf-Kmm"/>
+                                            <constraint firstItem="LUy-9v-TdI" firstAttribute="top" secondItem="kta-27-Ysa" secondAttribute="top" id="d52-ql-EiM"/>
+                                            <constraint firstAttribute="height" constant="50" id="inW-xl-Aq4"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3rA-bU-4Nz">
+                                        <rect key="frame" x="0.0" y="58" width="343" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j8R-79-rTQ" customClass="Button" customModule="Hosee" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="286" height="50"/>
+                                                <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" image="promotion">
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="Khuyến mãi">
+                                                            <attributes>
+                                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                <font key="NSFont" metaFont="system" size="17"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                        <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="rightBorder" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onClickPromoteButton:" destination="3kV-2B-oKj" eventType="touchUpInside" id="9r2-Nf-4nv"/>
+                                                </connections>
+                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aIa-1r-Yhb">
+                                                <rect key="frame" x="286" y="0.0" width="57" height="50"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="IRi-ey-mzF">
+                                                        <rect key="frame" x="16.5" y="13" width="24" height="24"/>
+                                                        <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstItem="IRi-ey-mzF" firstAttribute="centerX" secondItem="aIa-1r-Yhb" secondAttribute="centerX" id="0ld-iK-H89"/>
+                                                    <constraint firstItem="IRi-ey-mzF" firstAttribute="centerY" secondItem="aIa-1r-Yhb" secondAttribute="centerY" id="ePM-7E-MLP"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="aIa-1r-Yhb" firstAttribute="width" secondItem="j8R-79-rTQ" secondAttribute="width" multiplier="1/5" id="nHK-bc-1cG"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="aIa-1r-Yhb" firstAttribute="width" secondItem="j8R-79-rTQ" secondAttribute="width" multiplier="1/5" id="nHK-bc-1cG"/>
-                                    <constraint firstItem="aIa-1r-Yhb" firstAttribute="height" secondItem="j8R-79-rTQ" secondAttribute="height" id="uoz-WP-RYj"/>
-                                </constraints>
                             </stackView>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XrF-Mn-Fzd" customClass="DesignableButton" customModule="Hosee" customModuleProvider="target">
-                                <rect key="frame" x="16" y="611" width="343" height="48"/>
-                                <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="16" y="547" width="343" height="48"/>
+                                <color key="backgroundColor" red="0.16862745098039217" green="0.32941176470588235" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="ZLY-Rh-zBw"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="31"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                 <state key="normal" title="ĐẶT LỊCH">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -107,32 +147,29 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="1Kp-m5-aXO" firstAttribute="leading" secondItem="0gt-Fn-PcI" secondAttribute="leading" id="69l-fh-cXN"/>
-                            <constraint firstItem="3rA-bU-4Nz" firstAttribute="height" secondItem="6Om-bh-T3s" secondAttribute="height" id="ASB-3r-8Mb"/>
                             <constraint firstItem="XrF-Mn-Fzd" firstAttribute="leading" secondItem="0gt-Fn-PcI" secondAttribute="leading" constant="16" id="Ayr-cf-hqb"/>
-                            <constraint firstItem="6Om-bh-T3s" firstAttribute="top" secondItem="0gt-Fn-PcI" secondAttribute="top" constant="32" id="H54-D8-ggP"/>
+                            <constraint firstItem="hHj-iM-7cp" firstAttribute="leading" secondItem="0gt-Fn-PcI" secondAttribute="leading" constant="16" id="HTQ-7J-nvp"/>
+                            <constraint firstAttribute="trailing" secondItem="hHj-iM-7cp" secondAttribute="trailing" constant="16" id="MIL-uE-Wam"/>
                             <constraint firstItem="0gt-Fn-PcI" firstAttribute="trailing" secondItem="1Kp-m5-aXO" secondAttribute="trailing" id="Ome-72-MvL"/>
                             <constraint firstItem="0gt-Fn-PcI" firstAttribute="bottom" secondItem="XrF-Mn-Fzd" secondAttribute="bottom" constant="8" id="Q6Z-oN-k1T"/>
                             <constraint firstItem="XrF-Mn-Fzd" firstAttribute="centerX" secondItem="iFK-gq-1FI" secondAttribute="centerX" id="ZyO-Yb-4od"/>
-                            <constraint firstItem="3rA-bU-4Nz" firstAttribute="leading" secondItem="0gt-Fn-PcI" secondAttribute="leading" constant="8" id="aeG-Ji-6II"/>
                             <constraint firstItem="1Kp-m5-aXO" firstAttribute="top" secondItem="0gt-Fn-PcI" secondAttribute="top" id="awe-Tw-FfY"/>
                             <constraint firstAttribute="bottom" secondItem="1Kp-m5-aXO" secondAttribute="bottom" id="dAY-u9-tf0"/>
-                            <constraint firstItem="3rA-bU-4Nz" firstAttribute="top" secondItem="6Om-bh-T3s" secondAttribute="bottom" constant="8" id="drs-SO-HeS"/>
-                            <constraint firstItem="6Om-bh-T3s" firstAttribute="leading" secondItem="0gt-Fn-PcI" secondAttribute="leading" constant="8" id="i5i-UN-ZdR"/>
-                            <constraint firstItem="0gt-Fn-PcI" firstAttribute="trailing" secondItem="3rA-bU-4Nz" secondAttribute="trailing" constant="8" id="ohc-j3-qNP"/>
-                            <constraint firstItem="0gt-Fn-PcI" firstAttribute="trailing" secondItem="6Om-bh-T3s" secondAttribute="trailing" constant="8" id="quJ-aL-1Mg"/>
+                            <constraint firstItem="hHj-iM-7cp" firstAttribute="top" secondItem="0gt-Fn-PcI" secondAttribute="top" constant="32" id="xYf-jd-oZY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0gt-Fn-PcI"/>
                     </view>
                     <navigationItem key="navigationItem" id="sXG-cl-qOy">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="LeflSlide" id="tvD-T8-a4z">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="leftSlideBtn:" destination="3kV-2B-oKj" id="SPA-k1-pfZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="khuyenMaiBtn" destination="j8R-79-rTQ" id="arQ-TY-kOZ"/>
                         <outlet property="myGMSMapView" destination="1Kp-m5-aXO" id="DXX-q6-hOZ"/>
+                        <outlet property="promoteBox" destination="3rA-bU-4Nz" id="j9v-fF-X4b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EiF-1c-S6S" sceneMemberID="firstResponder"/>
@@ -144,9 +181,10 @@
             <objects>
                 <navigationController storyboardIdentifier="HomeNavigation" automaticallyAdjustsScrollViewInsets="NO" id="2aA-2i-l8A" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FXt-N5-VCx">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="FXt-N5-VCx">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.14904218703850008" green="0.25313162321824551" blue="0.48784501903553301" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

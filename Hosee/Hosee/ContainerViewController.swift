@@ -20,10 +20,10 @@ class ContainerViewController: UIViewController, ViewCotrollerDelegate {
         didSet {
             if isLeftSlideMenuOpen {
               leftContraint.constant = 0
-            btnLeflSlide.isHidden = false
+            btnLeflSlide.alpha = 0.4
             } else {
                 leftContraint.constant = -(leftSlideMenu.bounds.size.width + 15)
-                btnLeflSlide.isHidden = true
+                btnLeflSlide.alpha = 0
             }
             UIView.animate(withDuration: 0.35) {
                 self.view.layoutIfNeeded()
@@ -40,15 +40,8 @@ class ContainerViewController: UIViewController, ViewCotrollerDelegate {
         super.viewDidLoad()
         
         isLeftSlideMenuOpen = false
-        setShadow()
     }
-    
-    func setShadow() {
-        leftSlideMenu.layer.shadowColor = UIColor.gray.cgColor
-        leftSlideMenu.layer.shadowOffset = CGSize(width: 15, height: 0)
-        leftSlideMenu.layer.shadowOpacity = 0.35
-    }
-    
+
     @IBAction func onClickBack(_ sender: UIButton) {
         openSlideMenu()
     }
