@@ -20,10 +20,10 @@ class ContainerViewController: UIViewController, ViewCotrollerDelegate {
         didSet {
             if isLeftSlideMenuOpen {
               leftContraint.constant = 0
-            btnLeflSlide.isHidden = false
+            btnLeflSlide.alpha = 0.4
             } else {
-                leftContraint.constant = -(UIScreen.main.bounds.width)*2/3
-                btnLeflSlide.isHidden = true
+                leftContraint.constant = -(leftSlideMenu.bounds.size.width + 15)
+                btnLeflSlide.alpha = 0
             }
             UIView.animate(withDuration: 0.35) {
                 self.view.layoutIfNeeded()
@@ -40,9 +40,8 @@ class ContainerViewController: UIViewController, ViewCotrollerDelegate {
         super.viewDidLoad()
         
         isLeftSlideMenuOpen = false
-        
     }
-    
+
     @IBAction func onClickBack(_ sender: UIButton) {
         openSlideMenu()
     }

@@ -17,8 +17,7 @@ protocol ViewCotrollerDelegate: class {
 
 class HomeViewController: UIViewController, GMSMapViewDelegate {
     
-    @IBOutlet weak var khuyenMaiBtn: UIButton!
-    @IBOutlet weak var ghiChuBtn: UIButton!
+    @IBOutlet weak var promoteBox: UIStackView!
     
     weak var delegate: ViewCotrollerDelegate?
     var locationManager = CLLocationManager()
@@ -60,6 +59,13 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
     @IBAction func leftSlideBtn(_ sender: Any) {
         delegate?.isLeftSlideMenuOpen = true
     }
+    
+    @IBAction func onClickPromoteButton(_ sender: Any) {
+        promoteBox.animate{ (success) in
+            
+        }
+    }
+    
     
 }
 
