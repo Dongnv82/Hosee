@@ -9,53 +9,50 @@
 import UIKit
 import GooglePlaces
 import GoogleMaps
-
-protocol ViewCotrollerDelegate: class {
+import GooglePlacePicker
+protocol HomeViewControllerDelegate: class {
     var isLeftSlideMenuOpen: Bool {get set}
     
 }
 
 class HomeViewController: UIViewController, GMSMapViewDelegate {
     
+    @IBOutlet weak var adressText: UITextField!
     @IBOutlet weak var promoteBox: UIStackView!
+    lazy var locationManager: CLLocationManager = {
+        let locationManager = CLLocationManager()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.distanceFilter = 50
+        locationManager.startUpdatingLocation()
+        locationManager.delegate = self
+        return locationManager
+    }()
     
-    weak var delegate: ViewCotrollerDelegate?
-    var locationManager = CLLocationManager()
-    var infoMarker = GMSMarker()
+    var delegate: HomeViewControllerDelegate?
     
-    @IBOutlet weak var myGMSMapView: GMSMapView!
+    @IBOutlet weak var mapView: GMSMapView!
+    var currentLocation: CLLocation?
+//    var placesClient = GMSPlacesClient.shared()
+    var zoomLevel: Float = 15.0
+    var mapbounds:GMSCoordinateBounds? {
+        if let visibleRegion = mapView?.projection.visibleRegion() {
+            return GMSCoordinateBounds(coordinate: visibleRegion.farLeft, coordinate: visibleRegion.nearRight)
+        }
+        return nil
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let camera = GMSCameraPosition.camera(withLatitude: 21.034491482594646, longitude: 105.76605074107647, zoom: 15.0)
-        myGMSMapView.camera = camera
-        infoMarker.position = CLLocationCoordinate2D(latitude: 21.034491482594646, longitude: 105.76605074107647)
-        infoMarker.title = "KTX Mỹ Đình"
-        infoMarker.snippet = "Hà Nội"
-        infoMarker.map = myGMSMapView
-        
-        myGMSMapView.settings.myLocationButton = true
-        myGMSMapView.settings.compassButton = true
-        myGMSMapView.isMyLocationEnabled = true
-        myGMSMapView.delegate = self
+        setupLocationManager()
     }
     
-    func mapView(_ mapView: GMSMapView, didTapPOIWithPlaceID placeID: String, name: String, location: CLLocationCoordinate2D) {
-        let camera1 = GMSCameraPosition.camera(withLatitude: location.latitude, longitude: location.longitude, zoom: 15.0)
-        mapView.animate(to: camera1)
-        infoMarker.position = location
-        infoMarker.isFlat = true
-        infoMarker.title = name
-        infoMarker.opacity = 0
-        infoMarker.infoWindowAnchor.y = 1
-        infoMarker.map = mapView
-        mapView.selectedMarker = infoMarker
-    }
-    
-    @IBAction func onClickBtn(_ sender: UIButton) {
-        sender.animateToSmaller { (view) in
+    @IBAction func createOrder(_ sender: UIButton) {
+        sender.animate { (view) in
             
         }
     }
+    
     @IBAction func leftSlideBtn(_ sender: Any) {
         delegate?.isLeftSlideMenuOpen = true
     }
@@ -64,8 +61,89 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
         promoteBox.animate{ (success) in
             
         }
+        
     }
-    
+    @IBAction func onClickPlace(_ sender: UIButton) {
+        let config = GMSPlacePickerConfig(viewport: nil)
+        let placePicker = GMSPlacePickerViewController(config: config)
+        placePicker.delegate = self
+        present(placePicker, animated: true, completion: nil)
+    }
     
 }
 
+extension HomeViewController: CLLocationManagerDelegate {
+    
+    
+    func setupLocationManager() {
+        let _ = locationManager
+//        mapView.isMyLocationEnabled = true
+        mapView.settings.myLocationButton = true
+        mapView.delegate = self
+        mapView.isHidden = true
+    }
+    // Handle incoming location events.
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let currentLocation = locations.last else { return }
+        self.currentLocation = currentLocation
+        print("Current Location: \(currentLocation)")
+        
+        let camera = GMSCameraPosition.camera(withLatitude: currentLocation.coordinate.latitude,
+                                              longitude: currentLocation.coordinate.longitude,
+                                              zoom: zoomLevel)
+        if mapView.isHidden {
+            mapView.isHidden = false
+            mapView.camera = camera
+        } else {
+            mapView.animate(to: camera)
+        }
+    }
+    
+    // Handle authorization for the location manager.
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .restricted:
+            print("Location access was restricted.")
+        case .denied:
+            print("User denied access to location.")
+            // Display the map using the default location.
+            mapView.isHidden = false
+        case .notDetermined:
+            print("Location status not determined.")
+        case .authorizedAlways: fallthrough
+        case .authorizedWhenInUse:
+            print("Location status is OK.")
+        }
+    }
+    
+    // Handle location manager errors.
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        locationManager.stopUpdatingLocation()
+        print("Error: \(error)")
+    }
+    
+}
+
+// MARK: - GMSPlacePickerViewControllerDelegate
+
+extension HomeViewController: GMSPlacePickerViewControllerDelegate {
+    // To receive the results from the place picker 'self' will need to conform to
+    // GMSPlacePickerViewControllerDelegate and implement this code.
+    func placePicker(_ viewController: GMSPlacePickerViewController, didPick place: GMSPlace) {
+        // Dismiss the place picker, as it cannot dismiss itself.
+        viewController.dismiss(animated: true, completion: nil)
+        
+        adressText.text = place.formattedAddress
+        
+        let camera2 = GMSCameraPosition.camera(withLatitude: place.coordinate.latitude, longitude: place.coordinate.longitude, zoom: 18.0)
+        mapView.camera = camera2
+    }
+    
+    func placePickerDidCancel(_ viewController: GMSPlacePickerViewController) {
+        // Dismiss the place picker, as it cannot dismiss itself.
+        viewController.dismiss(animated: true, completion: nil)
+        
+        print("No place selected")
+    }
+    
+}
