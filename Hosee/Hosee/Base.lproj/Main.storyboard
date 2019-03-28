@@ -90,6 +90,14 @@
             </objects>
             <point key="canvasLocation" x="415" y="79"/>
         </scene>
+        <!--HasPromotion-->
+        <scene sceneID="foq-h1-Pxb">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HasPromotion" referencedIdentifier="HasPromotion" id="1Ds-1B-sla" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sYh-bo-C07" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="366" y="227"/>
+        </scene>
         <!--Left Slide View Controller-->
         <scene sceneID="gB2-hI-xFQ">
             <objects>
