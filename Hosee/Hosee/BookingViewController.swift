@@ -13,14 +13,22 @@ class BookingViewController: UIViewController {
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var loadding: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var runingLabel: RuningLabelView!
     
     @IBOutlet weak var buttonOutlet: UIButton!
     
+    var restString: String?
     var timer = 6
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if restString != nil {
+            runingLabel.text = restString
+        }
+        
         startTime()
+        
+        
     }
     
     func startTime () {
@@ -32,6 +40,7 @@ class BookingViewController: UIViewController {
             timerLabel.text = String(timer)
         }
     }
+    
     
     
 }

@@ -324,3 +324,28 @@ extension UIView {
     }
 }
 
+// MARK: - Constraint
+
+extension UIView {
+    
+    func fill(left: CGFloat? = 0, top: CGFloat? = 0, right: CGFloat? = 0, bottom: CGFloat? = 0) {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        if let left = left {
+            superview?.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: left).isActive = true
+        }
+        if let top = top  {
+            superview?.topAnchor.constraint(equalTo: self.topAnchor, constant: top).isActive = true
+        }
+        
+        if let right = right {
+            superview?.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: right).isActive = true
+        }
+        
+        if let bottom = bottom {
+            superview?.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: bottom).isActive = true
+        }
+    }
+    
+
+}
+

@@ -248,14 +248,6 @@
             </objects>
             <point key="canvasLocation" x="-464.49275362318843" y="935.49107142857133"/>
         </scene>
-        <!--booking-->
-        <scene sceneID="jNG-J3-JQ3">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Booking" referencedIdentifier="booking" id="OBH-MN-S25" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7Uz-CN-ht5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="790" y="877"/>
-        </scene>
     </scenes>
     <resources>
         <image name="GIới thiệu" width="25" height="25"/>

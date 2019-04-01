@@ -30,29 +30,19 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LUy-9v-TdI">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🔵" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acI-Nx-eu5">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🔵" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acI-Nx-eu5">
                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="30" id="nvC-RZ-RGy"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Om-bh-T3s">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qzi-7Y-j0k" customClass="RuningLabelView" customModule="Hosee" customModuleProvider="target">
                                                         <rect key="frame" x="30" y="0.0" width="313" height="50"/>
-                                                        <nil key="textColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                                <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </textField>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </view>
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJP-yD-psA">
@@ -137,7 +127,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-street_view_filled" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pHK-Ba-AlF">
                                 <rect key="frame" x="175" y="276.5" width="25" height="25"/>
                             </imageView>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XrF-Mn-Fzd" customClass="DesignableButton" customModule="Hosee" customModuleProvider="target">
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XrF-Mn-Fzd" customClass="Button" customModule="Hosee" customModuleProvider="target">
                                 <rect key="frame" x="16" y="547" width="343" height="48"/>
                                 <color key="backgroundColor" red="0.16862745098039217" green="0.32941176470588235" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -154,6 +144,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="createOrder:" destination="3kV-2B-oKj" eventType="touchUpInside" id="cqW-Vh-tRD"/>
+                                    <segue destination="VKN-Xz-nqp" kind="show" id="Flc-qR-VJU"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -183,7 +174,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="adressText" destination="6Om-bh-T3s" id="8qu-Tx-dWx"/>
+                        <outlet property="adressText" destination="qzi-7Y-j0k" id="I6A-LF-Ubp"/>
                         <outlet property="mapView" destination="1Kp-m5-aXO" id="DXX-q6-hOZ"/>
                         <outlet property="promoteBox" destination="3rA-bU-4Nz" id="j9v-fF-X4b"/>
                     </connections>
@@ -210,6 +201,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CoR-nJ-Us5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="596" y="109.29535232383809"/>
+        </scene>
+        <!--booking-->
+        <scene sceneID="Vpm-WY-TUR">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Booking" referencedIdentifier="booking" id="VKN-Xz-nqp" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Alp-mc-RJV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2255" y="109"/>
         </scene>
     </scenes>
     <resources>
