@@ -17,7 +17,7 @@ protocol HomeViewControllerDelegate: class {
 
 class HomeViewController: UIViewController, GMSMapViewDelegate {
     
-    @IBOutlet weak var adressText: UITextField!
+    @IBOutlet weak var adressText: RuningLabelView!
     @IBOutlet weak var promoteBox: UIStackView!
     lazy var locationManager: CLLocationManager = {
         let locationManager = CLLocationManager()
@@ -68,6 +68,12 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
         let placePicker = GMSPlacePickerViewController(config: config)
         placePicker.delegate = self
         present(placePicker, animated: true, completion: nil)
+    }
+    
+    // MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as? BookingViewController
+        destination?.restString = adressText.text
     }
     
 }

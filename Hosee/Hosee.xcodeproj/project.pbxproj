@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		042655D82248867B004FCB9A /* Booking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 042655D72248867B004FCB9A /* Booking.storyboard */; };
 		04DF6CE32248B4E300853A97 /* BookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6CE22248B4E300853A97 /* BookingViewController.swift */; };
-		04DF6CE92248BF1700853A97 /* LoopsLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6CE82248BF1700853A97 /* LoopsLabelView.swift */; };
+		04DF6CE92248BF1700853A97 /* RuningLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF6CE82248BF1700853A97 /* RuningLabelView.swift */; };
 		5721F9BF22447D0800267BEC /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5721F9BE22447D0800267BEC /* UIView+Extension.swift */; };
 		5765DDA52244BEB800133B81 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5765DDA42244BEB800133B81 /* ContainerViewController.swift */; };
 		5765DDA72244BECC00133B81 /* LeftSlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5765DDA62244BECC00133B81 /* LeftSlideViewController.swift */; };
@@ -56,7 +56,7 @@
 /* Begin PBXFileReference section */
 		042655D72248867B004FCB9A /* Booking.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Booking.storyboard; sourceTree = "<group>"; };
 		04DF6CE22248B4E300853A97 /* BookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingViewController.swift; sourceTree = "<group>"; };
-		04DF6CE82248BF1700853A97 /* LoopsLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopsLabelView.swift; sourceTree = "<group>"; };
+		04DF6CE82248BF1700853A97 /* RuningLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuningLabelView.swift; sourceTree = "<group>"; };
 		42A9325C7BF8D568C9915993 /* Pods-HoseeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HoseeTests.release.xcconfig"; path = "Target Support Files/Pods-HoseeTests/Pods-HoseeTests.release.xcconfig"; sourceTree = "<group>"; };
 		5721F9BE22447D0800267BEC /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		5765DDA42244BEB800133B81 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
@@ -72,11 +72,11 @@
 		7EAC0832D3F9A9E935365C47 /* Pods_HoseeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HoseeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BBACBAAB6E9E152157E27BE /* Pods_HoseeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HoseeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0F064546EF094BC4D3E3DBD /* Pods-Hosee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hosee.release.xcconfig"; path = "Target Support Files/Pods-Hosee/Pods-Hosee.release.xcconfig"; sourceTree = "<group>"; };
+		B215F645224DC0A000486AB6 /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
+		B2E450B5224B19CE00EE083D /* Podfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile.lock; sourceTree = SOURCE_ROOT; };
 		CE237A9E224C566900F5B7C6 /* HasPromotion.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HasPromotion.storyboard; sourceTree = "<group>"; };
 		CE237AA0224C56FB00F5B7C6 /* HasPromotionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasPromotionTableViewCell.swift; sourceTree = "<group>"; };
 		CE237AA1224C56FB00F5B7C6 /* HasPromotionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasPromotionViewController.swift; sourceTree = "<group>"; };
-		B215F645224DC0A000486AB6 /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
-		B2E450B5224B19CE00EE083D /* Podfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile.lock; sourceTree = SOURCE_ROOT; };
 		DF770F9613A8BF161B579B9A /* Pods-HoseeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HoseeUITests.debug.xcconfig"; path = "Target Support Files/Pods-HoseeUITests/Pods-HoseeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E781E4B6EF67C7EF26C3E77C /* Pods-HoseeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HoseeTests.debug.xcconfig"; path = "Target Support Files/Pods-HoseeTests/Pods-HoseeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EBFC66492243864000CE8578 /* Hosee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hosee.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,7 +162,7 @@
 		57F7C2962248763E001CDD56 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				04DF6CE82248BF1700853A97 /* LoopsLabelView.swift */,
+				04DF6CE82248BF1700853A97 /* RuningLabelView.swift */,
 				5721F9BE22447D0800267BEC /* UIView+Extension.swift */,
 			);
 			path = Utils;
@@ -508,7 +508,7 @@
 				5765DDA52244BEB800133B81 /* ContainerViewController.swift in Sources */,
 				5765DDA72244BECC00133B81 /* LeftSlideViewController.swift in Sources */,
 				5721F9BF22447D0800267BEC /* UIView+Extension.swift in Sources */,
-				04DF6CE92248BF1700853A97 /* LoopsLabelView.swift in Sources */,
+				04DF6CE92248BF1700853A97 /* RuningLabelView.swift in Sources */,
 				04DF6CE32248B4E300853A97 /* BookingViewController.swift in Sources */,
 				CE237AA2224C56FB00F5B7C6 /* HasPromotionTableViewCell.swift in Sources */,
 				EBFC66552243864000CE8578 /* Hosee.xcdatamodeld in Sources */,

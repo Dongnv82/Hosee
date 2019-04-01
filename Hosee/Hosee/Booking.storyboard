@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nOM-OM-vXF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nOM-OM-vXF">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -201,6 +201,7 @@
                         <outlet property="buttonOutlet" destination="hWv-dH-ihp" id="GfX-qa-gCn"/>
                         <outlet property="loadding" destination="6GL-ap-cEV" id="98t-t6-H0C"/>
                         <outlet property="photo" destination="LIW-zV-M9p" id="Oix-7f-bMz"/>
+                        <outlet property="runingLabel" destination="vNz-pi-JDV" id="BqH-ib-MtZ"/>
                         <outlet property="timerLabel" destination="Taj-k4-FRw" id="d8C-gB-94m"/>
                     </connections>
                 </viewController>
