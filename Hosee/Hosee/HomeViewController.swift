@@ -113,6 +113,7 @@ extension HomeViewController: CLLocationManagerDelegate {
         case .authorizedAlways: fallthrough
         case .authorizedWhenInUse:
             print("Location status is OK.")
+             mapView.isHidden = false
         }
     }
     
