@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContainerViewController: UIViewController, ViewCotrollerDelegate {
+class ContainerViewController: UIViewController, HomeViewControllerDelegate {
    
     
 

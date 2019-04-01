@@ -20,6 +20,7 @@
 		603F40D122487AB4007FA914 /* WorkingItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603F40CF22487AB4007FA914 /* WorkingItems.swift */; };
 		603F40D222487AB4007FA914 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603F40D022487AB4007FA914 /* DataService.swift */; };
 		6F10B9F8BBA0D44ADC411EE2 /* Pods_Hosee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8DE8763683B800D619B1C0 /* Pods_Hosee.framework */; };
+		B2E450B6224B19CE00EE083D /* Podfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = B2E450B5224B19CE00EE083D /* Podfile.lock */; };
 		CD8DF1C5C683A64280A800CD /* Pods_HoseeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EAC0832D3F9A9E935365C47 /* Pods_HoseeUITests.framework */; };
 		CE237A9F224C566900F5B7C6 /* HasPromotion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE237A9E224C566900F5B7C6 /* HasPromotion.storyboard */; };
 		CE237AA2224C56FB00F5B7C6 /* HasPromotionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE237AA0224C56FB00F5B7C6 /* HasPromotionTableViewCell.swift */; };
@@ -74,6 +75,8 @@
 		CE237A9E224C566900F5B7C6 /* HasPromotion.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HasPromotion.storyboard; sourceTree = "<group>"; };
 		CE237AA0224C56FB00F5B7C6 /* HasPromotionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasPromotionTableViewCell.swift; sourceTree = "<group>"; };
 		CE237AA1224C56FB00F5B7C6 /* HasPromotionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasPromotionViewController.swift; sourceTree = "<group>"; };
+		B215F645224DC0A000486AB6 /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
+		B2E450B5224B19CE00EE083D /* Podfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile.lock; sourceTree = SOURCE_ROOT; };
 		DF770F9613A8BF161B579B9A /* Pods-HoseeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HoseeUITests.debug.xcconfig"; path = "Target Support Files/Pods-HoseeUITests/Pods-HoseeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E781E4B6EF67C7EF26C3E77C /* Pods-HoseeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HoseeTests.debug.xcconfig"; path = "Target Support Files/Pods-HoseeTests/Pods-HoseeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EBFC66492243864000CE8578 /* Hosee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hosee.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +144,7 @@
 				EBFC664C2243864000CE8578 /* AppDelegate.swift */,
 				EBFC66562243864100CE8578 /* Assets.xcassets */,
 				EBFC665B2243864100CE8578 /* Info.plist */,
+				B2E450B5224B19CE00EE083D /* Podfile.lock */,
 				EBFC66532243864000CE8578 /* Hosee.xcdatamodeld */,
 			);
 			name = SupportFiles;
@@ -228,6 +232,7 @@
 				EBFC664E2243864000CE8578 /* HomeViewController.swift */,
 				CE237AA0224C56FB00F5B7C6 /* HasPromotionTableViewCell.swift */,
 				CE237AA1224C56FB00F5B7C6 /* HasPromotionViewController.swift */,
+				B215F645224DC0A000486AB6 /* Location.gpx */,
 				EBFC66502243864000CE8578 /* Main.storyboard */,
 				042655D72248867B004FCB9A /* Booking.storyboard */,
 				CE237A9E224C566900F5B7C6 /* HasPromotion.storyboard */,
@@ -376,6 +381,7 @@
 				EBFC66522243864000CE8578 /* Main.storyboard in Resources */,
 				603F40C922487A76007FA914 /* History.storyboard in Resources */,
 				603F40C822487A76007FA914 /* Home.storyboard in Resources */,
+				B2E450B6224B19CE00EE083D /* Podfile.lock in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +412,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Hosee/Pods-Hosee-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle",
 				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -413,6 +420,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlacePicker.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

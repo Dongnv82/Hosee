@@ -9,6 +9,7 @@ target 'Hosee' do
 
 	pod 'GoogleMaps'
 	  pod 'GooglePlaces'
+	pod 'GooglePlacePicker'
 
   target 'HoseeTests' do
     inherit! :search_paths
