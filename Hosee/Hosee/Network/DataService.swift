@@ -1,35 +1,65 @@
 //
 //  DataService.swift
-//  KiemTien2
+//  Hosee
 //
-//  Created by daicudu on 3/20/19.
-//  Copyright © 2019 daicudu. All rights reserved.
+//  Created by huy on 05/04/2019.
+//  Copyright © 2019 Minh Thang. All rights reserved.
 //
 
 import Foundation
+
+
+
 class DataService {
-    static var shared = DataService()
-    
-    func request<T: Codable>(url: URL, compleHandler: @escaping ([T]) -> Void) {
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
+    static var shared: DataService = DataService()
+    func callAPILogin(user: User,  completedHandler: @escaping(UserLoginInfo) -> Void) {
+        let url = URLFactory.login.URL
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
+        urlRequest.addValue("", forHTTPHeaderField: "Authorization")
+        let data = try? JSONEncoder().encode(user)
+        
+        let uploadTask = URLSession.shared.uploadTask(with: urlRequest, from: data)  { (data, response , error) in
             guard error == nil else {
-                print("co gi do sai sai")
+                print(error!.localizedDescription)
                 return
             }
-            guard let data = data, response != nil else { return}
-            
+            guard let aData = data else {return}
             do {
-                guard let workingItems = try? JSONDecoder().decode([T].self, from: data) else {
-                    print("dowload duoc roi nhung van sai")
-                    return
-                }
+                let jSonObject = try JSONDecoder().decode(UserLoginInfo.self, from: aData)
                 DispatchQueue.main.async {
-                    compleHandler(workingItems)
+                    completedHandler(jSonObject)
                 }
-                
-            }catch let errorInfor{
-                print("loi day nay: \(errorInfor)")
+            } catch {
+                print(error.localizedDescription)
             }
-        }.resume()
+        }
+        uploadTask.resume()
+    }
+    
+    func callAPIHistory(userID: Int,  completedHandler: @escaping(clientsHistory) -> Void) {
+        let url = URL(string: URLFactory.history.URL.absoluteString + "\(userID)")
+        print(url)
+        var urlRequest = URLRequest(url: url!)
+//        urlRequest.httpMethod = "GET"
+//        urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
+//        urlRequest.addValue("57UFoOdYCw1mQaLM3QrdV8__rHQCVWZayZqx-3cFHvE", forHTTPHeaderField: "Authorization")
+        let uploadTask = URLSession.shared.dataTask(with: urlRequest)  { (data, response , error) in
+            guard error == nil else {
+                print(error!.localizedDescription)
+                return
+            }
+            guard let aData = data else {return}
+            do {
+                let jSonObject = try JSONDecoder().decode(clientsHistory.self, from: aData)
+                DispatchQueue.main.async {
+                    completedHandler(jSonObject)
+                }
+            } catch {
+                print(error)
+            }
+        }
+        uploadTask.resume()
     }
 }

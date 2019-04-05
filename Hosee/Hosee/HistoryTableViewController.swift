@@ -7,100 +7,47 @@
 //
 
 import  UIKit
+import GoogleMaps
 
-class HistoryTableViewController: UITableViewController {
+class HistoryTableViewController: UITableViewController, UINavigationControllerDelegate {
     
-    var history = [WorkingItem]()
+    var historyAray: [clientsHistory.historyData] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        DataService.shared.request(url: <#URL#>) { (workingitems) in
-//            self.history = workingitems
-//            self.tableView.reloadData()
-//        }
-        tableView.rowHeight = 220
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        tableView.rowHeight = 228
+        //Bài mẫu CallAPi login, Đức lấy xong xoá luôn hộ anh rồi request merge lại code cho sạch code nhé
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
-    
-    // MARK: - Table view data source
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+//        let user = User(phoneNumber: "+84924586555", password: "123456", latitude: 21.0335302, longtitude: 105.7678049, deviceID: UIDevice.current.identifierForVendor!.uuidString)
+//
+//        DataService.shared.callAPILogin(user: user) { (userData) in
+//            UserDefaults.standard.set(UserLoginInfo, forKey: "userInfo")
+//        }
+        
+//        if let userInfo: UserLoginInfo = UserDefaults.standard.object(forKey: "userInfo") as? UserLoginInfo {
+            DataService.shared.callAPIHistory(userID: 4) { (historyData) in
+                self.historyAray = historyData.data
+                print(historyData)
+                self.tableView.reloadData()
+            }
+//        }
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 4
+        return historyAray.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HistoryTableViewCell
-//        if let history = self.history[indexPath.section]
-//        cell.backgroundColor = .green
-//        cell.codeLabel.text = history.code
-//        cell.nameLabel.text = history.partner.name
-//        cell.phoneLabel.text = history.partner.phone
-//        cell.locationLabel.text = history.location
-//        cell.priceLabel.text = String(history.price)
-//        cell.taskLabel.text = history.task
-        
-        
-        
-        // Configure the cell...
-        
+        cell.codeLabel.text = "\(historyAray[indexPath.row].id)"
+        cell.nameLabel.text = historyAray[indexPath.row].partner.display_name
+        cell.phoneLabel.text = historyAray[indexPath.row].partner.phone_number
+        cell.locationLabel.text = "\(historyAray[indexPath.row].address.dropFirst())"
+        cell.priceLabel.text = "VND \(historyAray[indexPath.row].charge_amount)"
+        cell.taskLabel.text = "Sửa \(historyAray[indexPath.row].service_type)"
+        cell.starRating.rating = historyAray[indexPath.row].client_rating
         return cell
     }
-    
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }

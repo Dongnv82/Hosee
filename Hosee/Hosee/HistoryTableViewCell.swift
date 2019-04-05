@@ -17,6 +17,7 @@ class HistoryTableViewCell: UITableViewCell {
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var containView: UIView!
+    @IBOutlet weak var starRating: RatingControl!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,22 +32,21 @@ class HistoryTableViewCell: UITableViewCell {
         containView.layer.shadowOffset = CGSize(width: 0, height: 0)
         containView.layer.shadowOpacity = 0.35
         containView.layer.cornerRadius = 8
-        containView.layer.shadowRadius = 8
+        containView.layer.shadowRadius = 5
     }
 
     
-    override func prepareForReuse() {
-        codeLabel.text = ""
-        locationLabel.text = ""
-        taskLabel.text = ""
-        nameLabel.text = ""
-        phoneLabel.text = ""
-        priceLabel.text = ""
-    }
+//    override func prepareForReuse() {
+//        codeLabel.text = ""
+//        locationLabel.text = ""
+//        taskLabel.text = ""
+//        nameLabel.text = ""
+//        phoneLabel.text = ""
+//        priceLabel.text = ""
+//    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
     
 }
