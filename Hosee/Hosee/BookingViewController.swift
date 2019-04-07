@@ -13,7 +13,7 @@ class BookingViewController: UIViewController {
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var loadding: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
-    @IBOutlet weak var runingLabel: RuningLabelView!
+    @IBOutlet weak var runingLabel: InfinityLoopLabelView!
     
     @IBOutlet weak var buttonOutlet: UIButton!
     

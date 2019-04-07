@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2aA-2i-l8A">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2aA-2i-l8A">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -39,14 +39,14 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qzi-7Y-j0k" customClass="RuningLabelView" customModule="Hosee" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qzi-7Y-j0k" customClass="InfinityLoopLabelView" customModule="Hosee" customModuleProvider="target">
                                                         <rect key="frame" x="30" y="0.0" width="313" height="50"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fJP-yD-psA">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="347" height="50"/>
                                                 <connections>
                                                     <action selector="onClickPlace:" destination="3kV-2B-oKj" eventType="touchUpInside" id="Jo9-Bu-GCc"/>
                                                 </connections>
@@ -57,7 +57,7 @@
                                             <constraint firstItem="fJP-yD-psA" firstAttribute="top" secondItem="LUy-9v-TdI" secondAttribute="top" id="8qR-gU-kj7"/>
                                             <constraint firstAttribute="trailing" secondItem="LUy-9v-TdI" secondAttribute="trailing" id="C9a-4Y-WfS"/>
                                             <constraint firstAttribute="bottom" secondItem="LUy-9v-TdI" secondAttribute="bottom" id="CNR-qY-Jud"/>
-                                            <constraint firstItem="fJP-yD-psA" firstAttribute="trailing" secondItem="LUy-9v-TdI" secondAttribute="trailing" id="Kic-Gq-oOA"/>
+                                            <constraint firstItem="fJP-yD-psA" firstAttribute="trailing" secondItem="LUy-9v-TdI" secondAttribute="trailing" constant="4" id="Kic-Gq-oOA"/>
                                             <constraint firstItem="LUy-9v-TdI" firstAttribute="leading" secondItem="kta-27-Ysa" secondAttribute="leading" id="Mfe-wf-Kmm"/>
                                             <constraint firstItem="fJP-yD-psA" firstAttribute="bottom" secondItem="LUy-9v-TdI" secondAttribute="bottom" id="Oey-SK-lSM"/>
                                             <constraint firstItem="LUy-9v-TdI" firstAttribute="top" secondItem="kta-27-Ysa" secondAttribute="top" id="d52-ql-EiM"/>
@@ -174,7 +174,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="adressText" destination="qzi-7Y-j0k" id="I6A-LF-Ubp"/>
+                        <outlet property="addressLabel" destination="qzi-7Y-j0k" id="I6A-LF-Ubp"/>
                         <outlet property="mapView" destination="1Kp-m5-aXO" id="DXX-q6-hOZ"/>
                         <outlet property="promoteBox" destination="3rA-bU-4Nz" id="j9v-fF-X4b"/>
                     </connections>

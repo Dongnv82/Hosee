@@ -17,7 +17,7 @@ protocol HomeViewControllerDelegate: class {
 
 class HomeViewController: UIViewController, GMSMapViewDelegate {
     
-    @IBOutlet weak var adressText: RuningLabelView!
+    @IBOutlet weak var addressLabel: InfinityLoopLabelView!
     @IBOutlet weak var promoteBox: UIStackView!
     lazy var locationManager: CLLocationManager = {
         let locationManager = CLLocationManager()
@@ -33,7 +33,6 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
     
     @IBOutlet weak var mapView: GMSMapView!
     var currentLocation: CLLocation?
-//    var placesClient = GMSPlacesClient.shared()
     var zoomLevel: Float = 15.0
     var mapbounds:GMSCoordinateBounds? {
         if let visibleRegion = mapView?.projection.visibleRegion() {
@@ -45,6 +44,7 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLocationManager()
+        addressLabel.text = "Bấm vào đây để chọn địa điểm!"
     }
     
     @IBAction func createOrder(_ sender: UIButton) {
@@ -73,7 +73,7 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
     // MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as? BookingViewController
-        destination?.restString = adressText.text
+        destination?.restString = addressLabel.text
     }
     
 }
@@ -140,7 +140,7 @@ extension HomeViewController: GMSPlacePickerViewControllerDelegate {
         // Dismiss the place picker, as it cannot dismiss itself.
         viewController.dismiss(animated: true, completion: nil)
         
-        adressText.text = place.formattedAddress
+        addressLabel.text = place.formattedAddress
         
         let camera2 = GMSCameraPosition.camera(withLatitude: place.coordinate.latitude, longitude: place.coordinate.longitude, zoom: 18.0)
         mapView.camera = camera2
