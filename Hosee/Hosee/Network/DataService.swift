@@ -6,30 +6,47 @@
 //  Copyright © 2019 daicudu. All rights reserved.
 //
 
-import Foundation
-class DataService {
-    static var shared = DataService()
-    
-    func request<T: Codable>(url: URL, compleHandler: @escaping ([T]) -> Void) {
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard error == nil else {
-                print("co gi do sai sai")
-                return
-            }
-            guard let data = data, response != nil else { return}
-            
-            do {
-                guard let workingItems = try? JSONDecoder().decode([T].self, from: data) else {
-                    print("dowload duoc roi nhung van sai")
-                    return
-                }
-                DispatchQueue.main.async {
-                    compleHandler(workingItems)
-                }
-                
-            }catch let errorInfor{
-                print("loi day nay: \(errorInfor)")
-            }
-        }.resume()
-    }
-}
+//import Foundation
+//import GoogleMaps
+//
+//struct UserLoginInfo: Decodable {
+//    let data: UserInfo
+//    
+//    struct UserInfo: Decodable {
+//        let access_token: String
+//        
+//    }
+//}
+//
+//class DataService {
+//    static var shared: DataService = DataService()
+//    func callAPILogin(phoneNumber: String, pass: String, latitude: CLLocationManager, longtitude: CLLocationManager, deviceID: String, completedHandler: @escaping(UserLoginInfo) -> Void) {
+//        let url = URLFactory.login.URL
+//        let parameters = """
+//        {
+//        "phone_number": "+\(phoneNumber)",
+//        "password": "\(pass)",
+//        "latitude": \(latitude),
+//        "longtitude": \(longtitude),
+//        "device_id": "\(deviceID)"
+//        }
+//        """
+//        var urlRequest = URLRequest(url: url)
+//        urlRequest.httpMethod = "POST"
+//        urlRequest.httpBody = parameters.data(using: .utf8)
+//        let downloadTask = URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
+//            guard error == nil else {return}
+//            guard let aData = data else {return}
+//            do {
+//                let jSonObject = try JSONDecoder().decode(UserLoginInfo.self, from: aData)
+//                DispatchQueue.main.async {
+//                    completedHandler(jSonObject)
+//                }
+//            } catch {
+//                print(error.localizedDescription)
+//            }
+//        }
+//        downloadTask.resume()
+//    }
+//}
+

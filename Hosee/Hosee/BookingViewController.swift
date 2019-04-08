@@ -14,18 +14,19 @@ class BookingViewController: UIViewController {
     @IBOutlet weak var loadding: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var runingLabel: InfinityLoopLabelView!
-    
+    @IBOutlet weak var backButton: Button!
+
     @IBOutlet weak var buttonOutlet: UIButton!
     
     var restString: String?
-    var timer = 6
+    var timer = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if restString != nil {
             runingLabel.text = restString
         }
-        
+        backButton.isHidden = true
         startTime()
         
         
@@ -38,9 +39,17 @@ class BookingViewController: UIViewController {
         if(timer > 0) {
             timer -= 1
             timerLabel.text = String(timer)
+        } else {
+            backButton.isHidden = false
+            buttonOutlet.isHidden = true
+            timerLabel.isHidden = true
         }
     }
     
+    @IBAction func backBtnMap(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+      
+    }
     
     
 }

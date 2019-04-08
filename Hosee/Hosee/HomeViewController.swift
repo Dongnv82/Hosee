@@ -51,6 +51,12 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
         sender.animate { (view) in
             
         }
+       
+        if let vc = UIStoryboard(name: "Booking", bundle: nil).instantiateViewController(withIdentifier: "booking") as? BookingViewController
+        {
+            present(vc, animated: true, completion: nil)
+        }
+        
     }
     
     @IBAction func leftSlideBtn(_ sender: Any) {
