@@ -8,18 +8,18 @@
 
 import Foundation
 
-struct clientsHistory: Decodable {
-    var data: [historyData]
+struct clientsHistory: Codable {
+    var data: [HistoryData]
     
-    struct historyData: Decodable {
+    struct HistoryData: Codable {
         var id: Int
-        var partner: partnerInfo
+        var partner: PartnerInfo
         var service_type: Int
         var address: String
         var charge_amount: Int
         var client_rating: Int
         
-        struct partnerInfo: Decodable {
+        struct PartnerInfo: Codable {
             var phone_number: String
             var display_name: String
         }
