@@ -11,7 +11,7 @@ import UIKit
 class HistoryTableViewCell: UITableViewCell {
     
     @IBOutlet weak var codeLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var addressView: InfinityLoopLabelView!
     @IBOutlet weak var taskLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!

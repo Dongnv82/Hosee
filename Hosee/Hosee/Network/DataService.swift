@@ -38,7 +38,7 @@ class DataService {
         uploadTask.resume()
     }
     
-    func callAPIHistory(userID: Int,  completedHandler: @escaping(clientsHistory) -> Void) {
+    func callAPIHistory(userID: Int,  completedHandler: @escaping(ClientsHistory) -> Void) {
         let url = URL(string: URLFactory.history.URL.absoluteString + "\(userID)")
         print(url)
         var urlRequest = URLRequest(url: url!)
@@ -52,7 +52,7 @@ class DataService {
             }
             guard let aData = data else {return}
             do {
-                let jSonObject = try JSONDecoder().decode(clientsHistory.self, from: aData)  
+                let jSonObject = try JSONDecoder().decode(ClientsHistory.self, from: aData)
                 DispatchQueue.main.async {
                     completedHandler(jSonObject)
                 }

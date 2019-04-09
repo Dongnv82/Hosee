@@ -10,10 +10,14 @@ import UIKit
 
 class TestViewController: UIViewController {
 
+    var string: String?
+    
+    @IBOutlet weak var testView: InfinityLoopLabelView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        string = "asfhnjkasdfhadjksfhasfhasdikfhadsklfaskjfhashfjkasfhjkash"
+        
+        testView.text = string
     }
     
 

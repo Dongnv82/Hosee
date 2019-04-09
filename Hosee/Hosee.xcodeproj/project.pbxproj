@@ -20,8 +20,9 @@
 		6F10B9F8BBA0D44ADC411EE2 /* Pods_Hosee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8DE8763683B800D619B1C0 /* Pods_Hosee.framework */; };
 		81007D4822573E26003E9769 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81007D4722573E26003E9769 /* DataService.swift */; };
 		8104A5A72255B4460002E124 /* UrlFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8104A5A62255B4460002E124 /* UrlFactory.swift */; };
+		8126FAD3225C3EC1000D9898 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8126FAD2225C3EC1000D9898 /* TestViewController.swift */; };
 		815AEE4B2254A03500C1AE17 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815AEE4A2254A03500C1AE17 /* RatingControl.swift */; };
-		8173902B22577C5C00A7A074 /* clientsHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8173902A22577C5C00A7A074 /* clientsHistory.swift */; };
+		8173902B22577C5C00A7A074 /* ClientsHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8173902A22577C5C00A7A074 /* ClientsHistory.swift */; };
 		819325FE2256E280001519BE /* UserLoginInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819325FD2256E280001519BE /* UserLoginInfo.swift */; };
 		B2E450B6224B19CE00EE083D /* Podfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = B2E450B5224B19CE00EE083D /* Podfile.lock */; };
 		CD8DF1C5C683A64280A800CD /* Pods_HoseeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EAC0832D3F9A9E935365C47 /* Pods_HoseeUITests.framework */; };
@@ -73,8 +74,9 @@
 		7EAC0832D3F9A9E935365C47 /* Pods_HoseeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HoseeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		81007D4722573E26003E9769 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		8104A5A62255B4460002E124 /* UrlFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlFactory.swift; sourceTree = "<group>"; };
+		8126FAD2225C3EC1000D9898 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		815AEE4A2254A03500C1AE17 /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
-		8173902A22577C5C00A7A074 /* clientsHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = clientsHistory.swift; sourceTree = "<group>"; };
+		8173902A22577C5C00A7A074 /* ClientsHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientsHistory.swift; sourceTree = "<group>"; };
 		819325FD2256E280001519BE /* UserLoginInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginInfo.swift; sourceTree = "<group>"; };
 		8BBACBAAB6E9E152157E27BE /* Pods_HoseeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HoseeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0F064546EF094BC4D3E3DBD /* Pods-Hosee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hosee.release.xcconfig"; path = "Target Support Files/Pods-Hosee/Pods-Hosee.release.xcconfig"; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				603F40CA22487A93007FA914 /* HistoryTableViewCell.swift */,
+				8126FAD2225C3EC1000D9898 /* TestViewController.swift */,
 				603F40CB22487A93007FA914 /* HistoryTableViewController.swift */,
 				04DF6CE22248B4E300853A97 /* BookingViewController.swift */,
 			);
@@ -189,7 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				819325FD2256E280001519BE /* UserLoginInfo.swift */,
-				8173902A22577C5C00A7A074 /* clientsHistory.swift */,
+				8173902A22577C5C00A7A074 /* ClientsHistory.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -519,13 +522,14 @@
 				8104A5A72255B4460002E124 /* UrlFactory.swift in Sources */,
 				5721F9BF22447D0800267BEC /* UIView+Extension.swift in Sources */,
 				04DF6CE92248BF1700853A97 /* RuningLabelView.swift in Sources */,
-				8173902B22577C5C00A7A074 /* clientsHistory.swift in Sources */,
+				8173902B22577C5C00A7A074 /* ClientsHistory.swift in Sources */,
 				04DF6CE32248B4E300853A97 /* BookingViewController.swift in Sources */,
 				CE237AA2224C56FB00F5B7C6 /* HasPromotionTableViewCell.swift in Sources */,
 				819325FE2256E280001519BE /* UserLoginInfo.swift in Sources */,
 				EBFC66552243864000CE8578 /* Hosee.xcdatamodeld in Sources */,
 				CE237AA3224C56FB00F5B7C6 /* HasPromotionViewController.swift in Sources */,
 				815AEE4B2254A03500C1AE17 /* RatingControl.swift in Sources */,
+				8126FAD3225C3EC1000D9898 /* TestViewController.swift in Sources */,
 				81007D4822573E26003E9769 /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,20 +8,21 @@
 
 import Foundation
 
-struct clientsHistory: Codable {
+struct ClientsHistory: Codable {
     var data: [HistoryData]
-    
+
     struct HistoryData: Codable {
         var id: Int
         var partner: PartnerInfo
         var service_type: Int
         var address: String
-        var charge_amount: Int
-        var client_rating: Int
+        var charge_amount: Int = 0
+        var client_rating: Int?
         
         struct PartnerInfo: Codable {
-            var phone_number: String
-            var display_name: String
+            var phone_number: String?
+            var display_name: String?
+            
         }
     }
 }
