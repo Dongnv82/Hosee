@@ -25,13 +25,10 @@ class HistoryTableViewController: UITableViewController, UINavigationControllerD
 //        }
         
 //        if let userInfo: UserLoginInfo = UserDefaults.standard.object(forKey: "userInfo") as? UserLoginInfo {
-            DataService.shared.callAPIHistory(userID: 4) { (historyData) in
-                self.historyAray = historyData.data
-                print(historyData)
-                self.tableView.reloadData()
-            }
+            getHistoryData()
 //        }
-        
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(refreshData), for: .valueChanged)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,13 +38,24 @@ class HistoryTableViewController: UITableViewController, UINavigationControllerD
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HistoryTableViewCell
-        cell.codeLabel.text = "\(historyAray[indexPath.row].id)"
+        cell.codeLabel.text = "Mã \(historyAray[indexPath.row].id)"
         cell.nameLabel.text = historyAray[indexPath.row].partner.display_name ?? ""
         cell.phoneLabel.text = historyAray[indexPath.row].partner.phone_number ?? ""
-        cell.addressView.text = historyAray[indexPath.row].address
+        cell.addressLabel.text = historyAray[indexPath.row].address
         cell.priceLabel.text = "VND \(historyAray[indexPath.row].charge_amount)"
         cell.taskLabel.text = "Sửa \(historyAray[indexPath.row].service_type)"
         cell.starRating.rating = historyAray[indexPath.row].client_rating ?? 0
         return cell
+    }
+    
+    func getHistoryData() {
+        DataService.shared.callAPIHistory(userID: 4) { (historyData) in
+            self.historyAray = historyData.data
+            self.tableView.reloadData()
+        }
+    }
+    @objc func refreshData() {
+        getHistoryData()
+        refreshControl?.endRefreshing()
     }
 }

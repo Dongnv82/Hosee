@@ -40,7 +40,7 @@ class DataService {
     
     func callAPIHistory(userID: Int,  completedHandler: @escaping(ClientsHistory) -> Void) {
         let url = URL(string: URLFactory.history.URL.absoluteString + "\(userID)")
-        print(url)
+//        print(url)
         var urlRequest = URLRequest(url: url!)
         urlRequest.httpMethod = "GET"
 //        urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
