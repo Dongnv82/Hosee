@@ -11,7 +11,7 @@ import GoogleMaps
 
 class HistoryTableViewController: UITableViewController, UINavigationControllerDelegate {
     
-    var historyAray: [clientsHistory.historyData] = []
+//    var historyAray: [clientsHistory.historyData] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,8 @@ class HistoryTableViewController: UITableViewController, UINavigationControllerD
         
 //        if let userInfo: UserLoginInfo = UserDefaults.standard.object(forKey: "userInfo") as? UserLoginInfo {
             DataService.shared.callAPIHistory(userID: 4) { (historyData) in
-                self.historyAray = historyData.data
+//                print(historyData.code)
+//                self.historyAray = historyData.data
                 print(historyData)
                 self.tableView.reloadData()
             }
@@ -35,19 +36,20 @@ class HistoryTableViewController: UITableViewController, UINavigationControllerD
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return historyAray.count
+//        return historyAray.count
+        return 0
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HistoryTableViewCell
-        cell.codeLabel.text = "\(historyAray[indexPath.row].id)"
-        cell.nameLabel.text = historyAray[indexPath.row].partner.display_name
-        cell.phoneLabel.text = historyAray[indexPath.row].partner.phone_number
-        cell.locationLabel.text = "\(historyAray[indexPath.row].address.dropFirst())"
-        cell.priceLabel.text = "VND \(historyAray[indexPath.row].charge_amount)"
-        cell.taskLabel.text = "Sửa \(historyAray[indexPath.row].service_type)"
-        cell.starRating.rating = historyAray[indexPath.row].client_rating
+//        cell.codeLabel.text = "\(historyAray[indexPath.row].id)"
+//        cell.nameLabel.text = historyAray[indexPath.row].partner.display_name
+//        cell.phoneLabel.text = historyAray[indexPath.row].partner.phone_number
+//        cell.locationLabel.text = "\(historyAray[indexPath.row].address.dropFirst())"
+//        cell.priceLabel.text = "VND \(historyAray[indexPath.row].charge_amount)"
+//        cell.taskLabel.text = "Sửa \(historyAray[indexPath.row].service_type)"
+//        cell.starRating.rating = historyAray[indexPath.row].client_rating
         return cell
     }
 }

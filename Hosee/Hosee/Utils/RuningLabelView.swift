@@ -7,92 +7,114 @@
 //
 
 import UIKit
-class RuningLabelView: UIView {
-    
-    private var rect0: CGRect!
-    private var rect1: CGRect!
-    private var labelArray = [UILabel]()
-    private var timeInterval: TimeInterval!
-    private let leadingBuffer = CGFloat(5.0)
-    private let loopStartDelay = 2.0
-    private var leadingConstraint  : NSLayoutConstraint?
-    private var stackView                 : UIStackView?
+
+class InfinityLoopLabelView: UIView {
+    private var timeInterval        : TimeInterval!
+    private let leadingBuffer       = CGFloat(5.0)
+    var paddingLeft                 = CGFloat(16)
+    private var spacing             :CGFloat = 50.0
+    private var label               : UILabel!
+    private var labelClone          : UILabel!
+    private var leadingConstraint   : NSLayoutConstraint?
+    private var cloneLeadingConstraint   : NSLayoutConstraint?
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
+        
     }
-    
     var text: String? {
         didSet {
-            setup()
-        }
-    }
-    
-    private var isTextTooLong: Bool {
-        get {
-            let label = UILabel()
-            label.text = text
-            label.frame = CGRect.zero
-            let sizeOfText = label.sizeThatFits(CGSize.zero)
-            return sizeOfText.width > frame.size.width ? true : false
-        }
-    }
-    
-    private var isRunning = false {
-        didSet {
-            if !isRunning {
-                timeInterval = TimeInterval((text?.characters.count)! / 5)
-                UIView.animate(withDuration: timeInterval, delay: loopStartDelay, options: [.curveLinear, .repeat], animations: {
-                    self.leadingConstraint?.constant = -self.stackView!.bounds.width
-                    self.layoutIfNeeded()
-                })
-            } else {
-                self.subviews.forEach{$0.removeFromSuperview()}
+            DispatchQueue.main.async {
+                self.setup()
             }
-            
         }
     }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        setup()
-    }
     
+    var isTextTooLong: Bool = false
     func setup() {
         reset()
+        label = UILabel()
+        label.text = text
+        label.frame = CGRect.zero
+        let sizeOfText = label.sizeThatFits(CGSize.zero)
+        isTextTooLong = sizeOfText.width > frame.size.width ? true : false
+        self.addSubview(label)
+        leadingConstraint = label.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: paddingLeft)
+        leadingConstraint?.isActive = true
+        label.widthAnchor.constraint(equalToConstant: sizeOfText.width).isActive = true
+        
+        label.fill(left: nil, top: 0, right: nil, bottom: 0)
         if isTextTooLong {
-            stackView = UIStackView()
-            stackView?.axis = .horizontal
-            stackView?.spacing = 20.0
+            labelClone = label.clone()
+            self.addSubview(labelClone!)
+            labelClone?.fill(left: nil, top: 0, right: nil, bottom: 0)
+            cloneLeadingConstraint = labelClone?.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant:  sizeOfText.width + self.paddingLeft + self.spacing)
+            labelClone.widthAnchor.constraint(equalToConstant: sizeOfText.width).isActive = true
             
-            let label1 = UILabel()
-            label1.text = text
-            let label2 = UILabel()
-            label2.text = text
-            
-            stackView?.addArrangedSubview(label1)
-            stackView?.addArrangedSubview(label2)
-            
-            self.addSubview(stackView!)
-            stackView?.fill(left: nil, top: leadingBuffer, right: nil, bottom: 0)
-            let leadingConstraint = stackView?.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8)
-            leadingConstraint?.isActive = true
-            self.isRunning = true
-        } else {
-            let label = UILabel()
-            label.text = text
-            self.addSubview(label)
-            label.fill()
+            cloneLeadingConstraint?.isActive = true
+            layoutIfNeeded()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.animate()
+            }
         }
-       
+        
     }
+    
     
     func reset() {
-        super.clipsToBounds = true
-        stackView = nil
-        self.subviews.forEach{$0.removeFromSuperview()}
         self.layer.removeAllAnimations()
+        label?.removeFromSuperview()
+        labelClone?.removeFromSuperview()
+        clipsToBounds = true
+        labelClone = nil
+        label = nil
+        animator?.stopAnimation(true)
     }
     
-  
+    var  animator: UIViewPropertyAnimator?
+    private func animate() {
+        guard isTextTooLong else {return}
+        guard let text = text else {return }
+        timeInterval = TimeInterval((text.count) / 10)
+            self.animator = UIViewPropertyAnimator(duration: self.timeInterval, curve: .linear) {
+                self.transform(deltaX: -self.label.bounds.width - self.spacing - self.paddingLeft)
+                self.layoutIfNeeded()
+            }
+            self.animator?.addCompletion { (position) in
+                switch position {
+                case .end:
+                    if  self.leadingConstraint!.constant < CGFloat(0) {
+                        self.leadingConstraint?.constant = self.label.bounds.width + self.spacing + self.paddingLeft
+                    } else if self.cloneLeadingConstraint!.constant < CGFloat(0) {
+                        self.cloneLeadingConstraint?.constant = self.label.bounds.width + self.spacing + self.paddingLeft
+                    }
+                    self.layoutIfNeeded()
+                    self.animate()
+                default:
+                    return
+                }
+            }
+            self.animator?.startAnimation()
+    }
+    
+    func transform(deltaX: CGFloat) {
+        self.leadingConstraint?.constant = self.leadingConstraint!.constant + deltaX
+        self.cloneLeadingConstraint?.constant = self.cloneLeadingConstraint!.constant + deltaX
+    }
+    
+    
+    
+}
+
+// MARK: - UILabel
+
+extension UILabel {
+    
+    func clone() -> UILabel {
+        let label = UILabel()
+        label.text = self.text
+        label.bounds = self.bounds
+        return label
+    }
 }

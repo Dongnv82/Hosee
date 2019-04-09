@@ -42,7 +42,7 @@ class DataService {
         let url = URL(string: URLFactory.history.URL.absoluteString + "\(userID)")
         print(url)
         var urlRequest = URLRequest(url: url!)
-//        urlRequest.httpMethod = "GET"
+        urlRequest.httpMethod = "GET"
 //        urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
 //        urlRequest.addValue("57UFoOdYCw1mQaLM3QrdV8__rHQCVWZayZqx-3cFHvE", forHTTPHeaderField: "Authorization")
         let uploadTask = URLSession.shared.dataTask(with: urlRequest)  { (data, response , error) in
@@ -52,7 +52,7 @@ class DataService {
             }
             guard let aData = data else {return}
             do {
-                let jSonObject = try JSONDecoder().decode(clientsHistory.self, from: aData)
+                let jSonObject = try JSONDecoder().decode(clientsHistory.self, from: aData)  
                 DispatchQueue.main.async {
                     completedHandler(jSonObject)
                 }
