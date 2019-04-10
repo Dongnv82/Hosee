@@ -10,8 +10,6 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet weak var userText: UITextField!
-    @IBOutlet weak var passwordText: UITextField!
     
     var deviceID = UIDevice.current.identifierForVendor!.uuidString
     
@@ -22,11 +20,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButton(_ sender: UIButton) {
-        if userText.text == "+84924586555" && passwordText.text == "123456" {
-            DataServices.sharedInstance.makeDataTaskRequest(user: userText.text!, pass: passwordText.text!) { (data) in
-                print(data.data)
-            }
-        }
+
        
     }
     

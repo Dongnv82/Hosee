@@ -13,10 +13,14 @@ class BookingViewController: UIViewController {
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var loadding: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
+<<<<<<< HEAD
     @IBOutlet weak var runingLabel: InfinityLoopLabelView!
+=======
+    @IBOutlet weak var runingLabel: RuningLabelView!
     @IBOutlet weak var backButton: Button!
-
-    @IBOutlet weak var cancelButton: UIButton!
+>>>>>>> fix Booking screen and creat Login.
+    
+    @IBOutlet weak var buttonOutlet: UIButton!
     
     var restString: String?
     var timer = 10
@@ -27,7 +31,6 @@ class BookingViewController: UIViewController {
             runingLabel.text = restString
         }
         backButton.isHidden = true
-        cancelButton.isEnabled = false
         startTime()
         
         
@@ -42,7 +45,7 @@ class BookingViewController: UIViewController {
             timerLabel.text = String(timer)
         } else {
             backButton.isHidden = false
-            cancelButton.isEnabled = true
+            buttonOutlet.isHidden = true
             timerLabel.isHidden = true
         }
     }
@@ -52,8 +55,5 @@ class BookingViewController: UIViewController {
       
     }
     
-    @IBAction func cancelButtonAction(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
-    }
     
 }
