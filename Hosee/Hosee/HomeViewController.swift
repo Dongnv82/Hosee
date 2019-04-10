@@ -59,8 +59,8 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
         
     }
     
-    @IBAction func leftSlideBtn(_ sender: Any) {
-        delegate?.isLeftSlideMenuOpen = true
+    @IBAction func onClickedMenu(_ sender: Any) {
+         NotificationCenter.default.post(name: .toggle, object: nil, userInfo: nil)
     }
     
     @IBAction func onClickPromoteButton(_ sender: Any) {

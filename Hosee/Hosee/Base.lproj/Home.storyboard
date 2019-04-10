@@ -168,7 +168,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="LeflSlide" id="tvD-T8-a4z">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <action selector="leftSlideBtn:" destination="3kV-2B-oKj" id="SPA-k1-pfZ"/>
+                                <action selector="onClickedMenu:" destination="3kV-2B-oKj" id="SPA-k1-pfZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
