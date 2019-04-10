@@ -12,7 +12,7 @@
         <!--Container View Controller-->
         <scene sceneID="Oyv-98-zPx">
             <objects>
-                <viewController id="4YE-B2-OJr" customClass="ContainerViewController" customModule="Hosee" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Main" id="4YE-B2-OJr" customClass="ContainerViewController" customModule="Hosee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1oj-Br-tI8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,7 +27,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <action selector="onClickBack:" destination="4YE-B2-OJr" eventType="touchUpInside" id="Skp-5r-ZS7"/>
+                                    <action selector="toggle:" destination="4YE-B2-OJr" eventType="touchUpInside" id="Skp-5r-ZS7"/>
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iix-lU-fgo" userLabel="LeftSlideMenu">
@@ -73,7 +73,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Unp-aK-7wB"/>
                     <connections>
-                        <outlet property="btnLeflSlide" destination="8hp-oP-xB2" id="iJ5-hH-gzD"/>
+                        <outlet property="corverButton" destination="8hp-oP-xB2" id="iJ5-hH-gzD"/>
                         <outlet property="leftContraint" destination="1bm-kn-YWa" id="SfO-ni-SlI"/>
                         <outlet property="leftSlideMenu" destination="Iix-lU-fgo" id="7hg-dC-P7u"/>
                     </connections>
@@ -182,6 +182,9 @@
                                                 <state key="normal" title="     Lịch sử" image="History">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="yat-gx-fXz" kind="showDetail" id="EHF-3V-rKw"/>
+                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NzL-xD-duo">
                                                 <rect key="frame" x="0.0" y="55" width="246.5" height="48"/>
@@ -255,6 +258,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4DX-Qe-Fj8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-464.49275362318843" y="935.49107142857133"/>
+        </scene>
+        <!--History-->
+        <scene sceneID="ALa-Fg-nzN">
+            <objects>
+                <viewControllerPlaceholder storyboardName="History" referencedIdentifier="History" id="yat-gx-fXz" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H17-1t-9Mv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="206" y="886"/>
         </scene>
     </scenes>
     <resources>

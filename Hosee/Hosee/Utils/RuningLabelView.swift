@@ -70,6 +70,7 @@ class InfinityLoopLabelView: UIView {
         labelClone = nil
         label = nil
         animator?.stopAnimation(true)
+        animator = nil
     }
     
     var  animator: UIViewPropertyAnimator?

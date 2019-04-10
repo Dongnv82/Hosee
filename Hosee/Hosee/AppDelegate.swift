@@ -23,6 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSServices.provideAPIKey(key)
         GMSPlacesClient.provideAPIKey(key)
         
+        // change status bar color
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
+        
+        var navigationBarAppearace = UINavigationBar.appearance()
+//        navigationBarAppearace.tintColor = UIColor(rgb: 0xffffff)
+//        navigationBarAppearace.barTintColor = UIColor(rgb: 0x1c315d)
+        // change navigation item title color
+        navigationBarAppearace.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         return true
     }
 
