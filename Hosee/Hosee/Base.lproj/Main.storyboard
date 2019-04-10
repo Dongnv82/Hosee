@@ -96,7 +96,7 @@
                 <viewControllerPlaceholder storyboardName="HasPromotion" referencedIdentifier="HasPromotion" id="1Ds-1B-sla" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sYh-bo-C07" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="366" y="227"/>
+            <point key="canvasLocation" x="607" y="226"/>
         </scene>
         <!--Login-->
         <scene sceneID="4Tr-m6-XQG">
@@ -104,7 +104,7 @@
                 <viewControllerPlaceholder storyboardName="Login" referencedIdentifier="Login" id="wTE-18-eLS" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lDX-7I-mRk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="647" y="359"/>
+            <point key="canvasLocation" x="718" y="378"/>
         </scene>
         <!--Left Slide View Controller-->
         <scene sceneID="gB2-hI-xFQ">
