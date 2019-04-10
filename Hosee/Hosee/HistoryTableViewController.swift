@@ -13,22 +13,21 @@ class HistoryTableViewController: UITableViewController, UINavigationControllerD
     
     
     var historyAray: [ClientsHistory.HistoryData] = []
+//    let userInfo: UserLoginInfo = (UserDefaults.standard.object(forKey: "userInfo") as? UserLoginInfo)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Bài mẫu CallAPi login, Đức lấy xong xoá luôn hộ anh rồi request merge lại code cho sạch code nhé
         
-//        let user = User(phoneNumber: "+84924586555", password: "123456", latitude: 21.0335302, longtitude: 105.7678049, deviceID: UIDevice.current.identifierForVendor!.uuidString)
-//
-//        DataService.shared.callAPILogin(user: user) { (userData) in
-//            UserDefaults.standard.set(UserLoginInfo, forKey: "userInfo")
-//        }
-        
-//        if let userInfo: UserLoginInfo = UserDefaults.standard.object(forKey: "userInfo") as? UserLoginInfo {
-            getHistoryData()
-//        }
+//        getHistoryData(id: userInfo.data.client.id)
+        getHistoryData(id: 4)
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        NotificationCenter.default.post(name: .toggle, object: nil, userInfo: nil)
+
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,14 +47,20 @@ class HistoryTableViewController: UITableViewController, UINavigationControllerD
         return cell
     }
     
-    func getHistoryData() {
-        DataService.shared.callAPIHistory(userID: 4) { (historyData) in
+    func getHistoryData(id: Int) {
+        DataService.shared.callAPIHistory(userID: id) { (historyData) in
             self.historyAray = historyData.data
             self.tableView.reloadData()
         }
     }
     @objc func refreshData() {
-        getHistoryData()
+//        getHistoryData(id: userInfo.data.client.id)
+        getHistoryData(id: 4)
         refreshControl?.endRefreshing()
     }
+    
+    @IBAction func backButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 }
