@@ -1,15 +1,12 @@
 //
-//  DataService.swift
+//  File.swift
 //  Hosee
 //
-//  Created by huy on 05/04/2019.
+//  Created by Duc Anh on 4/10/19.
 //  Copyright © 2019 Minh Thang. All rights reserved.
 //
 
 import Foundation
-
-
-
 class DataService {
     static var shared: DataService = DataService()
     func callAPILogin(user: User,  completedHandler: @escaping(UserLoginInfo) -> Void) {
@@ -40,11 +37,11 @@ class DataService {
     
     func callAPIHistory(userID: Int,  completedHandler: @escaping(ClientsHistory) -> Void) {
         let url = URL(string: URLFactory.history.URL.absoluteString + "\(userID)")
-//        print(url)
+        //        print(url)
         var urlRequest = URLRequest(url: url!)
         urlRequest.httpMethod = "GET"
-//        urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
-//        urlRequest.addValue("57UFoOdYCw1mQaLM3QrdV8__rHQCVWZayZqx-3cFHvE", forHTTPHeaderField: "Authorization")
+        //        urlRequest.addValue(“application/json”, forHTTPHeaderField: “Accept”)
+        //        urlRequest.addValue(“57UFoOdYCw1mQaLM3QrdV8__rHQCVWZayZqx-3cFHvE”, forHTTPHeaderField: “Authorization”)
         let uploadTask = URLSession.shared.dataTask(with: urlRequest)  { (data, response , error) in
             guard error == nil else {
                 print(error!.localizedDescription)
