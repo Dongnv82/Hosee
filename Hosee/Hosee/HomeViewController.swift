@@ -54,6 +54,7 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
        
         if let vc = UIStoryboard(name: "Booking", bundle: nil).instantiateViewController(withIdentifier: "booking") as? BookingViewController
         {
+            vc.restString = addressLabel.text
             present(vc, animated: true, completion: nil)
         }
         
@@ -74,12 +75,6 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
         let placePicker = GMSPlacePickerViewController(config: config)
         placePicker.delegate = self
         present(placePicker, animated: true, completion: nil)
-    }
-    
-    // MARK: Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as? BookingViewController
-        destination?.restString = addressLabel.text
     }
     
 }
