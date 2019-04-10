@@ -10,7 +10,7 @@ import  UIKit
 
 class HistoryTableViewController: UITableViewController {
     
-    var history = [WorkingItem]()
+//    var history = [WorkingItem]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
