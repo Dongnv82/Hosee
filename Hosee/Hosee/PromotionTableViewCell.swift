@@ -8,29 +8,32 @@
 
 import UIKit
 
-class HasPromotionTableViewCell: UITableViewCell {
+import UIKit
 
-    @IBOutlet weak var mainView: UIView!
+class PromotionTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var promotionDayLabel: UILabel!
+    
     @IBOutlet weak var upView: UIView!
     @IBOutlet weak var dashView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
     @IBOutlet weak var topUpView: NSLayoutConstraint!
-    @IBOutlet weak var leadingMainView: NSLayoutConstraint!
     @IBOutlet weak var bottomUnderView: NSLayoutConstraint!
     @IBOutlet weak var bottomDashView: NSLayoutConstraint!
     @IBOutlet weak var topDashView: NSLayoutConstraint!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         customLayoutView()
         dashView.addDashedBorder()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
         
     }
@@ -42,7 +45,7 @@ class HasPromotionTableViewCell: UITableViewCell {
         topDashView.constant = -radius
         bottomDashView.constant = -radius
     }
-
+    
 }
 
 extension UIView {
