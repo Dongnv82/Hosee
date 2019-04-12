@@ -245,12 +245,16 @@ extension UIView {
         layer.add(animation, forKey: CATransitionType.fade.rawValue)
     }
     func shake() {
-        backgroundColor = UIColor.orange.withAlphaComponent(0.2)
+        backgroundColor = UIColor.orange
         let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-        animation.duration = 1.2
+        animation.duration = 0.6
         animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
         layer.add(animation, forKey: "shake")
+    }
+    
+    func resetAfterShake() {
+        backgroundColor = UIColor.white
     }
 }
 
@@ -278,9 +282,9 @@ enum LayerNameKey : String {
 
 
 extension UIView {
-    func addBorder(layerNameKey: LayerNameKey, color: UIColor? = nil) {
+    func addBorder(layerNameKey: LayerNameKey, color: UIColor? = nil, lineWeight: CGFloat = 1) {
             // add top border
-        let border = UIView(frame: layerNameKey.getRect(with: layer, lineWeight: borderWidth))
+        let border = UIView(frame: layerNameKey.getRect(with: layer, lineWeight: lineWeight))
             border.layer.name = layerNameKey.rawValue
             border.backgroundColor = color ?? UIColor.groupTableViewBackground
             layer.setValue(border, forKey: layerNameKey.rawValue)

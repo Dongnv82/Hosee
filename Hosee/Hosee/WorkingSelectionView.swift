@@ -8,11 +8,7 @@
 
 import UIKit
 
-enum WorkingType {
-    case camera
-    case airCool
-    case light
-}
+
 class WorkingSelectionView:  View {
     
     @IBOutlet weak var effectView: UIVisualEffectView!
@@ -23,10 +19,19 @@ class WorkingSelectionView:  View {
     @IBOutlet weak var airCoolButton: Button!
     @IBOutlet weak var lightButton: Button!
     @IBOutlet weak var imageUpandDownOfSelect: UIImageView!
-    @IBOutlet weak var selectedButton: UIButton!
+    @IBOutlet weak var selectionWorkingTypeButton: UIButton!
+    @IBOutlet weak var title: UILabel!
+    
+    var selectedWorkingType : WorkingType?
+    
     var closure: ((WorkingType)-> Void)?
     var isOpen: Bool = true {
         didSet {
+            if isOpen {
+                title.text = ConstantString.normalNavigationButtonTitle
+            } else {
+                title.text = selectedWorkingType != nil ? selectedWorkingType!.title : ConstantString.normalNavigationButtonTitle
+            }
             UIView.animate(withDuration: 0.35, animations: {
                 self.topConstraint.constant = self.isOpen ? 32 : -self.dialogView.bounds.height
                 self.coverButton.alpha = self.isOpen ? 0.8 : 0
@@ -40,26 +45,23 @@ class WorkingSelectionView:  View {
         }
     }
     
-    
-    
     @IBAction func onClickSelectedButton(_ sender: UIButton) {
         switch sender {
         case cameraButton:
-            closure?(.camera)
+            selectedWorkingType = .camera
         case airCoolButton:
-            closure?(.airCool)
+            selectedWorkingType = .airCool
         case lightButton:
-            closure?(.light)
+            selectedWorkingType = .light
         default:
             break
         }
+        closure?(selectedWorkingType!)
         toggle()
-        sender.isSelected = !sender.isSelected
     }
 
     @IBAction func onClickCoverButton(_ sender: UIButton) {
         toggle()
-        selectedButton.isSelected = false
     }
     
     func toggle() {

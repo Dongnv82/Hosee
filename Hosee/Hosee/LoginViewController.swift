@@ -10,14 +10,6 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 
-enum Keys : String {
-    case access_token = "access_token"
-}
-
-enum SegueIdentifier : String {
-    case goToMain = "goToMain"
-}
-
 class LoginViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var phoneNumberLabel: UITextField!
     @IBOutlet weak var passWordLabel: UITextField!
@@ -58,7 +50,7 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate {
                         userData.data.access_token.saveToUserDefaults(withKey: Keys.access_token.rawValue)
                         self.performSegue(withIdentifier: SegueIdentifier.goToMain.rawValue, sender: nil)
 
-                    
+    
                 }
             } else {
                 showAlert(title: "", message: "Số điện thoại nhập chưa chính xác")
