@@ -17,6 +17,10 @@ protocol HomeViewControllerDelegate: class {
 
 class HomeViewController: UIViewController, GMSMapViewDelegate {
     
+    @IBOutlet var workingSelectionView: WorkingSelectionView!
+    @IBOutlet weak var selectedButton: Button!
+    
+    
     @IBOutlet weak var addressLabel: InfinityLoopLabelView!
     @IBOutlet weak var promoteBox: UIStackView!
     lazy var locationManager: CLLocationManager = {
@@ -43,8 +47,12 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupWorkingSelectionView()
         setupLocationManager()
         addressLabel.text = "Bấm vào đây để chọn địa điểm!"
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        workingSelectionView.isOpen = false
     }
     
     @IBAction func createOrder(_ sender: UIButton) {
