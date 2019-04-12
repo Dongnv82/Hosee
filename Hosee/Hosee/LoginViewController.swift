@@ -36,10 +36,11 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate {
         if phoneNumberLabel.text != "" && passWordLabel.text != "" {
             if phoneNumberLabel.text?.count == 10 {
                 DataService.shared.callAPILogin(user: user) { (userData) in
-                    UserDefaults.standard.data(forKey: "userInfo")
+                    
                     self.message = userData.message
+                    self.checkUserLogin(message: userData.message)
+
                 }
-                checkUserLogin(message: message)
             } else {
                 showAlert(title: "", message: "Số điện thoại nhập chưa chính xác")
             }

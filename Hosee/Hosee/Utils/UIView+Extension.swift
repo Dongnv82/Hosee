@@ -48,9 +48,25 @@ class View: UIView {
 @IBDesignable
 class Button: UIButton {
     @IBInspectable var cornerRadius: CGFloat = 0
+    @IBInspectable var topBorder: Bool = false
+    @IBInspectable var leftBorder: Bool = false
+    @IBInspectable var rightBorder: Bool = false
+    @IBInspectable var bottomBorder: Bool = false
     override func layoutSubviews() {
         super.layoutSubviews()
         rounderCorner(radius: cornerRadius)
+        if topBorder {
+            addBorder(layerNameKey: LayerNameKey.topBorder, color: borderColor)
+        }
+        if leftBorder {
+            addBorder(layerNameKey: LayerNameKey.leftBorder, color: borderColor)
+        }
+        if rightBorder {
+            addBorder(layerNameKey: LayerNameKey.rightBorder, color: borderColor)
+        }
+        if bottomBorder {
+            addBorder(layerNameKey: LayerNameKey.bottomBorder, color: borderColor)
+        }
     }
 }
 @IBDesignable
