@@ -9,6 +9,15 @@
 import UIKit
 import GoogleMaps
 import GooglePlaces
+
+enum Keys : String {
+    case access_token = "access_token"
+}
+
+enum SegueIdentifier : String {
+    case goToMain = "goToMain"
+}
+
 class LoginViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var phoneNumberLabel: UITextField!
     @IBOutlet weak var passWordLabel: UITextField!
@@ -20,26 +29,36 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate {
     var loginArray: [UserLoginInfo.UserInfo] = []
     var latitude: Double?
     var longitude: Double?
-    var message: String?
+    var access_token: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.locationManager.delegate = self
         self.locationManager.startUpdatingLocation()
-       message = nil
+        phoneNumberLabel.text = "0924586555"
+        passWordLabel.text = "123456"
+        access_token = String.loadFromUserDefaults(withKey: Keys.access_token.rawValue)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if access_token != nil {
+            performSegue(withIdentifier: SegueIdentifier.goToMain.rawValue, sender: nil)
+        }
     }
 
-    
     @IBAction func loginButton(_ sender: UIButton) {
-        let phoneNumber: String = "\(phoneNumberLabel.text?.dropFirst() ?? "")"
+        let phoneNumber: String =  String(phoneNumberLabel.text?.dropFirst() ?? "")
         let user = User(phoneNumber: "+84\(phoneNumber)", password: passWordLabel.text!, latitude: latitude!, longtitude: longitude!, deviceID: UIDevice.current.identifierForVendor!.uuidString)
         if phoneNumberLabel.text != "" && passWordLabel.text != "" {
+            
             if phoneNumberLabel.text?.count == 10 {
                 DataService.shared.callAPILogin(user: user) { (userData) in
-                    
-                    self.message = userData.message
-                    self.checkUserLogin(message: userData.message)
+                        self.access_token = userData.data.access_token
+                        userData.data.access_token.saveToUserDefaults(withKey: Keys.access_token.rawValue)
+                        self.performSegue(withIdentifier: SegueIdentifier.goToMain.rawValue, sender: nil)
 
+                    
                 }
             } else {
                 showAlert(title: "", message: "Số điện thoại nhập chưa chính xác")
@@ -50,16 +69,6 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
-    func checkUserLogin(message: String?) {
-        if message != nil {
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Main") as? ContainerViewController {
-                present(vc, animated: true, completion: nil)
-            }
-        } else {
-            showAlert(title: "", message: "tài khoản không tồn tại")
-        }
-        
-    }
     
     // Handle authorization for the location manager.
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {

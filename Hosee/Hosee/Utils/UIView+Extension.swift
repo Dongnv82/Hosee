@@ -97,6 +97,7 @@ extension UIView {
 extension UIView {
     static func loadNib<T: UIView>(_ viewType: T.Type) -> T {
         let className = String(describing: viewType)
+        
         return Bundle(for: viewType).loadNibNamed(className, owner: nil, options: nil)!.first as! T
     }
     
@@ -318,6 +319,16 @@ extension UIView {
         if let bottom = bottom {
             self.bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -bottom).isActive = true
         }
+    }
+    
+    func alignCenter(deltaPoint: CGPoint = .zero) {
+        guard let superview = superview else {
+            print("\(self.description): there is no superView")
+            return
+        }
+        self.translatesAutoresizingMaskIntoConstraints = false
+            self.centerXAnchor.constraint(equalTo: superview.centerXAnchor, constant: deltaPoint.x).isActive = true
+            self.centerYAnchor.constraint(equalTo: superview.centerYAnchor, constant: deltaPoint.y).isActive = true
     }
 }
 
