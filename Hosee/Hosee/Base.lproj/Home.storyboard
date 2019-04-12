@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2aA-2i-l8A">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -101,6 +101,7 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="onClickPromoteButton:" destination="3kV-2B-oKj" eventType="touchUpInside" id="9r2-Nf-4nv"/>
+                                                    <segue destination="5Zj-Px-UtD" kind="show" id="91O-GQ-x5s"/>
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aIa-1r-Yhb">
@@ -165,20 +166,182 @@
                         <viewLayoutGuide key="safeArea" id="0gt-Fn-PcI"/>
                     </view>
                     <navigationItem key="navigationItem" id="sXG-cl-qOy">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" title="Item" image="LeflSlide" id="tvD-T8-a4z">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="onClickedMenu:" destination="3kV-2B-oKj" id="SPA-k1-pfZ"/>
                             </connections>
                         </barButtonItem>
+                        <view key="titleView" contentMode="scaleToFill" id="KHe-ov-OGx" customClass="View" customModule="Hosee" customModuleProvider="target">
+                            <rect key="frame" x="105" y="6.5" width="165" height="31"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Up" translatesAutoresizingMaskIntoConstraints="NO" id="RIa-yW-Koo">
+                                    <rect key="frame" x="146" y="10" width="12" height="12"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fr6-pl-GHH">
+                                    <rect key="frame" x="0.0" y="0.0" width="162" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                    <inset key="titleEdgeInsets" minX="-15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <state key="normal" title="Danh mục sửa chữa">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <state key="selected" title="Danh mục sửa chữa">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="onClickSelectedMenu:" destination="3kV-2B-oKj" eventType="touchUpInside" id="p9a-zl-2Br"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="4"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
                     </navigationItem>
                     <connections>
                         <outlet property="addressLabel" destination="qzi-7Y-j0k" id="I6A-LF-Ubp"/>
                         <outlet property="mapView" destination="1Kp-m5-aXO" id="DXX-q6-hOZ"/>
                         <outlet property="promoteBox" destination="3rA-bU-4Nz" id="j9v-fF-X4b"/>
+                        <outlet property="selectedButton" destination="fr6-pl-GHH" id="OqH-3o-OOc"/>
+                        <outlet property="workingSelectionView" destination="rjw-fm-1aw" id="XUV-8Z-c6z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EiF-1c-S6S" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="rjw-fm-1aw" customClass="WorkingSelectionView" customModule="Hosee" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="377" height="604"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BRu-9r-gb8">
+                            <rect key="frame" x="0.0" y="0.0" width="377" height="604"/>
+                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="CCN-Gx-4xI">
+                                <rect key="frame" x="0.0" y="0.0" width="377" height="604"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cv7-5R-CPR">
+                                        <rect key="frame" x="0.0" y="0.0" width="377" height="604"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="Jqc-K1-h2X">
+                                            <rect key="frame" x="0.0" y="0.0" width="377" height="604"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                        <vibrancyEffect>
+                                            <blurEffect style="light"/>
+                                        </vibrancyEffect>
+                                    </visualEffectView>
+                                </subviews>
+                            </view>
+                            <blurEffect style="light"/>
+                        </visualEffectView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zsd-Rq-haY">
+                            <rect key="frame" x="0.0" y="0.0" width="377" height="604"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="onClickCoverButton:" destination="rjw-fm-1aw" eventType="touchUpInside" id="ovw-3R-9TA"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sLl-eS-mzV" userLabel="SelectedView" customClass="View" customModule="Hosee" customModuleProvider="target">
+                            <rect key="frame" x="40" y="20" width="297" height="121"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6ul-yg-GTs">
+                                    <rect key="frame" x="32" y="0.0" width="233" height="121"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLb-i6-obP" customClass="Button" customModule="Hosee" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="233" height="35"/>
+                                            <inset key="titleEdgeInsets" minX="-8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <inset key="imageEdgeInsets" minX="-63" minY="-6" maxX="0.0" maxY="0.0"/>
+                                            <state key="normal" title="SỬA CHỮA CAMERA" image="Camera">
+                                                <color key="titleColor" red="0.1215686275" green="0.1176470588" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorder" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="onClickSelectedButton:" destination="rjw-fm-1aw" eventType="touchUpInside" id="heV-qS-b0d"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66H-Ok-tnE" customClass="Button" customModule="Hosee" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="43" width="233" height="35"/>
+                                            <inset key="titleEdgeInsets" minX="0.0" minY="-8" maxX="0.0" maxY="0.0"/>
+                                            <inset key="imageEdgeInsets" minX="-55" minY="-12" maxX="0.0" maxY="0.0"/>
+                                            <state key="normal" title="SỬA CHỮA ĐIỀU HOÀ" image="Air Cool">
+                                                <color key="titleColor" red="0.1215686275" green="0.1176470588" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorder" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="onClickSelectedButton:" destination="rjw-fm-1aw" eventType="touchDown" id="XGT-Rc-yRw"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PCd-sx-ZuI" customClass="Button" customModule="Hosee" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="86" width="233" height="35"/>
+                                            <inset key="titleEdgeInsets" minX="4" minY="-7" maxX="0.0" maxY="0.0"/>
+                                            <inset key="imageEdgeInsets" minX="-43" minY="0.0" maxX="0.0" maxY="7"/>
+                                            <state key="normal" title="SỬA CHỮA ĐÈN ĐIỆN" image="Light">
+                                                <color key="titleColor" red="0.1215686275" green="0.1176470588" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="bottomBorder" value="NO"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="onClickSelectedButton:" destination="rjw-fm-1aw" eventType="touchDown" id="BJf-lO-gLW"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="6ul-yg-GTs" firstAttribute="leading" secondItem="sLl-eS-mzV" secondAttribute="leading" constant="32" id="NgN-dc-gJ7"/>
+                                <constraint firstItem="6ul-yg-GTs" firstAttribute="top" secondItem="sLl-eS-mzV" secondAttribute="top" id="TiQ-Vn-LBt"/>
+                                <constraint firstItem="6ul-yg-GTs" firstAttribute="height" secondItem="sLl-eS-mzV" secondAttribute="height" id="fiV-QS-FBu"/>
+                                <constraint firstItem="6ul-yg-GTs" firstAttribute="centerX" secondItem="sLl-eS-mzV" secondAttribute="centerX" id="puI-uM-0Na"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="0.0"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="8"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="zsd-Rq-haY" firstAttribute="top" secondItem="BRu-9r-gb8" secondAttribute="top" id="0Bo-HJ-a2w"/>
+                        <constraint firstItem="zsd-Rq-haY" firstAttribute="bottom" secondItem="BRu-9r-gb8" secondAttribute="bottom" id="6cs-HI-phy"/>
+                        <constraint firstItem="zsd-Rq-haY" firstAttribute="top" secondItem="rjw-fm-1aw" secondAttribute="top" id="B9W-k5-J5Z"/>
+                        <constraint firstItem="sLl-eS-mzV" firstAttribute="height" secondItem="rjw-fm-1aw" secondAttribute="height" multiplier="1/5" id="BPl-6s-A70"/>
+                        <constraint firstItem="sLl-eS-mzV" firstAttribute="top" secondItem="Fqg-Pj-65H" secondAttribute="top" id="DQK-JE-M8N"/>
+                        <constraint firstItem="zsd-Rq-haY" firstAttribute="bottom" secondItem="Fqg-Pj-65H" secondAttribute="bottom" id="KI2-m2-jO7"/>
+                        <constraint firstItem="zsd-Rq-haY" firstAttribute="trailing" secondItem="BRu-9r-gb8" secondAttribute="trailing" id="NCU-Dc-3AF"/>
+                        <constraint firstItem="sLl-eS-mzV" firstAttribute="centerX" secondItem="rjw-fm-1aw" secondAttribute="centerX" id="PDK-Nh-CCU"/>
+                        <constraint firstItem="sLl-eS-mzV" firstAttribute="leading" secondItem="Fqg-Pj-65H" secondAttribute="leading" constant="40" id="SeG-fe-EC3"/>
+                        <constraint firstItem="zsd-Rq-haY" firstAttribute="leading" secondItem="Fqg-Pj-65H" secondAttribute="leading" id="b0l-BD-JHi"/>
+                        <constraint firstItem="zsd-Rq-haY" firstAttribute="trailing" secondItem="Fqg-Pj-65H" secondAttribute="trailing" id="mbH-9n-9OZ"/>
+                        <constraint firstItem="zsd-Rq-haY" firstAttribute="leading" secondItem="BRu-9r-gb8" secondAttribute="leading" id="wTK-GF-5DF"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="Fqg-Pj-65H"/>
+                    <connections>
+                        <outlet property="airCoolButton" destination="66H-Ok-tnE" id="SaN-ZB-325"/>
+                        <outlet property="cameraButton" destination="fLb-i6-obP" id="W93-Gc-C7V"/>
+                        <outlet property="coverButton" destination="zsd-Rq-haY" id="hol-Tk-5fi"/>
+                        <outlet property="dialogView" destination="sLl-eS-mzV" id="VWP-OV-QIa"/>
+                        <outlet property="effectView" destination="BRu-9r-gb8" id="Uin-dh-29k"/>
+                        <outlet property="imageUpandDownOfSelect" destination="RIa-yW-Koo" id="G75-Yj-sYQ"/>
+                        <outlet property="lightButton" destination="PCd-sx-ZuI" id="YpZ-Xp-9iQ"/>
+                        <outlet property="selectedButton" destination="fr6-pl-GHH" id="Zfd-B6-7bK"/>
+                        <outlet property="topConstraint" destination="DQK-JE-M8N" id="jVK-49-ITy"/>
+                    </connections>
+                </view>
             </objects>
             <point key="canvasLocation" x="1535.2" y="109.29535232383809"/>
         </scene>
@@ -201,6 +364,14 @@
             </objects>
             <point key="canvasLocation" x="596" y="109.29535232383809"/>
         </scene>
+        <!--Promotion-->
+        <scene sceneID="CTA-zY-ERE">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Promotion" referencedIdentifier="Promotion" id="5Zj-Px-UtD" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CpS-he-myN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2194" y="-22"/>
+        </scene>
         <!--booking-->
         <scene sceneID="Vpm-WY-TUR">
             <objects>
@@ -211,7 +382,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Air Cool" width="32" height="32"/>
+        <image name="Camera" width="32" height="32"/>
         <image name="LeflSlide" width="25" height="25"/>
+        <image name="Light" width="32" height="32"/>
+        <image name="Up" width="8" height="8"/>
         <image name="arrow_right" width="24" height="24"/>
         <image name="icons8-street_view_filled" width="25" height="25"/>
         <image name="promotion" width="25" height="25"/>

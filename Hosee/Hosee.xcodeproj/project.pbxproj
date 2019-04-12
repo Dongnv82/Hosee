@@ -27,11 +27,15 @@
 		8126FAD3225C3EC1000D9898 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8126FAD2225C3EC1000D9898 /* TestViewController.swift */; };
 		815AEE4B2254A03500C1AE17 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815AEE4A2254A03500C1AE17 /* RatingControl.swift */; };
 		8171BE40225D9DCB00272220 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8171BE3F225D9DCB00272220 /* Login.storyboard */; };
+		971DBE87225F3BEA004BF3D6 /* WorkingSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971DBE86225F3BEA004BF3D6 /* WorkingSelectionView.swift */; };
+		971DBE89225F3EA2004BF3D6 /* HomeViewController+WorkingSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971DBE88225F3EA1004BF3D6 /* HomeViewController+WorkingSelectionView.swift */; };
 		B2E450B6224B19CE00EE083D /* Podfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = B2E450B5224B19CE00EE083D /* Podfile.lock */; };
 		CD8DF1C5C683A64280A800CD /* Pods_HoseeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EAC0832D3F9A9E935365C47 /* Pods_HoseeUITests.framework */; };
-		CE237A9F224C566900F5B7C6 /* HasPromotion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE237A9E224C566900F5B7C6 /* HasPromotion.storyboard */; };
-		CE237AA2224C56FB00F5B7C6 /* HasPromotionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE237AA0224C56FB00F5B7C6 /* HasPromotionTableViewCell.swift */; };
-		CE237AA3224C56FB00F5B7C6 /* HasPromotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE237AA1224C56FB00F5B7C6 /* HasPromotionViewController.swift */; };
+		CE36D1D9225D9F2500824F04 /* PromotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE36D1D6225D9F2400824F04 /* PromotionViewController.swift */; };
+		CE36D1DA225D9F2500824F04 /* PromotionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE36D1D7225D9F2400824F04 /* PromotionTableViewCell.swift */; };
+		CE36D1DB225D9F2500824F04 /* Promotion.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE36D1D8225D9F2500824F04 /* Promotion.storyboard */; };
+		CE36D1DD225D9F3B00824F04 /* PromotionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE36D1DC225D9F3B00824F04 /* PromotionModel.swift */; };
+		CE36D1DF225D9F4800824F04 /* PromotionDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE36D1DE225D9F4800824F04 /* PromotionDataService.swift */; };
 		D2C22B466E9095AD1D084675 /* Pods_HoseeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BBACBAAB6E9E152157E27BE /* Pods_HoseeTests.framework */; };
 		EBFC664D2243864000CE8578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC664C2243864000CE8578 /* AppDelegate.swift */; };
 		EBFC664F2243864000CE8578 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC664E2243864000CE8578 /* HomeViewController.swift */; };
@@ -85,12 +89,16 @@
 		815AEE4A2254A03500C1AE17 /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		8171BE3F225D9DCB00272220 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		8BBACBAAB6E9E152157E27BE /* Pods_HoseeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HoseeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		971DBE86225F3BEA004BF3D6 /* WorkingSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingSelectionView.swift; sourceTree = "<group>"; };
+		971DBE88225F3EA1004BF3D6 /* HomeViewController+WorkingSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+WorkingSelectionView.swift"; sourceTree = "<group>"; };
 		B0F064546EF094BC4D3E3DBD /* Pods-Hosee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hosee.release.xcconfig"; path = "Target Support Files/Pods-Hosee/Pods-Hosee.release.xcconfig"; sourceTree = "<group>"; };
 		B215F645224DC0A000486AB6 /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
 		B2E450B5224B19CE00EE083D /* Podfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile.lock; sourceTree = SOURCE_ROOT; };
-		CE237A9E224C566900F5B7C6 /* HasPromotion.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HasPromotion.storyboard; sourceTree = "<group>"; };
-		CE237AA0224C56FB00F5B7C6 /* HasPromotionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasPromotionTableViewCell.swift; sourceTree = "<group>"; };
-		CE237AA1224C56FB00F5B7C6 /* HasPromotionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasPromotionViewController.swift; sourceTree = "<group>"; };
+		CE36D1D6225D9F2400824F04 /* PromotionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromotionViewController.swift; sourceTree = "<group>"; };
+		CE36D1D7225D9F2400824F04 /* PromotionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromotionTableViewCell.swift; sourceTree = "<group>"; };
+		CE36D1D8225D9F2500824F04 /* Promotion.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Promotion.storyboard; sourceTree = "<group>"; };
+		CE36D1DC225D9F3B00824F04 /* PromotionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromotionModel.swift; sourceTree = "<group>"; };
+		CE36D1DE225D9F4800824F04 /* PromotionDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromotionDataService.swift; sourceTree = "<group>"; };
 		DF770F9613A8BF161B579B9A /* Pods-HoseeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HoseeUITests.debug.xcconfig"; path = "Target Support Files/Pods-HoseeUITests/Pods-HoseeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E781E4B6EF67C7EF26C3E77C /* Pods-HoseeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HoseeTests.debug.xcconfig"; path = "Target Support Files/Pods-HoseeTests/Pods-HoseeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EBFC66492243864000CE8578 /* Hosee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hosee.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,6 +162,7 @@
 		578F34E4225D7FD4007FA96B /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				CE36D1DE225D9F4800824F04 /* PromotionDataService.swift */,
 				57F0805D225D9A1900262E46 /* DataService.swift */,
 				578F34E6225D7FD4007FA96B /* UrlFactory.swift */,
 			);
@@ -164,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				578F34EA225D7FF9007FA96B /* ClientsHistory.swift */,
+				CE36D1DC225D9F3B00824F04 /* PromotionModel.swift */,
 				578F34EB225D7FF9007FA96B /* UserLoginInfo.swift */,
 			);
 			path = Model;
@@ -256,17 +266,19 @@
 			isa = PBXGroup;
 			children = (
 				EBFC664E2243864000CE8578 /* HomeViewController.swift */,
-				CE237AA0224C56FB00F5B7C6 /* HasPromotionTableViewCell.swift */,
-				CE237AA1224C56FB00F5B7C6 /* HasPromotionViewController.swift */,
 				577EB2272252F64D00166885 /* LoginViewController.swift */,
 				579DA2BA225EE2FD0022518D /* ShowAlert.swift */,
 				B215F645224DC0A000486AB6 /* Location.gpx */,
 				EBFC66502243864000CE8578 /* Main.storyboard */,
 				042655D72248867B004FCB9A /* Booking.storyboard */,
-				CE237A9E224C566900F5B7C6 /* HasPromotion.storyboard */,
 				603F40C622487A75007FA914 /* History.storyboard */,
 				603F40C422487A75007FA914 /* Home.storyboard */,
+				971DBE86225F3BEA004BF3D6 /* WorkingSelectionView.swift */,
+				971DBE88225F3EA1004BF3D6 /* HomeViewController+WorkingSelectionView.swift */,
 				8171BE3F225D9DCB00272220 /* Login.storyboard */,
+				CE36D1D8225D9F2500824F04 /* Promotion.storyboard */,
+				CE36D1D7225D9F2400824F04 /* PromotionTableViewCell.swift */,
+				CE36D1D6225D9F2400824F04 /* PromotionViewController.swift */,
 				603F40CE22487A98007FA914 /* HistoryScene */,
 				578F34E4225D7FD4007FA96B /* Network */,
 				578F34E9225D7FF9007FA96B /* Model */,
@@ -403,8 +415,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE237A9F224C566900F5B7C6 /* HasPromotion.storyboard in Resources */,
 				EBFC665A2243864100CE8578 /* LaunchScreen.storyboard in Resources */,
+				CE36D1DB225D9F2500824F04 /* Promotion.storyboard in Resources */,
 				EBFC66572243864100CE8578 /* Assets.xcassets in Resources */,
 				042655D82248867B004FCB9A /* Booking.storyboard in Resources */,
 				EBFC66522243864000CE8578 /* Main.storyboard in Resources */,
@@ -536,21 +548,26 @@
 				EBFC664D2243864000CE8578 /* AppDelegate.swift in Sources */,
 				577EB2282252F64D00166885 /* LoginViewController.swift in Sources */,
 				603F40CC22487A94007FA914 /* HistoryTableViewCell.swift in Sources */,
+				CE36D1DA225D9F2500824F04 /* PromotionTableViewCell.swift in Sources */,
 				578F34EC225D7FF9007FA96B /* ClientsHistory.swift in Sources */,
+				CE36D1D9225D9F2500824F04 /* PromotionViewController.swift in Sources */,
 				5765DDA52244BEB800133B81 /* ContainerViewController.swift in Sources */,
+				CE36D1DD225D9F3B00824F04 /* PromotionModel.swift in Sources */,
 				5765DDA72244BECC00133B81 /* LeftSlideViewController.swift in Sources */,
 				5721F9BF22447D0800267BEC /* UIView+Extension.swift in Sources */,
 				04DF6CE92248BF1700853A97 /* RuningLabelView.swift in Sources */,
+				971DBE87225F3BEA004BF3D6 /* WorkingSelectionView.swift in Sources */,
 				578F34ED225D7FF9007FA96B /* UserLoginInfo.swift in Sources */,
 				04DF6CE32248B4E300853A97 /* BookingViewController.swift in Sources */,
 				578F34E8225D7FD5007FA96B /* UrlFactory.swift in Sources */,
-				CE237AA2224C56FB00F5B7C6 /* HasPromotionTableViewCell.swift in Sources */,
+				CE36D1DF225D9F4800824F04 /* PromotionDataService.swift in Sources */,
 				EBFC66552243864000CE8578 /* Hosee.xcdatamodeld in Sources */,
 				579DA2BB225EE2FD0022518D /* ShowAlert.swift in Sources */,
 				CE237AA3224C56FB00F5B7C6 /* HasPromotionViewController.swift in Sources */,
 				815AEE4B2254A03500C1AE17 /* RatingControl.swift in Sources */,
 				57F0805E225D9A1900262E46 /* DataService.swift in Sources */,
 				8126FAD3225C3EC1000D9898 /* TestViewController.swift in Sources */,
+				971DBE89225F3EA2004BF3D6 /* HomeViewController+WorkingSelectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -29,8 +29,10 @@ class BookingViewController: UIViewController {
         backButton.isHidden = true
         cancelButton.isEnabled = false
         startTime()
-        
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        photo.roundAndRound(duration: 5.0)
     }
     
     func startTime () {
