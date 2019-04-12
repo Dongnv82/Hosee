@@ -562,8 +562,11 @@
 				578F34E8225D7FD5007FA96B /* UrlFactory.swift in Sources */,
 				CE36D1DF225D9F4800824F04 /* PromotionDataService.swift in Sources */,
 				EBFC66552243864000CE8578 /* Hosee.xcdatamodeld in Sources */,
+<<<<<<< HEAD
 				579DA2BB225EE2FD0022518D /* ShowAlert.swift in Sources */,
 				CE237AA3224C56FB00F5B7C6 /* HasPromotionViewController.swift in Sources */,
+=======
+>>>>>>> 80355758288266316278eea3f42377daa564dbb2
 				815AEE4B2254A03500C1AE17 /* RatingControl.swift in Sources */,
 				57F0805E225D9A1900262E46 /* DataService.swift in Sources */,
 				8126FAD3225C3EC1000D9898 /* TestViewController.swift in Sources */,
