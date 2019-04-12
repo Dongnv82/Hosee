@@ -8,6 +8,7 @@
 
 import Foundation
 struct UserLoginInfo: Decodable {
+    let message: String
     let data: UserInfo
     
     struct UserInfo: Decodable {
