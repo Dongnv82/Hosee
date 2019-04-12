@@ -24,7 +24,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hHj-iM-7cp">
                                 <rect key="frame" x="16" y="32" width="288" height="108"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kta-27-Ysa">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kta-27-Ysa" customClass="View" customModule="Hosee" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="50"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LUy-9v-TdI">
@@ -72,58 +72,81 @@
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                <real key="value" value="8"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="4"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3rA-bU-4Nz">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gW3-jf-hyx" customClass="View" customModule="Hosee" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="58" width="288" height="50"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j8R-79-rTQ" customClass="Button" customModule="Hosee" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="240" height="50"/>
-                                                <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" image="promotion">
-                                                    <attributedString key="attributedTitle">
-                                                        <fragment content="Khuyến mãi">
-                                                            <attributes>
-                                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                                <font key="NSFont" metaFont="system" size="17"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                        <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="rightBorder" value="NO"/>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="onClickPromoteButton:" destination="3kV-2B-oKj" eventType="touchUpInside" id="9r2-Nf-4nv"/>
-                                                    <segue destination="5Zj-Px-UtD" kind="show" id="91O-GQ-x5s"/>
-                                                </connections>
-                                            </button>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aIa-1r-Yhb">
-                                                <rect key="frame" x="240" y="0.0" width="48" height="50"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3rA-bU-4Nz">
+                                                <rect key="frame" x="0.0" y="0.0" width="288" height="50"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="IRi-ey-mzF">
-                                                        <rect key="frame" x="12" y="13" width="24" height="24"/>
-                                                        <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j8R-79-rTQ" customClass="Button" customModule="Hosee" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="240" height="50"/>
+                                                        <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal" image="promotion">
+                                                            <attributedString key="attributedTitle">
+                                                                <fragment content="Khuyến mãi">
+                                                                    <attributes>
+                                                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                        <font key="NSFont" metaFont="system" size="17"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                                <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rightBorder" value="NO"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="onClickPromoteButton:" destination="3kV-2B-oKj" eventType="touchUpInside" id="9r2-Nf-4nv"/>
+                                                            <segue destination="5Zj-Px-UtD" kind="show" id="91O-GQ-x5s"/>
+                                                        </connections>
+                                                    </button>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aIa-1r-Yhb">
+                                                        <rect key="frame" x="240" y="0.0" width="48" height="50"/>
+                                                        <subviews>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="IRi-ey-mzF">
+                                                                <rect key="frame" x="12" y="13" width="24" height="24"/>
+                                                                <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstItem="IRi-ey-mzF" firstAttribute="centerX" secondItem="aIa-1r-Yhb" secondAttribute="centerX" id="0ld-iK-H89"/>
+                                                            <constraint firstItem="IRi-ey-mzF" firstAttribute="centerY" secondItem="aIa-1r-Yhb" secondAttribute="centerY" id="ePM-7E-MLP"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstItem="IRi-ey-mzF" firstAttribute="centerX" secondItem="aIa-1r-Yhb" secondAttribute="centerX" id="0ld-iK-H89"/>
-                                                    <constraint firstItem="IRi-ey-mzF" firstAttribute="centerY" secondItem="aIa-1r-Yhb" secondAttribute="centerY" id="ePM-7E-MLP"/>
+                                                    <constraint firstItem="aIa-1r-Yhb" firstAttribute="width" secondItem="j8R-79-rTQ" secondAttribute="width" multiplier="1/5" id="nHK-bc-1cG"/>
                                                 </constraints>
-                                            </view>
+                                            </stackView>
                                         </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="aIa-1r-Yhb" firstAttribute="width" secondItem="j8R-79-rTQ" secondAttribute="width" multiplier="1/5" id="nHK-bc-1cG"/>
+                                            <constraint firstItem="3rA-bU-4Nz" firstAttribute="top" secondItem="gW3-jf-hyx" secondAttribute="top" id="H2h-Rq-lyK"/>
+                                            <constraint firstItem="3rA-bU-4Nz" firstAttribute="leading" secondItem="gW3-jf-hyx" secondAttribute="leading" id="RpP-lI-aOr"/>
+                                            <constraint firstAttribute="bottom" secondItem="3rA-bU-4Nz" secondAttribute="bottom" id="jly-hL-Lr6"/>
+                                            <constraint firstAttribute="trailing" secondItem="3rA-bU-4Nz" secondAttribute="trailing" id="mJ7-Rt-UTb"/>
                                         </constraints>
-                                    </stackView>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.72941176470000002" green="0.72941176470000002" blue="0.72941176470000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                 </subviews>
                             </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-street_view_filled" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pHK-Ba-AlF">

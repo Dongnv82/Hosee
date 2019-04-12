@@ -53,6 +53,12 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
         }
     }
     
+    var selectedPromotion: Promo? {
+        didSet {
+            
+        }
+    }
+    
     var delegate: HomeViewControllerDelegate?
     
     @IBOutlet weak var mapView: GMSMapView!
