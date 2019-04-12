@@ -23,9 +23,25 @@ class ImageView: UIImageView {
 @IBDesignable
 class View: UIView {
     @IBInspectable var cornerRadius: CGFloat = 0
+    @IBInspectable var topBorder: Bool = false
+    @IBInspectable var leftBorder: Bool = false
+    @IBInspectable var rightBorder: Bool = false
+    @IBInspectable var bottomBorder: Bool = false
     override func layoutSubviews() {
         super.layoutSubviews()
         rounderCorner(radius: cornerRadius)
+        if topBorder {
+            addBorder(layerNameKey: LayerNameKey.topBorder, color: borderColor)
+        }
+        if leftBorder {
+            addBorder(layerNameKey: LayerNameKey.leftBorder, color: borderColor)
+        }
+        if rightBorder {
+            addBorder(layerNameKey: LayerNameKey.rightBorder, color: borderColor)
+        }
+        if bottomBorder {
+            addBorder(layerNameKey: LayerNameKey.bottomBorder, color: borderColor)
+        }
     }
 }
 
@@ -183,6 +199,16 @@ extension UIView {
         let rotation = transform.rotated(by: angle)
         transform = rotation
     }
+    
+    func roundAndRound(duration: CFTimeInterval = 5.0) {
+        let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
+        rotateAnimation.fromValue = 0.0
+        rotateAnimation.toValue = CGFloat(.pi * 2.0)
+        rotateAnimation.duration = duration
+        rotateAnimation.repeatCount = .greatestFiniteMagnitude
+        self.layer.add(rotateAnimation, forKey: nil)
+    }
+    
     func rotate(_ toValue: CGFloat, duration: CFTimeInterval = 0.2) {
         let animation = CABasicAnimation(keyPath: "transform.rotation")
         
@@ -212,114 +238,42 @@ extension UIView {
 }
 
 // MARK: - Border 4 edges
-fileprivate class Keys {
-    static let TOP_BORDER = "top-border"
-    static let BOTTOM_BORDER = "bottom-border"
-    static let LEFT_BORDER = "left-border"
-    static let RIGHT_BORDER = "right-boder"
+
+enum LayerNameKey : String {
+    case topBorder = "top-border"
+    case bottomBorder = "bottom-border"
+    case leftBorder = "left-border"
+    case rightBorder = "right-boder"
+    
+    func getRect(with layer: CALayer, lineWeight: CGFloat) -> CGRect {
+        switch self {
+        case .topBorder:
+           return  CGRect(x: 0, y: 0, width: layer.frame.width, height: lineWeight)
+        case .bottomBorder:
+            return CGRect(x: 0, y: layer.frame.height - lineWeight, width: layer.frame.width, height: lineWeight)
+        case .leftBorder:
+            return CGRect(x: 0, y: 0, width: lineWeight, height: layer.frame.height)
+        case .rightBorder:
+            return CGRect(x: layer.frame.width - lineWeight, y: 0, width: lineWeight, height: layer.frame.height)
+        }
+    }
 }
 
+
 extension UIView {
-    
-    @IBInspectable var topBorder: Bool {
-        get {
-            return layer.value(forKey: Keys.TOP_BORDER) != nil
-        }
-        set {
-            addTopBorder(isActive: newValue)
-        }
-    }
-    
-    func addTopBorder(isActive: Bool, height: CGFloat = 1) {
-        if isActive {
+    func addBorder(layerNameKey: LayerNameKey, color: UIColor? = nil) {
             // add top border
-            let border = UIView(frame: CGRect(x: 0, y: 0, width: layer.frame.width, height: height))
-            border.layer.name = Keys.TOP_BORDER
-            border.backgroundColor = borderColor
-            layer.setValue(border, forKey: Keys.TOP_BORDER)
+        let border = UIView(frame: layerNameKey.getRect(with: layer, lineWeight: borderWidth))
+            border.layer.name = layerNameKey.rawValue
+            border.backgroundColor = color ?? UIColor.groupTableViewBackground
+            layer.setValue(border, forKey: layerNameKey.rawValue)
             addSubview(border)
-        }
-        else {
-            if let border = layer.value(forKey: Keys.TOP_BORDER) as? UIView {
-                border.removeFromSuperview()
-                layer.setValue(nil, forKey: Keys.TOP_BORDER)
-            }
-        }
     }
-    
-    @IBInspectable var bottomBorder: Bool {
-        get {
-            return layer.value(forKey: Keys.BOTTOM_BORDER) != nil
-        }
-        set {
-            addBottomBorder(isActive: newValue)
-        }
-    }
-    
-    func addBottomBorder(isActive: Bool, height: CGFloat = 1) {
-        if isActive {
-            // add top border
-            let border = UIView(frame: CGRect(x: 0, y: layer.frame.height - height, width: layer.frame.width, height: height))
-            border.layer.name = Keys.BOTTOM_BORDER
-            border.backgroundColor = borderColor
-            layer.setValue(border, forKey: Keys.BOTTOM_BORDER)
-            addSubview(border)
-        }
-        else {
-            if let border = layer.value(forKey: Keys.BOTTOM_BORDER) as? UIView {
-                border.removeFromSuperview()
-                layer.setValue(nil, forKey: Keys.BOTTOM_BORDER)
-            }
-        }
-    }
-    @IBInspectable var leftBorder: Bool {
-        get {
-            return layer.value(forKey: Keys.LEFT_BORDER) != nil
-        }
-        set {
-            addLeftBorder(isActive: newValue)
-        }
-    }
-    
-    func addLeftBorder(isActive: Bool, width: CGFloat = 1) {
-        if isActive {
-            // add top border
-            let border = UIView(frame: CGRect(x: 0, y: 0, width: width, height: layer.frame.height))
-            border.layer.name = Keys.LEFT_BORDER
-            border.backgroundColor = borderColor
-            layer.setValue(border, forKey: Keys.LEFT_BORDER)
-            addSubview(border)
-        }
-        else {
-            if let border = layer.value(forKey: Keys.LEFT_BORDER) as? UIView {
-                border.removeFromSuperview()
-                layer.setValue(nil, forKey: Keys.LEFT_BORDER)
-            }
-        }
-    }
-    @IBInspectable var rightBorder: Bool {
-        get {
-            return layer.value(forKey: Keys.RIGHT_BORDER) != nil
-        }
-        set {
-            addRightBorder(isActive: newValue)
-        }
-    }
-    
-    func addRightBorder(isActive: Bool, width: CGFloat = 1) {
-        if isActive {
-            // add top border
-            let border = UIView(frame: CGRect(x: layer.frame.width - width, y: 0, width: width, height: layer.frame.height))
-            border.layer.name = Keys.RIGHT_BORDER
-            border.backgroundColor = borderColor
-            layer.setValue(border, forKey: Keys.RIGHT_BORDER)
-            addSubview(border)
-        }
-        else {
-            if let border = layer.value(forKey: Keys.RIGHT_BORDER) as? UIView {
-                border.removeFromSuperview()
-                layer.setValue(nil, forKey: Keys.RIGHT_BORDER)
-            }
+
+    func removeBorderLayer(layerNameKey: LayerNameKey) {
+        if let border = layer.value(forKey: layerNameKey.rawValue) as? UIView {
+            border.removeFromSuperview()
+            layer.setValue(nil, forKey: layerNameKey.rawValue)
         }
     }
 }
