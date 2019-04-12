@@ -12,13 +12,13 @@ import GoogleMaps
 import GooglePlacePicker
 protocol HomeViewControllerDelegate: class {
     var isLeftSlideMenuOpen: Bool {get set}
-    
 }
 
 class HomeViewController: UIViewController, GMSMapViewDelegate {
     
     @IBOutlet var workingSelectionView: WorkingSelectionView!
-    @IBOutlet weak var selectedButton: Button!
+    @IBOutlet weak var addressContainerView: UIView!
+    @IBOutlet weak var selectedWorkingTypeContainerView: UIView!
     
     
     @IBOutlet weak var addressLabel: InfinityLoopLabelView!
@@ -32,6 +32,32 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
         locationManager.delegate = self
         return locationManager
     }()
+    
+    var selectedPlace: GMSPlace? {
+        didSet {
+            guard let place = selectedPlace else {
+                return
+            }
+            addressContainerView.backgroundColor = UIColor.white
+            addressLabel.text = place.formattedAddress
+            let camera2 = GMSCameraPosition.camera(withLatitude: place.coordinate.latitude, longitude: place.coordinate.longitude, zoom: 18.0)
+            mapView.camera = camera2
+        }
+    }
+    
+    var selectedWorkingType: WorkingType? {
+        didSet {
+            guard let selectedWorkingType = selectedWorkingType else {return }
+            selectedWorkingTypeContainerView.backgroundColor = UIColor.colorFormHex(hex: 0x007AFF)
+
+        }
+    }
+    
+    var selectedPromotion: Promo? {
+        didSet {
+            
+        }
+    }
     
     var delegate: HomeViewControllerDelegate?
     
@@ -59,13 +85,35 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
         sender.animate { (view) in
             
         }
-       
-        if let vc = UIStoryboard(name: "Booking", bundle: nil).instantiateViewController(withIdentifier: "booking") as? BookingViewController
-        {
-            vc.restString = addressLabel.text
-            present(vc, animated: true, completion: nil)
-        }
         
+        
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        switch identifier {
+        case SegueIdentifier.showBooking.rawValue:
+            if selectedPlace == nil {
+                addressContainerView.shake()
+            }
+            if selectedWorkingType == nil {
+                selectedWorkingTypeContainerView.shake()
+            }
+            return selectedPlace != nil && selectedWorkingType != nil
+        default:
+            return true
+        }
+    }
+    
+    // MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier ?? "" {
+        case SegueIdentifier.showBooking.rawValue:
+            let vc = segue.destination as! BookingViewController
+            vc.restString = addressLabel.text
+
+        default:
+            return
+        }
     }
     
     @IBAction func onClickedMenu(_ sender: Any) {
@@ -148,11 +196,7 @@ extension HomeViewController: GMSPlacePickerViewControllerDelegate {
     func placePicker(_ viewController: GMSPlacePickerViewController, didPick place: GMSPlace) {
         // Dismiss the place picker, as it cannot dismiss itself.
         viewController.dismiss(animated: true, completion: nil)
-        
-        addressLabel.text = place.formattedAddress
-        
-        let camera2 = GMSCameraPosition.camera(withLatitude: place.coordinate.latitude, longitude: place.coordinate.longitude, zoom: 18.0)
-        mapView.camera = camera2
+        selectedPlace = place
     }
     
     func placePickerDidCancel(_ viewController: GMSPlacePickerViewController) {

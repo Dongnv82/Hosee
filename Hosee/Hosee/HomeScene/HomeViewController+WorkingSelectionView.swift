@@ -14,19 +14,8 @@ extension HomeViewController {
         workingSelectionView.fill(left: 0, top: 0, right: 0, bottom: -100)
 
         workingSelectionView.closure = { [weak self] workingType in
-            var text: String = ""
-            switch workingType {
-            case .camera:
-                text = "Sửa chữa Camera"
-                
-            case .airCool:
-                text = "Sửa chữa Điều Hoà"
-                
-            default:
-                text = "Sửa chữa Đèn"
-            }
-            self?.selectedButton.setTitle(text, for: .normal)
-            self?.selectedButton.isSelected = false
+            
+            self?.selectedWorkingType = workingType
         }
     }
     
@@ -34,7 +23,7 @@ extension HomeViewController {
     
     
     
-    @IBAction func onClickSelectedMenu(_ sender: UIButton) {
+    @IBAction func onClickSelectedWorkingType(_ sender: UIButton) {
         workingSelectionView.toggle()
           sender.isSelected = !sender.isSelected
     }

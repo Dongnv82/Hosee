@@ -38,7 +38,7 @@ class InfinityLoopLabelView: UIView {
         label.text = text
         label.frame = CGRect.zero
         let sizeOfText = label.sizeThatFits(CGSize.zero)
-        isTextTooLong = sizeOfText.width > frame.size.width ? true : false
+        isTextTooLong = sizeOfText.width + 16.0 > frame.size.width 
         self.addSubview(label)
         leadingConstraint = label.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: paddingLeft)
         leadingConstraint?.isActive = true

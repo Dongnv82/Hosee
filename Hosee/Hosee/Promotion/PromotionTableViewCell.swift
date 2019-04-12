@@ -10,10 +10,15 @@ import UIKit
 
 import UIKit
 
+protocol PromotionTableViewCellDelegate {
+    func usingPromotion(_ promotion: Promo?)
+}
+
+let dateNow = Date()
+
 class PromotionTableViewCell: UITableViewCell {
     
     @IBOutlet weak var promotionDayLabel: UILabel!
-    
     @IBOutlet weak var upView: UIView!
     @IBOutlet weak var dashView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -24,6 +29,34 @@ class PromotionTableViewCell: UITableViewCell {
     @IBOutlet weak var bottomDashView: NSLayoutConstraint!
     @IBOutlet weak var topDashView: NSLayoutConstraint!
     
+    let formatter: DateFormatter = {
+        let tmpFormatter = DateFormatter()
+        tmpFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
+        
+        return tmpFormatter
+    }()
+    
+    var delegate: PromotionTableViewCellDelegate?
+    var promotion: Promo? {
+        didSet {
+            if let promotion = promotion {
+            let dateTo = promotion.availableTo?.toDate
+            
+            let dayLeft = Calendar.current.dateComponents([.day], from: dateNow, to: dateTo!)
+            
+            
+            promotionDayLabel.text = String("\(dayLeft.day!) ngày")
+            titleLabel.text = promotion.keyString
+            timeLabel.text = promotion.availableTo
+            } else {
+                promotionDayLabel.text = ""
+                titleLabel.text = ""
+                timeLabel.text = ""
+            }
+        }
+            
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -31,11 +64,14 @@ class PromotionTableViewCell: UITableViewCell {
         dashView.addDashedBorder()
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-        
+    override func prepareForReuse() {
+        promotion = nil
+    }
+    
+    func getTimeOfDate() -> String {
+        let curDate = Date()
+        let timeString = formatter.string(from: curDate)
+        return timeString
     }
     
     func customLayoutView() {
@@ -44,6 +80,10 @@ class PromotionTableViewCell: UITableViewCell {
         bottomUnderView.constant = radius
         topDashView.constant = -radius
         bottomDashView.constant = -radius
+        timeLabel.textColor = UIColor.gray
+    }
+    @IBAction func onClickedUsePromotion(_ sender: Any) {
+        delegate?.usingPromotion(promotion)
     }
     
 }
