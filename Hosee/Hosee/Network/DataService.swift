@@ -10,6 +10,7 @@ import Foundation
 class DataService {
     static var shared: DataService = DataService()
     func callAPILogin(user: User,  completedHandler: @escaping(UserLoginInfo) -> Void) {
+        LoadingView.start()
         let url = URLFactory.login.URL
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
@@ -20,13 +21,16 @@ class DataService {
         let uploadTask = URLSession.shared.uploadTask(with: urlRequest, from: data)  { (data, response , error) in
             guard error == nil else {
                 print(error!.localizedDescription)
+                showAlert(title: "Login Error", message: error!.localizedDescription)
                 return
             }
             guard let aData = data else {return}
             do {
-                let jSonObject = try JSONDecoder().decode(UserLoginInfo.self, from: aData)
+                let userLoginInfo = try JSONDecoder().decode(UserLoginInfo.self, from: aData)
                 DispatchQueue.main.async {
-                    completedHandler(jSonObject)
+                    
+                    LoadingView.stop()
+                    completedHandler(userLoginInfo)
                 }
             } catch {
                 print(error.localizedDescription)

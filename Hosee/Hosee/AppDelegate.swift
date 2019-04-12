@@ -15,6 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    static var shared = {
+        return UIApplication.shared.delegate as! AppDelegate
+    }()
+    
     var key: String = "AIzaSyCY-m1uyZ2q9idL5HAQNJ5YyI72cH1n_lU"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
