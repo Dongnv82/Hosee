@@ -24,9 +24,9 @@
 		603F40CC22487A94007FA914 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603F40CA22487A93007FA914 /* HistoryTableViewCell.swift */; };
 		603F40CD22487A94007FA914 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603F40CB22487A93007FA914 /* HistoryTableViewController.swift */; };
 		6F10B9F8BBA0D44ADC411EE2 /* Pods_Hosee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC8DE8763683B800D619B1C0 /* Pods_Hosee.framework */; };
-		8126FAD3225C3EC1000D9898 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8126FAD2225C3EC1000D9898 /* TestViewController.swift */; };
 		815AEE4B2254A03500C1AE17 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815AEE4A2254A03500C1AE17 /* RatingControl.swift */; };
 		8171BE40225D9DCB00272220 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8171BE3F225D9DCB00272220 /* Login.storyboard */; };
+		81848AAD226072FC00D2BE7D /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81848AAC226072FC00D2BE7D /* OrderModel.swift */; };
 		971DBE87225F3BEA004BF3D6 /* WorkingSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971DBE86225F3BEA004BF3D6 /* WorkingSelectionView.swift */; };
 		971DBE89225F3EA2004BF3D6 /* HomeViewController+WorkingSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971DBE88225F3EA1004BF3D6 /* HomeViewController+WorkingSelectionView.swift */; };
 		B2E450B6224B19CE00EE083D /* Podfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = B2E450B5224B19CE00EE083D /* Podfile.lock */; };
@@ -85,9 +85,9 @@
 		603F40CB22487A93007FA914 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		774DFF3F8ED8E30DDA6BC4D9 /* Pods-HoseeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HoseeUITests.release.xcconfig"; path = "Target Support Files/Pods-HoseeUITests/Pods-HoseeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7EAC0832D3F9A9E935365C47 /* Pods_HoseeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HoseeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8126FAD2225C3EC1000D9898 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		815AEE4A2254A03500C1AE17 /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		8171BE3F225D9DCB00272220 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		81848AAC226072FC00D2BE7D /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
 		8BBACBAAB6E9E152157E27BE /* Pods_HoseeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HoseeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		971DBE86225F3BEA004BF3D6 /* WorkingSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkingSelectionView.swift; sourceTree = "<group>"; };
 		971DBE88225F3EA1004BF3D6 /* HomeViewController+WorkingSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+WorkingSelectionView.swift"; sourceTree = "<group>"; };
@@ -175,6 +175,7 @@
 				578F34EA225D7FF9007FA96B /* ClientsHistory.swift */,
 				CE36D1DC225D9F3B00824F04 /* PromotionModel.swift */,
 				578F34EB225D7FF9007FA96B /* UserLoginInfo.swift */,
+				81848AAC226072FC00D2BE7D /* OrderModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -222,7 +223,6 @@
 			isa = PBXGroup;
 			children = (
 				603F40CA22487A93007FA914 /* HistoryTableViewCell.swift */,
-				8126FAD2225C3EC1000D9898 /* TestViewController.swift */,
 				603F40CB22487A93007FA914 /* HistoryTableViewController.swift */,
 				04DF6CE22248B4E300853A97 /* BookingViewController.swift */,
 			);
@@ -561,12 +561,11 @@
 				04DF6CE32248B4E300853A97 /* BookingViewController.swift in Sources */,
 				578F34E8225D7FD5007FA96B /* UrlFactory.swift in Sources */,
 				CE36D1DF225D9F4800824F04 /* PromotionDataService.swift in Sources */,
+				81848AAD226072FC00D2BE7D /* OrderModel.swift in Sources */,
 				EBFC66552243864000CE8578 /* Hosee.xcdatamodeld in Sources */,
 				579DA2BB225EE2FD0022518D /* ShowAlert.swift in Sources */,
-				CE237AA3224C56FB00F5B7C6 /* HasPromotionViewController.swift in Sources */,
 				815AEE4B2254A03500C1AE17 /* RatingControl.swift in Sources */,
 				57F0805E225D9A1900262E46 /* DataService.swift in Sources */,
-				8126FAD3225C3EC1000D9898 /* TestViewController.swift in Sources */,
 				971DBE89225F3EA2004BF3D6 /* HomeViewController+WorkingSelectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

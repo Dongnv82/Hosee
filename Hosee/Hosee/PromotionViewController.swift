@@ -197,17 +197,7 @@ extension PromotionViewController {
     }
 }
 
-extension String {
-    var toDate: Date {
-        get {
-            let dateFormater = DateFormatter()
-            dateFormater.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-            dateFormater.locale = Locale(identifier: "vi_VN")
-            let date = dateFormater.date(from: self)
-            return date!
-        }
-    }
-}
+
 
 
 

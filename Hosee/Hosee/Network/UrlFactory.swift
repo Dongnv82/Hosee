@@ -11,7 +11,7 @@ import Foundation
 
 enum URLFactory: String {
     //nơi khai báo case
-    case login, promotion, history
+    case login, promotion, history, createOrder
     
     //những thành phần gép lại thành baseURL
     var URL : URL {
@@ -32,6 +32,8 @@ enum URLFactory: String {
             return generalUrlComponent(path: "")
         case .history:
             return generalUrlComponent(path: "/clients/history/")
+        case .createOrder:
+            return generalUrlComponent(path: "/orders/create")
         }
     }
   

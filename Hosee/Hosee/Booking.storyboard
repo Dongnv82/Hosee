@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nOM-OM-vXF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nOM-OM-vXF">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -200,7 +200,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="backBtnMap:" destination="nOM-OM-vXF" eventType="touchUpInside" id="njC-U9-atL"/>
+                                    <action selector="bookingBtnTap:" destination="nOM-OM-vXF" eventType="touchUpInside" id="0qw-eq-otA"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -226,7 +226,7 @@
                         <viewLayoutGuide key="safeArea" id="Kee-wq-tu4"/>
                     </view>
                     <connections>
-                        <outlet property="backButton" destination="rdl-5A-IwX" id="IMt-86-Yd7"/>
+                        <outlet property="bookingButton" destination="rdl-5A-IwX" id="E3A-iy-B11"/>
                         <outlet property="cancelButton" destination="hWv-dH-ihp" id="GfX-qa-gCn"/>
                         <outlet property="loadding" destination="6GL-ap-cEV" id="98t-t6-H0C"/>
                         <outlet property="photo" destination="LIW-zV-M9p" id="Oix-7f-bMz"/>

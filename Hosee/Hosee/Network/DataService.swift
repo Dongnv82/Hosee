@@ -59,4 +59,30 @@ class DataService {
         }
         uploadTask.resume()
     }
+    
+    func callAPICreateOrder(order: Order, completedHandler: @escaping(OrderCreated) -> Void) {
+        let url = URLFactory.createOrder.URL
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
+        urlRequest.addValue("", forHTTPHeaderField: "Authorization")
+        let data = try? JSONEncoder().encode(order)
+        
+        let uploadTask = URLSession.shared.uploadTask(with: urlRequest, from: data) { (data, response, error) in
+            guard error == nil else {
+                print(error!.localizedDescription)
+                return
+            }
+            guard let aData = data else {return}
+            do {
+                let jSonObject = try JSONDecoder().decode(OrderCreated.self, from: aData)
+                DispatchQueue.main.async {
+                    completedHandler(jSonObject)
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        uploadTask.resume()
+    }
 }

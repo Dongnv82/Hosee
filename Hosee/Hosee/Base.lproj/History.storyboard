@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -264,38 +263,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IoD-Ez-2ml" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="740" y="995.35232383808102"/>
-        </scene>
-        <!--Test View Controller-->
-        <scene sceneID="cJt-Rk-juj">
-            <objects>
-                <viewController id="ETp-xb-YOD" customClass="TestViewController" customModule="Hosee" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="TBv-AF-D2p">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="scq-v7-2ki" customClass="InfinityLoopLabelView" customModule="Hosee" customModuleProvider="target">
-                                <rect key="frame" x="67.5" y="308" width="240" height="51"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="51" id="0tn-3K-ny7"/>
-                                    <constraint firstAttribute="width" constant="240" id="yCQ-QX-1E5"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="scq-v7-2ki" firstAttribute="centerY" secondItem="TBv-AF-D2p" secondAttribute="centerY" id="N8T-zh-wRI"/>
-                            <constraint firstItem="scq-v7-2ki" firstAttribute="centerX" secondItem="TBv-AF-D2p" secondAttribute="centerX" id="qD4-7h-6kr"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="Tt9-PZ-tOG"/>
-                    </view>
-                    <connections>
-                        <outlet property="testView" destination="scq-v7-2ki" id="Y3Y-YH-xAk"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GjG-7L-irF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1568.8" y="994.45277361319347"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ggC-DU-HDl">

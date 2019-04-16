@@ -14,19 +14,20 @@ class BookingViewController: UIViewController {
     @IBOutlet weak var loadding: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var runingLabel: InfinityLoopLabelView!
-    @IBOutlet weak var backButton: Button!
+    @IBOutlet weak var bookingButton: Button!
 
     @IBOutlet weak var cancelButton: UIButton!
     
     var restString: String?
     var timer = 10
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if restString != nil {
             runingLabel.text = restString
         }
-        backButton.isHidden = true
+        bookingButton.isHidden = true
         cancelButton.isEnabled = false
         startTime()
     }
@@ -43,15 +44,19 @@ class BookingViewController: UIViewController {
             timer -= 1
             timerLabel.text = String(timer)
         } else {
-            backButton.isHidden = false
+            bookingButton.isHidden = false
             cancelButton.isEnabled = true
             timerLabel.isHidden = true
         }
     }
     
-    @IBAction func backBtnMap(_ sender: Any) {
+    @IBAction func bookingBtnTap(_ sender: UIButton) {
+        let userInfo = UserDefaults.standard.object(forKey: "userInfo") as? UserLoginInfo
+        let orderInput = Order(clientID: (userInfo?.data.client.id)!, serviceType: 1, address: "", orderAt: 0, promoCode: "", notes: "", lat: 21.0335302, lng: 105.7678049)
+        DataService.shared.callAPICreateOrder(order: orderInput) { (data) in
+            print(data.code)
+        }
         dismiss(animated: true, completion: nil)
-      
     }
     
     @IBAction func cancelButtonAction(_ sender: UIButton) {

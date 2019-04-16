@@ -31,6 +31,7 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate {
 
     
     @IBAction func loginButton(_ sender: UIButton) {
+        
         let phoneNumber: String = "\(phoneNumberLabel.text?.dropFirst() ?? "")"
         let user = User(phoneNumber: "+84\(phoneNumber)", password: passWordLabel.text!, latitude: latitude!, longtitude: longitude!, deviceID: UIDevice.current.identifierForVendor!.uuidString)
         if phoneNumberLabel.text != "" && passWordLabel.text != "" {
