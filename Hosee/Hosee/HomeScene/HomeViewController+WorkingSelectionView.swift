@@ -12,6 +12,7 @@ extension HomeViewController {
     func setupWorkingSelectionView() {
         view.addSubview(workingSelectionView)
         workingSelectionView.fill(left: 0, top: 0, right: 0, bottom: -100)
+        workingSelectionView.alpha = 0
         workingSelectionView.closure = { [weak self] workingType in
             self?.selectedWorkingType = workingType
         }

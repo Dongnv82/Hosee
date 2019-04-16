@@ -10,6 +10,7 @@ import UIKit
 
 class BookingViewController: UIViewController {
     
+    var order: Order?
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var loadding: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
@@ -18,6 +19,8 @@ class BookingViewController: UIViewController {
 
     @IBOutlet weak var cancelButton: UIButton!
     
+    var backToHome: (() -> Void)?
+    var cancelOrderAction: (() -> Void)?
     var restString: String?
     var timer = 10
     
@@ -49,12 +52,18 @@ class BookingViewController: UIViewController {
         }
     }
     
-    @IBAction func backBtnMap(_ sender: Any) {
+    deinit {
+        
+    }
+    
+    @IBAction func backToHome(_ sender: Any) {
+        backToHome?()
         dismiss(animated: true, completion: nil)
       
     }
     
-    @IBAction func cancelButtonAction(_ sender: UIButton) {
+    @IBAction func cancelOrder(_ sender: UIButton) {
+        cancelOrderAction?()
         dismiss(animated: true, completion: nil)
     }
     
