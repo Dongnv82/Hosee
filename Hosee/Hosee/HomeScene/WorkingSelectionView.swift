@@ -24,7 +24,7 @@ class WorkingSelectionView:  View, ToggleViewProtocol {
     
     var closeDistance: CGFloat = 0.0
     
-    var showDistance: CGFloat = 10
+    var showDistance: CGFloat = 16
     
     var view: UIView!
     

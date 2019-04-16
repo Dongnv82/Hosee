@@ -19,7 +19,7 @@ protocol ToggleViewProtocol: class {
     var isOpen: Bool {get set}
     var view: UIView! {get set}
     var coverAlpha: CGFloat {get set}
-    
+
 }
 extension ToggleViewProtocol {
     
