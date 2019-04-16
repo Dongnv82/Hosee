@@ -73,6 +73,8 @@ class WorkingSelectionView:  View, ToggleViewProtocol {
             break
         }
         closure?(selectedWorkingType!)
+        title.text = selectedWorkingType?.title
+       
         toggle()
     }
     

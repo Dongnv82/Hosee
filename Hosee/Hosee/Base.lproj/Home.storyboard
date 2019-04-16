@@ -412,7 +412,7 @@
                         <outlet property="imageUpandDownOfSelect" destination="RIa-yW-Koo" id="7JD-PE-VmJ"/>
                         <outlet property="lightButton" destination="PCd-sx-ZuI" id="YpZ-Xp-9iQ"/>
                         <outlet property="menu" destination="sLl-eS-mzV" id="DQu-5P-4Zl"/>
-                        <outlet property="selectionWorkingTypeButton" destination="oae-3f-g6U" id="tvi-wm-dAW"/>
+                        <outlet property="selectionWorkingTypeButton" destination="oae-3f-g6U" id="2Na-Sd-qb6"/>
                         <outlet property="title" destination="8H3-LV-PyZ" id="Lxb-H7-K8s"/>
                     </connections>
                 </view>
