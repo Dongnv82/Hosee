@@ -1,98 +1,64 @@
-//
-//  UserDefaultHelper.swift
-//  Hosee
-//
-//  Created by Duc Anh on 4/12/19.
-//  Copyright © 2019 Minh Thang. All rights reserved.
-//
 
-import Foundation
+import UIKit
 
-extension Double {
-    func saveToUserDefaults(withKey key: String) {
-        let defaults = UserDefaults.standard
-        defaults.set(self, forKey: key)
-        defaults.synchronize()
-    }
-    static func loadFromUserDefaults(withKey key: String) -> Double {
-        let defaults = UserDefaults.standard
-        return defaults.double(forKey:key)
-    }
-}
+typealias JSON = [String : Any]
 
-extension Float {
-    func saveToUserDefaults(withKey key: String) {
-        let defaults = UserDefaults.standard
-        defaults.set(self, forKey: key)
-        defaults.synchronize()
-    }
-    static func loadFromUserDefaults(withKey key: String) -> Float {
-        let defaults = UserDefaults.standard
-        return defaults.float(forKey: key)
-    }
-}
-
-extension Bool {
-    func saveToUserDefaults(withKey key: String) {
-        let defaults = UserDefaults.standard
-        defaults.set(self, forKey: key)
-        defaults.synchronize()
-    }
-    static func loadFromUserDefaults(withKey key: String) -> Bool {
-        let defaults = UserDefaults.standard
-        return defaults.bool(forKey: key)
-    }
-}
-
-extension String {
-    func saveToUserDefaults(withKey key: String) {
-        let defaults = UserDefaults.standard
-        if String.loadFromUserDefaults(withKey: key) != "" {
-            defaults.set(nil, forKey: key)
+extension UserDefaults {
+    func load<T>(withKey key: String, type: T.Type) -> T? {
+        let userDefault = UserDefaults.standard
+        switch type {
+        case is String.Type:
+            return userDefault.string(forKey: key) as? T
+        case is Int.Type:
+            return userDefault.integer(forKey: key) as? T
+        case is Double.Type:
+            return userDefault.double(forKey: key) as? T
+        case is Float.Type:
+            return userDefault.float(forKey: key) as? T
+        case is Data.Type:
+            return userDefault.data(forKey: key) as? T
+        case is URL.Type:
+            return  userDefault.url(forKey: key) as? T
+        case is [String].Type:
+            return userDefault.stringArray(forKey: key) as? T
+        case is Bool.Type:
+            return userDefault.bool(forKey: key) as? T
+        case is JSON.Type:
+            return userDefault.dictionary(forKey: key) as? T
+        default:
+            return userDefault.object(forKey: key) as? T
         }
-        defaults.set(self, forKey: key)
-        defaults.synchronize()
-    }
-    static func loadFromUserDefaults(withKey key: String) -> String {
-        let defaults = UserDefaults.standard
-        return defaults.string(forKey: key) ?? ""
+        
     }
     
-}
-
-extension URL {
-    func saveToUserDefaults(withKey key: String) {
-        let defaults = UserDefaults.standard
-        defaults.set(self, forKey: key)
-        defaults.synchronize()
-    }
-    static func loadFromUserDefaults(withKey key: String) -> URL? {
-        let defaults = UserDefaults.standard
-        return defaults.url(forKey: key)
-    }
-    
-}
-
-extension NSData {
-    func saveToUserDefaults(withKey key: String) {
-        let defaults = UserDefaults.standard
-        defaults.set(self, forKey: key)
-        defaults.synchronize()
-    }
-    static func loadFromUserDefaults(withKey key: String) -> Data? {
-        let defaults = UserDefaults.standard
-        return defaults.data(forKey: key)
-    }
-}
-
-extension Int {
-    func saveToUserDefaults(withKey key: String) {
-        let defaults = UserDefaults.standard
-        defaults.set(self, forKey: key)
-        defaults.synchronize()
-    }
-    static func loadFromUserDefaults(withKey key: String) -> Int {
-        let defaults = UserDefaults.standard
-        return defaults.integer(forKey: key)
+    func save<T>(withKey key: String, value: T?) -> Bool {
+        guard let value = value else {return false}
+        let userDefault = UserDefaults.standard
+        switch value {
+        case is String:
+            userDefault.set( value as! String, forKey: key)
+        case is Int:
+            userDefault.set( value as! Int, forKey: key)
+        case is Double:
+            userDefault.set( value as! Double, forKey: key)
+        case is Float:
+            userDefault.set( value as! Float, forKey: key)
+        case is Data:
+            userDefault.set( value as! Data, forKey: key)
+        case is URL:
+            userDefault.set( value as? URL, forKey: key)
+        case is [String]:
+            userDefault.set( value as! [String], forKey: key)
+        case is Bool:
+            userDefault.set( value as! Bool, forKey: key)
+        case is JSON:
+            userDefault.set( value as! Bool, forKey: key)
+        default:
+            userDefault.set( value, forKey: key)
+            
+        }
+        UserDefaults.standard.synchronize()
+        return true
+        
     }
 }

@@ -8,6 +8,10 @@
 
 import Foundation
 
+extension Notification.Name {
+    static let toggle                 = Notification.Name("toggle")
+}
+
 enum Keys : String {
     case access_token = "access_token"
 }

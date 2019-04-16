@@ -10,6 +10,35 @@ import Foundation
 
 import UIKit
 
+protocol ViewProtocol {
+    var cornerRadius: CGFloat {get set}
+    var topBorder: Bool {get set}
+    var leftBorder: Bool {get set}
+    var rightBorder: Bool {get set}
+    var bottomBorder: Bool {get set}
+    var borderColor: UIColor? {get set}
+    var lineWeight: CGFloat {get set}
+    func rounderCorner(radius: CGFloat)
+    func addBorder(layerNameKey: LayerNameKey, color: UIColor?, lineWeight: CGFloat)
+}
+
+extension ViewProtocol {
+    func doingAfterLayoutSubview() {
+        rounderCorner(radius: cornerRadius)
+        if topBorder {
+            addBorder(layerNameKey: LayerNameKey.topBorder, color: borderColor, lineWeight: lineWeight)
+        }
+        if leftBorder {
+            addBorder(layerNameKey: LayerNameKey.leftBorder, color: borderColor, lineWeight: lineWeight)
+        }
+        if rightBorder {
+            addBorder(layerNameKey: LayerNameKey.rightBorder, color: borderColor, lineWeight: lineWeight)
+        }
+        if bottomBorder {
+            addBorder(layerNameKey: LayerNameKey.bottomBorder, color: borderColor, lineWeight: lineWeight)
+        }
+    }
+}
 
 @IBDesignable
 class ImageView: UIImageView {
@@ -21,60 +50,58 @@ class ImageView: UIImageView {
 }
 
 @IBDesignable
-class View: UIView {
+class View: UIView, ViewProtocol {
     @IBInspectable var cornerRadius: CGFloat = 0
+    @IBInspectable var lineWeight: CGFloat = 1
     @IBInspectable var topBorder: Bool = false
     @IBInspectable var leftBorder: Bool = false
     @IBInspectable var rightBorder: Bool = false
     @IBInspectable var bottomBorder: Bool = false
     override func layoutSubviews() {
         super.layoutSubviews()
-        rounderCorner(radius: cornerRadius)
-        if topBorder {
-            addBorder(layerNameKey: LayerNameKey.topBorder, color: borderColor)
-        }
-        if leftBorder {
-            addBorder(layerNameKey: LayerNameKey.leftBorder, color: borderColor)
-        }
-        if rightBorder {
-            addBorder(layerNameKey: LayerNameKey.rightBorder, color: borderColor)
-        }
-        if bottomBorder {
-            addBorder(layerNameKey: LayerNameKey.bottomBorder, color: borderColor)
-        }
+        doingAfterLayoutSubview()
     }
 }
 
 @IBDesignable
-class Button: UIButton {
+class Button: UIButton, ViewProtocol {
     @IBInspectable var cornerRadius: CGFloat = 0
+    @IBInspectable var lineWeight: CGFloat = 1
     @IBInspectable var topBorder: Bool = false
     @IBInspectable var leftBorder: Bool = false
     @IBInspectable var rightBorder: Bool = false
     @IBInspectable var bottomBorder: Bool = false
     override func layoutSubviews() {
         super.layoutSubviews()
-        rounderCorner(radius: cornerRadius)
-        if topBorder {
-            addBorder(layerNameKey: LayerNameKey.topBorder, color: borderColor)
-        }
-        if leftBorder {
-            addBorder(layerNameKey: LayerNameKey.leftBorder, color: borderColor)
-        }
-        if rightBorder {
-            addBorder(layerNameKey: LayerNameKey.rightBorder, color: borderColor)
-        }
-        if bottomBorder {
-            addBorder(layerNameKey: LayerNameKey.bottomBorder, color: borderColor)
-        }
+        doingAfterLayoutSubview()
+        
     }
 }
 @IBDesignable
-class Label: UILabel {
+class Label: UILabel, ViewProtocol {
     @IBInspectable var cornerRadius: CGFloat = 0
+    @IBInspectable var lineWeight: CGFloat = 1
+    @IBInspectable var topBorder: Bool = false
+    @IBInspectable var leftBorder: Bool = false
+    @IBInspectable var rightBorder: Bool = false
+    @IBInspectable var bottomBorder: Bool = false
     override func layoutSubviews() {
         super.layoutSubviews()
-        rounderCorner(radius: cornerRadius)
+        doingAfterLayoutSubview()
+    }
+}
+
+@IBDesignable
+class TextField: UITextField, ViewProtocol {
+    @IBInspectable var cornerRadius: CGFloat = 0
+    @IBInspectable var lineWeight: CGFloat = 1
+    @IBInspectable var topBorder: Bool = false
+    @IBInspectable var leftBorder: Bool = false
+    @IBInspectable var rightBorder: Bool = false
+    @IBInspectable var bottomBorder: Bool = false
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        doingAfterLayoutSubview()
     }
 }
 
@@ -269,7 +296,7 @@ enum LayerNameKey : String {
     func getRect(with layer: CALayer, lineWeight: CGFloat) -> CGRect {
         switch self {
         case .topBorder:
-           return  CGRect(x: 0, y: 0, width: layer.frame.width, height: lineWeight)
+            return  CGRect(x: 0, y: 0, width: layer.frame.width, height: lineWeight)
         case .bottomBorder:
             return CGRect(x: 0, y: layer.frame.height - lineWeight, width: layer.frame.width, height: lineWeight)
         case .leftBorder:
@@ -283,14 +310,14 @@ enum LayerNameKey : String {
 
 extension UIView {
     func addBorder(layerNameKey: LayerNameKey, color: UIColor? = nil, lineWeight: CGFloat = 1) {
-            // add top border
+        // add top border
         let border = UIView(frame: layerNameKey.getRect(with: layer, lineWeight: lineWeight))
-            border.layer.name = layerNameKey.rawValue
-            border.backgroundColor = color ?? UIColor.groupTableViewBackground
-            layer.setValue(border, forKey: layerNameKey.rawValue)
-            addSubview(border)
+        border.layer.name = layerNameKey.rawValue
+        border.backgroundColor = color ?? UIColor.groupTableViewBackground
+        layer.setValue(border, forKey: layerNameKey.rawValue)
+        addSubview(border)
     }
-
+    
     func removeBorderLayer(layerNameKey: LayerNameKey) {
         if let border = layer.value(forKey: layerNameKey.rawValue) as? UIView {
             border.removeFromSuperview()
@@ -331,25 +358,7 @@ extension UIView {
             return
         }
         self.translatesAutoresizingMaskIntoConstraints = false
-            self.centerXAnchor.constraint(equalTo: superview.centerXAnchor, constant: deltaPoint.x).isActive = true
-            self.centerYAnchor.constraint(equalTo: superview.centerYAnchor, constant: deltaPoint.y).isActive = true
-    }
-}
-
-extension UIColor {
-    convenience init(red: Int, green: Int, blue: Int) {
-        assert(red >= 0 && red <= 255, "Invalid red component")
-        assert(green >= 0 && green <= 255, "Invalid green component")
-        assert(blue >= 0 && blue <= 255, "Invalid blue component")
-        
-        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
-    }
-    
-    convenience init(rgb: Int) {
-        self.init(
-            red: (rgb >> 16) & 0xFF,
-            green: (rgb >> 8) & 0xFF,
-            blue: rgb & 0xFF
-        )
+        self.centerXAnchor.constraint(equalTo: superview.centerXAnchor, constant: deltaPoint.x).isActive = true
+        self.centerYAnchor.constraint(equalTo: superview.centerYAnchor, constant: deltaPoint.y).isActive = true
     }
 }

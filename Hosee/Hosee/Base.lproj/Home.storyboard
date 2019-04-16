@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2aA-2i-l8A">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2aA-2i-l8A">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -304,7 +304,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="377" height="604"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <action selector="onClickCoverButton:" destination="rjw-fm-1aw" eventType="touchUpInside" id="ovw-3R-9TA"/>
+                                <action selector="toggle:" destination="rjw-fm-1aw" eventType="touchUpInside" id="iza-wA-rdi"/>
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sLl-eS-mzV" userLabel="SelectedView" customClass="View" customModule="Hosee" customModuleProvider="target">
@@ -344,7 +344,7 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
-                                                <action selector="onClickSelectedButton:" destination="rjw-fm-1aw" eventType="touchDown" id="XGT-Rc-yRw"/>
+                                                <action selector="onClickSelectedButton:" destination="rjw-fm-1aw" eventType="touchUpInside" id="y7I-fV-xAl"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PCd-sx-ZuI" customClass="Button" customModule="Hosee" customModuleProvider="target">
@@ -400,14 +400,14 @@
                     <connections>
                         <outlet property="airCoolButton" destination="66H-Ok-tnE" id="SaN-ZB-325"/>
                         <outlet property="cameraButton" destination="fLb-i6-obP" id="W93-Gc-C7V"/>
-                        <outlet property="coverButton" destination="zsd-Rq-haY" id="hol-Tk-5fi"/>
-                        <outlet property="dialogView" destination="sLl-eS-mzV" id="VWP-OV-QIa"/>
-                        <outlet property="effectView" destination="BRu-9r-gb8" id="Uin-dh-29k"/>
-                        <outlet property="imageUpandDownOfSelect" destination="RIa-yW-Koo" id="G75-Yj-sYQ"/>
+                        <outlet property="controlConstraint" destination="DQK-JE-M8N" id="cAE-og-BqF"/>
+                        <outlet property="corverButton" destination="zsd-Rq-haY" id="boJ-sw-Nf1"/>
+                        <outlet property="effectView" destination="BRu-9r-gb8" id="HSp-ab-Dp9"/>
+                        <outlet property="imageUpandDownOfSelect" destination="RIa-yW-Koo" id="7JD-PE-VmJ"/>
                         <outlet property="lightButton" destination="PCd-sx-ZuI" id="YpZ-Xp-9iQ"/>
+                        <outlet property="menu" destination="sLl-eS-mzV" id="DQu-5P-4Zl"/>
                         <outlet property="selectionWorkingTypeButton" destination="oae-3f-g6U" id="tvi-wm-dAW"/>
                         <outlet property="title" destination="8H3-LV-PyZ" id="Lxb-H7-K8s"/>
-                        <outlet property="topConstraint" destination="DQK-JE-M8N" id="jVK-49-ITy"/>
                     </connections>
                 </view>
             </objects>

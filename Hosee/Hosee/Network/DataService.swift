@@ -9,7 +9,7 @@
 import Foundation
 class DataService {
     static var shared: DataService = DataService()
-    let accessToken = String.loadFromUserDefaults(withKey: Keys.access_token.rawValue)
+    let accessToken = UserDefaults.standard.load(withKey:  Keys.access_token.rawValue, type: String.self)
 
     func callAPILogin(user: User,  completedHandler: @escaping(UserLoginInfo) -> Void) {
         LoadingView.start()
@@ -46,7 +46,7 @@ class DataService {
         var urlRequest = URLRequest(url: url!)
         urlRequest.httpMethod = "GET"
         urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
-        urlRequest.addValue(accessToken, forHTTPHeaderField: "Authorization")
+        urlRequest.addValue(accessToken ?? "", forHTTPHeaderField: "Authorization")
         let uploadTask = URLSession.shared.dataTask(with: urlRequest)  { (data, response , error) in
             guard error == nil else {
                 print(error!.localizedDescription)

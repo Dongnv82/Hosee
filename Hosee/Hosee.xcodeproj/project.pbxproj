@@ -43,6 +43,7 @@
 		CE36D1DA225D9F2500824F04 /* PromotionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE36D1D7225D9F2400824F04 /* PromotionTableViewCell.swift */; };
 		CE36D1DD225D9F3B00824F04 /* PromotionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE36D1DC225D9F3B00824F04 /* PromotionModel.swift */; };
 		D2C22B466E9095AD1D084675 /* Pods_HoseeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BBACBAAB6E9E152157E27BE /* Pods_HoseeTests.framework */; };
+		EB5C1B3622653A550044AB85 /* ToggleViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C1B3522653A550044AB85 /* ToggleViewProtocol.swift */; };
 		EBFC664D2243864000CE8578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC664C2243864000CE8578 /* AppDelegate.swift */; };
 		EBFC664F2243864000CE8578 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC664E2243864000CE8578 /* HomeViewController.swift */; };
 		EBFC66522243864000CE8578 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBFC66502243864000CE8578 /* Main.storyboard */; };
@@ -113,6 +114,7 @@
 		CE36D1DC225D9F3B00824F04 /* PromotionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromotionModel.swift; sourceTree = "<group>"; };
 		DF770F9613A8BF161B579B9A /* Pods-HoseeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HoseeUITests.debug.xcconfig"; path = "Target Support Files/Pods-HoseeUITests/Pods-HoseeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E781E4B6EF67C7EF26C3E77C /* Pods-HoseeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HoseeTests.debug.xcconfig"; path = "Target Support Files/Pods-HoseeTests/Pods-HoseeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EB5C1B3522653A550044AB85 /* ToggleViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleViewProtocol.swift; sourceTree = "<group>"; };
 		EBFC66492243864000CE8578 /* Hosee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hosee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBFC664C2243864000CE8578 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBFC664E2243864000CE8578 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				57A5DD1A22607142004B1D6B /* LoadingView.swift */,
+				EB5C1B3522653A550044AB85 /* ToggleViewProtocol.swift */,
 				815AEE4A2254A03500C1AE17 /* RatingControl.swift */,
 				04DF6CE82248BF1700853A97 /* InfinityLoopLabelView.swift */,
 				5721F9BE22447D0800267BEC /* UIView+Extension.swift */,
@@ -582,6 +585,7 @@
 				EBFC664F2243864000CE8578 /* HomeViewController.swift in Sources */,
 				EBFC664D2243864000CE8578 /* AppDelegate.swift in Sources */,
 				577EB2282252F64D00166885 /* LoginViewController.swift in Sources */,
+				EB5C1B3622653A550044AB85 /* ToggleViewProtocol.swift in Sources */,
 				57DA9AAF2260A38100A5E1CE /* String+Extention.swift in Sources */,
 				603F40CC22487A94007FA914 /* HistoryTableViewCell.swift in Sources */,
 				CE36D1DA225D9F2500824F04 /* PromotionTableViewCell.swift in Sources */,

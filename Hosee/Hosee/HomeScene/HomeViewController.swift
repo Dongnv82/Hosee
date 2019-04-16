@@ -48,7 +48,7 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
     var selectedWorkingType: WorkingType? {
         didSet {
             guard let selectedWorkingType = selectedWorkingType else {return }
-            selectedWorkingTypeContainerView.backgroundColor = UIColor.colorFormHex(hex: 0x007AFF)
+            selectedWorkingTypeContainerView.backgroundColor = UIColor(hex: 0x007AFF)
 
         }
     }

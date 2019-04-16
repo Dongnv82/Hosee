@@ -29,7 +29,7 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate {
         self.locationManager.startUpdatingLocation()
         phoneNumberLabel.text = "0924586555"
         passWordLabel.text = "123456"
-        access_token = String.loadFromUserDefaults(withKey: Keys.access_token.rawValue)
+        access_token = UserDefaults.standard.load(withKey:  Keys.access_token.rawValue, type: String.self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -38,7 +38,7 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate {
             performSegue(withIdentifier: SegueIdentifier.goToMain.rawValue, sender: nil)
         }
     }
-
+    
     @IBAction func loginButton(_ sender: UIButton) {
         let phoneNumber: String =  String(phoneNumberLabel.text?.dropFirst() ?? "")
         let user = User(phoneNumber: "+84\(phoneNumber)", password: passWordLabel.text!, latitude: latitude!, longtitude: longitude!, deviceID: UIDevice.current.identifierForVendor!.uuidString)
@@ -46,11 +46,11 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate {
             
             if phoneNumberLabel.text?.count == 10 {
                 DataService.shared.callAPILogin(user: user) { (userData) in
-                        self.access_token = userData.data.access_token
-                        userData.data.access_token.saveToUserDefaults(withKey: Keys.access_token.rawValue)
-                        self.performSegue(withIdentifier: SegueIdentifier.goToMain.rawValue, sender: nil)
-
-    
+                    self.access_token = userData.data.access_token
+                    _ = UserDefaults.standard.save(withKey: Keys.access_token.rawValue, value: userData.data.access_token)
+                    self.performSegue(withIdentifier: SegueIdentifier.goToMain.rawValue, sender: nil)
+                    
+                    
                 }
             } else {
                 showAlert(title: "", message: "Số điện thoại nhập chưa chính xác")
@@ -68,14 +68,14 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate {
         case .restricted:
             print("Location access was restricted.")
             showAlertToOpenSetting(title: "yeu cau truy cap", message: "ban hay cap phep")
-
+            
         case .denied:
             print("User denied access to location.")
             // Display the map using the default location.
-             showAlertToOpenSetting(title: "yeu cau truy cap", message: "ban hay cap phep")
+            showAlertToOpenSetting(title: "yeu cau truy cap", message: "ban hay cap phep")
         case .notDetermined:
             print("Location status not determined.")
-//            showAlertToOpenSetting(title: "yeu cau truy cap", message: "ban hay cap phep")
+            //            showAlertToOpenSetting(title: "yeu cau truy cap", message: "ban hay cap phep")
             self.locationManager.requestWhenInUseAuthorization()
         case .authorizedAlways: fallthrough
         case .authorizedWhenInUse:
@@ -90,7 +90,7 @@ class LoginViewController: UIViewController, CLLocationManagerDelegate {
         
         //Finally stop updating location otherwise it will come again and again in this delegate
         self.locationManager.stopUpdatingLocation()
-
+        
     }
     
 }
