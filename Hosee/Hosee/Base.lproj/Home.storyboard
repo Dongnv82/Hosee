@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2aA-2i-l8A">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2aA-2i-l8A">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -196,6 +196,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="sXG-cl-qOy">
                         <nil key="title"/>
+                        <barButtonItem key="backBarButtonItem" title=" " id="NkZ-te-wzB"/>
                         <barButtonItem key="leftBarButtonItem" title="Item" image="LeflSlide" id="tvD-T8-a4z">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -412,7 +413,7 @@
                         <outlet property="imageUpandDownOfSelect" destination="RIa-yW-Koo" id="7JD-PE-VmJ"/>
                         <outlet property="lightButton" destination="PCd-sx-ZuI" id="YpZ-Xp-9iQ"/>
                         <outlet property="menu" destination="sLl-eS-mzV" id="DQu-5P-4Zl"/>
-                        <outlet property="selectionWorkingTypeButton" destination="oae-3f-g6U" id="tvi-wm-dAW"/>
+                        <outlet property="selectionWorkingTypeButton" destination="oae-3f-g6U" id="2Na-Sd-qb6"/>
                         <outlet property="title" destination="8H3-LV-PyZ" id="Lxb-H7-K8s"/>
                     </connections>
                 </view>
