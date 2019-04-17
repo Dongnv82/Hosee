@@ -17,7 +17,6 @@ class PromotionViewController: UIViewController, UITableViewDelegate, UITableVie
 
     @IBOutlet weak var tableView: UITableView!
     
-    var a: String?
     var pageNumber = 0
     var pageSize = 5
     var countPromo: Int = 0
