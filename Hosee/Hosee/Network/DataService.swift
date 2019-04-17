@@ -9,7 +9,10 @@
 import Foundation
 class DataService {
     static var shared: DataService = DataService()
+    let accessToken = UserDefaults.standard.load(withKey:  Keys.access_token.rawValue, type: String.self)
+
     func callAPILogin(user: User,  completedHandler: @escaping(UserLoginInfo) -> Void) {
+        LoadingView.start()
         let url = URLFactory.login.URL
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
@@ -20,13 +23,16 @@ class DataService {
         let uploadTask = URLSession.shared.uploadTask(with: urlRequest, from: data)  { (data, response , error) in
             guard error == nil else {
                 print(error!.localizedDescription)
+                showAlert(title: "Login Error", message: error!.localizedDescription)
                 return
             }
             guard let aData = data else {return}
             do {
-                let jSonObject = try JSONDecoder().decode(UserLoginInfo.self, from: aData)
+                let userLoginInfo = try JSONDecoder().decode(UserLoginInfo.self, from: aData)
                 DispatchQueue.main.async {
-                    completedHandler(jSonObject)
+                    
+                    LoadingView.stop()
+                    completedHandler(userLoginInfo)
                 }
             } catch {
                 print(error.localizedDescription)
@@ -37,11 +43,10 @@ class DataService {
     
     func callAPIHistory(userID: Int,  completedHandler: @escaping(ClientsHistory) -> Void) {
         let url = URL(string: URLFactory.history.URL.absoluteString + "\(userID)")
-        //        print(url)
         var urlRequest = URLRequest(url: url!)
         urlRequest.httpMethod = "GET"
-        //        urlRequest.addValue(“application/json”, forHTTPHeaderField: “Accept”)
-        //        urlRequest.addValue(“57UFoOdYCw1mQaLM3QrdV8__rHQCVWZayZqx-3cFHvE”, forHTTPHeaderField: “Authorization”)
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
+        urlRequest.addValue(accessToken ?? "", forHTTPHeaderField: "Authorization")
         let uploadTask = URLSession.shared.dataTask(with: urlRequest)  { (data, response , error) in
             guard error == nil else {
                 print(error!.localizedDescription)
@@ -84,5 +89,30 @@ class DataService {
             }
         }
         uploadTask.resume()
+    }
+    
+    func getPromotion(pageNumber: Int, completedHandler: @escaping(PromoService) -> Void) {
+        
+        guard let url = URL(string: URLFactory.promotion.URL.absoluteString + "\(pageNumber)/5") else {
+            return
+        }
+        print(url.absoluteString)
+        let urlRequest = URLRequest(url: url)
+        
+        let downloadTask = URLSession.shared.dataTask(with: urlRequest, completionHandler: { (data, _, error) in
+            guard error == nil else {return}
+            guard let aData = data else {return}
+            do {
+                
+                let promotionData = try JSONDecoder().decode(PromoService.self, from: aData)
+                DispatchQueue.main.async {
+                    completedHandler(promotionData)
+                }
+            
+            } catch {
+                print(error.localizedDescription)
+            }
+        })
+        downloadTask.resume()
     }
 }

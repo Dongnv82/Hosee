@@ -8,30 +8,29 @@
 
 import Foundation
 
-struct Promo {
+
+
+struct PromoService : Codable {
     var count: Int?
-    var data: [PromoData] = []
+    var message: String?
+    var data: [Promo] = []
     
-    var mess: String?
-    
-    init(dictionary: DICT) {
-        count = dictionary["count"] as? Int ?? 0
-        mess = dictionary["message"] as? String ?? ""
-        let arrayData = dictionary["data"] as? [DICT] ?? []
-        
-        for promoData in arrayData {
-            self.data.append(PromoData(dictionary: promoData))
-        }
-        
+    private enum CodingKeys: String, CodingKey {
+        case count = "count"
+        case message = "message"
+        case data
     }
-    
 }
 
-struct PromoData {
+struct Promo : Codable {
+    var id: Int
     var keyString: String?
     var availableTo: String?
-    init(dictionary: DICT) {
-        keyString = dictionary["key_string"] as? String ?? ""
-        availableTo = dictionary["available_to"] as? String ?? ""
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case keyString = "key_string"
+        case availableTo = "available_to"
     }
 }
+
+

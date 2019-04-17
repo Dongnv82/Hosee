@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bhd-i9-NGs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bhd-i9-NGs">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -49,17 +49,14 @@
                                                     <constraint firstAttribute="width" constant="35" id="bYE-mX-CqV"/>
                                                 </constraints>
                                             </imageView>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="feq-cy-eYb">
-                                                <rect key="frame" x="110" y="6" width="193" height="23"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="23" id="erW-dy-NQN"/>
-                                                </constraints>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0924586555" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="feq-cy-eYb">
+                                                <rect key="frame" x="110" y="0.0" width="193" height="40"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VN +84" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chm-Hh-UT1" customClass="Label" customModule="Hosee" customModuleProvider="target">
-                                                <rect key="frame" x="55" y="12" width="47" height="17"/>
+                                                <rect key="frame" x="55" y="12" width="47" height="16"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="47" id="tXF-nP-akC"/>
                                                 </constraints>
@@ -78,10 +75,11 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="feq-cy-eYb" secondAttribute="bottom" id="6OV-NI-CrQ"/>
                                             <constraint firstAttribute="trailing" secondItem="feq-cy-eYb" secondAttribute="trailing" constant="8" id="6d3-FL-VaY"/>
                                             <constraint firstItem="ACO-GT-XIQ" firstAttribute="leading" secondItem="6uU-kP-35K" secondAttribute="leading" constant="12" id="Fqp-HK-Yub"/>
                                             <constraint firstItem="feq-cy-eYb" firstAttribute="leading" secondItem="chm-Hh-UT1" secondAttribute="trailing" constant="8" id="TIX-og-G6u"/>
-                                            <constraint firstItem="feq-cy-eYb" firstAttribute="top" secondItem="6uU-kP-35K" secondAttribute="top" constant="6" id="TM9-eN-sZo"/>
+                                            <constraint firstItem="feq-cy-eYb" firstAttribute="top" secondItem="6uU-kP-35K" secondAttribute="top" id="TM9-eN-sZo"/>
                                             <constraint firstItem="chm-Hh-UT1" firstAttribute="top" secondItem="6uU-kP-35K" secondAttribute="top" constant="12" id="fsh-3G-efF"/>
                                             <constraint firstItem="ACO-GT-XIQ" firstAttribute="top" secondItem="6uU-kP-35K" secondAttribute="top" constant="8" id="h2I-10-MLw"/>
                                             <constraint firstItem="chm-Hh-UT1" firstAttribute="leading" secondItem="ACO-GT-XIQ" secondAttribute="trailing" constant="8" id="r9R-4l-fl6"/>
@@ -148,7 +146,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jor-LY-DCH" userLabel="Stack View Password">
-                                <rect key="frame" x="16" y="432" width="343" height="66"/>
+                                <rect key="frame" x="16" y="432.5" width="343" height="66"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MẬT KHẨU" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOz-3n-0ol">
                                         <rect key="frame" x="133.5" y="0.0" width="76" height="18"/>
@@ -159,7 +157,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="poM-py-eiN" customClass="View" customModule="Hosee" customModuleProvider="target">
                                         <rect key="frame" x="16" y="26" width="311" height="40"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wij-6h-T90">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wij-6h-T90">
                                                 <rect key="frame" x="0.0" y="0.0" width="311" height="40"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>

@@ -29,7 +29,7 @@ enum URLFactory: String {
         case .login:
             return  generalUrlComponent(path: "/clients/login")
         case .promotion:
-            return generalUrlComponent(path: "")
+            return generalUrlComponent(path: "/promo/list/")
         case .history:
             return generalUrlComponent(path: "/clients/history/")
         case .createOrder:

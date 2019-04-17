@@ -8,45 +8,32 @@
 
 import UIKit
 
-extension Notification.Name {
-    static let toggle                 = Notification.Name("toggle")
-}
 
-
-class ContainerViewController: UIViewController, HomeViewControllerDelegate {
-   
+class ContainerViewController: UIViewController, ToggleViewProtocol {
+    var effectView: UIVisualEffectView?
+    var coverAlpha: CGFloat = 0.5
+    @IBOutlet var controlConstraint: NSLayoutConstraint!
+    @IBOutlet var corverButton: UIButton!
+    @IBOutlet var menu: UIView!
     
-
-    @IBOutlet weak var corverButton: UIButton!
-    @IBOutlet weak var leftSlideMenu: UIView!
-    @IBOutlet weak var leftContraint: NSLayoutConstraint!
+    var closeDistance: CGFloat = 0.0
+    var showDistance: CGFloat = 0.0
+    var isOpen: Bool = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
         registerNotification()
+        setupToggleView(distance: menu.frame.height + 100)
+
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        isLeftSlideMenuOpen = false
+        setupToggleView(distance: menu.frame.height + 100)
     }
-
-    var isLeftSlideMenuOpen: Bool = false {
-        didSet {
-            if isLeftSlideMenuOpen {
-              leftContraint.constant = 0
-            corverButton.alpha = 0.4
-            } else {
-                leftContraint.constant = -(leftSlideMenu.bounds.size.width + 15)
-                corverButton.alpha = 0
-            }
-            UIView.animate(withDuration: 0.35) {
-                self.view.layoutIfNeeded()
-            }
-        }
-        
-    }
+    
     func registerNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(toggle(_:)), name: .toggle, object: nil)
     }
@@ -54,9 +41,11 @@ class ContainerViewController: UIViewController, HomeViewControllerDelegate {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
- 
-    @IBAction func toggle(_ sender: UIButton? = nil) {
-        isLeftSlideMenuOpen = !isLeftSlideMenuOpen
+    
+    @IBAction func toggle(_ sender: UIButton! = nil) {
+        isOpen = !isOpen
+        performToggle(isOpen: isOpen)
     }
     
 }
+
