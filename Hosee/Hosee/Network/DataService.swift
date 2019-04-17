@@ -65,7 +65,7 @@ class DataService {
         uploadTask.resume()
     }
     
-    func callAPICreateOrder(order: Order, completedHandler: @escaping(OrderCreated) -> Void) {
+    func callAPICreateOrder(order: OrderInput, completedHandler: @escaping(OrderCreated) -> Void) {
         let url = URLFactory.createOrder.URL
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"

@@ -10,30 +10,33 @@ import UIKit
 
 class BookingViewController: UIViewController {
     
+    var order: Order?
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var loadding: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
-<<<<<<< HEAD
     @IBOutlet weak var runingLabel: InfinityLoopLabelView!
-=======
-    @IBOutlet weak var runingLabel: RuningLabelView!
-    @IBOutlet weak var backButton: Button!
->>>>>>> fix Booking screen and creat Login.
+    @IBOutlet weak var bookingButton: Button!
+
+    @IBOutlet weak var cancelButton: UIButton!
     
-    @IBOutlet weak var buttonOutlet: UIButton!
-    
+    var backToHome: (() -> Void)?
+    var cancelOrderAction: (() -> Void)?
     var restString: String?
     var timer = 10
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if restString != nil {
             runingLabel.text = restString
         }
-        backButton.isHidden = true
+        bookingButton.isHidden = true
+        cancelButton.isEnabled = false
         startTime()
-        
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        photo.roundAndRound(duration: 5.0)
     }
     
     func startTime () {
@@ -44,16 +47,33 @@ class BookingViewController: UIViewController {
             timer -= 1
             timerLabel.text = String(timer)
         } else {
-            backButton.isHidden = false
-            buttonOutlet.isHidden = true
+            bookingButton.isHidden = false
+            cancelButton.isEnabled = true
             timerLabel.isHidden = true
         }
     }
     
-    @IBAction func backBtnMap(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-      
+<<<<<<< HEAD
+    @IBAction func bookingBtnTap(_ sender: UIButton) {
+        let userInfo = UserDefaults.standard.object(forKey: "userInfo") as? UserLoginInfo
+        let orderInput = Order(clientID: (userInfo?.data.client.id)!, serviceType: 1, address: "", orderAt: 0, promoCode: "", notes: "", lat: 21.0335302, lng: 105.7678049)
+        DataService.shared.callAPICreateOrder(order: orderInput) { (data) in
+            print(data.code)
+        }
+=======
+    deinit {
+        
     }
     
+    @IBAction func backToHome(_ sender: Any) {
+        backToHome?()
+>>>>>>> 6ec24c562e1a29915e90108e7c15dd33ab33e431
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func cancelOrder(_ sender: UIButton) {
+        cancelOrderAction?()
+        dismiss(animated: true, completion: nil)
+    }
     
 }

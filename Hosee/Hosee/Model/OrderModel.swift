@@ -7,7 +7,7 @@
 //
 
 import Foundation
-struct Order: Codable {
+struct OrderInput: Codable {
     var clientID: Int
     var serviceType: Int
     var address: String
