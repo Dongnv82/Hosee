@@ -6,7 +6,6 @@
 //  Copyright © 2019 duycuong. All rights reserved.
 //
 
-import UIKit
 
 import UIKit
 
@@ -40,21 +39,21 @@ class PromotionTableViewCell: UITableViewCell {
     var promotion: Promo? {
         didSet {
             if let promotion = promotion {
-            let dateTo = promotion.availableTo?.toDate
-            
-            let dayLeft = Calendar.current.dateComponents([.day], from: dateNow, to: dateTo!)
-            
-            
-            promotionDayLabel.text = String("\(dayLeft.day!) ngày")
-            titleLabel.text = promotion.keyString
-            timeLabel.text = promotion.availableTo
+                let dateTo = promotion.availableTo?.toDate
+                
+                let dayLeft = Calendar.current.dateComponents([.day], from: dateNow, to: dateTo!)
+                
+                
+                promotionDayLabel.text = String("\(dayLeft.day!) ngày")
+                titleLabel.text = promotion.keyString
+                timeLabel.text = promotion.availableTo
             } else {
                 promotionDayLabel.text = ""
                 titleLabel.text = ""
                 timeLabel.text = ""
             }
         }
-            
+        
     }
     
     override func awakeFromNib() {
@@ -84,6 +83,8 @@ class PromotionTableViewCell: UITableViewCell {
     }
     @IBAction func onClickedUsePromotion(_ sender: Any) {
         delegate?.usingPromotion(promotion)
+        //navigationController?.popViewController(animated: true)
+        
     }
     
 }
