@@ -44,6 +44,7 @@
 		CE36D1DA225D9F2500824F04 /* PromotionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE36D1D7225D9F2400824F04 /* PromotionTableViewCell.swift */; };
 		CE36D1DD225D9F3B00824F04 /* PromotionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE36D1DC225D9F3B00824F04 /* PromotionModel.swift */; };
 		D2C22B466E9095AD1D084675 /* Pods_HoseeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BBACBAAB6E9E152157E27BE /* Pods_HoseeTests.framework */; };
+		EB3163EA2265A93F005360A8 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3163E92265A93F005360A8 /* Order.swift */; };
 		EB5C1B3622653A550044AB85 /* ToggleViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C1B3522653A550044AB85 /* ToggleViewProtocol.swift */; };
 		EBFC664D2243864000CE8578 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC664C2243864000CE8578 /* AppDelegate.swift */; };
 		EBFC664F2243864000CE8578 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFC664E2243864000CE8578 /* HomeViewController.swift */; };
@@ -116,6 +117,7 @@
 		CE36D1DC225D9F3B00824F04 /* PromotionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromotionModel.swift; sourceTree = "<group>"; };
 		DF770F9613A8BF161B579B9A /* Pods-HoseeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HoseeUITests.debug.xcconfig"; path = "Target Support Files/Pods-HoseeUITests/Pods-HoseeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E781E4B6EF67C7EF26C3E77C /* Pods-HoseeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HoseeTests.debug.xcconfig"; path = "Target Support Files/Pods-HoseeTests/Pods-HoseeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EB3163E92265A93F005360A8 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		EB5C1B3522653A550044AB85 /* ToggleViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleViewProtocol.swift; sourceTree = "<group>"; };
 		EBFC66492243864000CE8578 /* Hosee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hosee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBFC664C2243864000CE8578 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				CE36D1DC225D9F3B00824F04 /* PromotionModel.swift */,
 				578F34EB225D7FF9007FA96B /* UserLoginInfo.swift */,
 				81848AAC226072FC00D2BE7D /* OrderModel.swift */,
+				EB3163E92265A93F005360A8 /* Order.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -266,7 +269,6 @@
 			children = (
 				603F40CA22487A93007FA914 /* HistoryTableViewCell.swift */,
 				603F40CB22487A93007FA914 /* HistoryTableViewController.swift */,
-				04DF6CE22248B4E300853A97 /* BookingViewController.swift */,
 			);
 			name = HistoryScene;
 			sourceTree = "<group>";
@@ -318,6 +320,7 @@
 				57DA9AB82260AC8900A5E1CE /* Promotion.storyboard */,
 				57DA9AAC22609C6500A5E1CE /* Promotion */,
 				57DA9AAD22609C8600A5E1CE /* HomeScene */,
+				04DF6CE22248B4E300853A97 /* BookingViewController.swift */,
 				603F40CE22487A98007FA914 /* HistoryScene */,
 				578F34E4225D7FD4007FA96B /* Network */,
 				578F34E9225D7FF9007FA96B /* Model */,
@@ -584,6 +587,7 @@
 			files = (
 				603F40CD22487A94007FA914 /* HistoryTableViewController.swift in Sources */,
 				57DA9AAB226098DD00A5E1CE /* UIColor.swift in Sources */,
+				EB3163EA2265A93F005360A8 /* Order.swift in Sources */,
 				EBFC664F2243864000CE8578 /* HomeViewController.swift in Sources */,
 				EBFC664D2243864000CE8578 /* AppDelegate.swift in Sources */,
 				577EB2282252F64D00166885 /* LoginViewController.swift in Sources */,

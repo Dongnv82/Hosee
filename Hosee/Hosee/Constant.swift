@@ -40,4 +40,5 @@ enum WorkingType {
 
 struct ConstantString {
     static let normalNavigationButtonTitle = "Chọn danh mục sửa chữa"
+    static let  pickupPlacePlease = "Bấm vào đây để chọn địa điểm!"
 }

@@ -10,19 +10,19 @@ import UIKit
 import GooglePlaces
 import GoogleMaps
 import GooglePlacePicker
-protocol HomeViewControllerDelegate: class {
-    var isLeftSlideMenuOpen: Bool {get set}
-}
+
 
 class HomeViewController: UIViewController, GMSMapViewDelegate {
     
     @IBOutlet var workingSelectionView: WorkingSelectionView!
     @IBOutlet weak var addressContainerView: UIView!
     @IBOutlet weak var selectedWorkingTypeContainerView: UIView!
-    
-    
     @IBOutlet weak var addressLabel: InfinityLoopLabelView!
     @IBOutlet weak var promoteBox: UIStackView!
+    @IBOutlet weak var orderStackView: UIStackView!
+    
+    @IBOutlet weak var promoButton: Button!
+    
     lazy var locationManager: CLLocationManager = {
         let locationManager = CLLocationManager()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -36,6 +36,7 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
     var selectedPlace: GMSPlace? {
         didSet {
             guard let place = selectedPlace else {
+                addressLabel.text = ConstantString.pickupPlacePlease
                 return
             }
             addressContainerView.backgroundColor = UIColor.white
@@ -53,13 +54,31 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
         }
     }
     
+    
+    
     var selectedPromotion: Promo? {
         didSet {
-            
+            guard let selectedPromotion = selectedPromotion else {return}
+            promoButton.setTitle(selectedPromotion.keyString, for: .normal)
         }
     }
     
-    var delegate: HomeViewControllerDelegate?
+    private var orderStack = [Order]() {
+        didSet {
+            let buttonOrder = orderStackView.arrangedSubviews.last
+            orderStackView.arrangedSubviews.forEach{$0.removeFromSuperview()}
+            orderStackView.addArrangedSubview(buttonOrder!)
+            orderStack.forEach { (order) in
+                var button = UIButton()
+                button.backgroundColor = UIColor.orange
+                button.setTitle(order.workingType.title, for: .normal)
+                orderStackView.insertArrangedSubview(button, at: 0)
+            }
+           
+        }
+    }
+    
+    
     
     @IBOutlet weak var mapView: GMSMapView!
     var currentLocation: CLLocation?
@@ -75,7 +94,12 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
         super.viewDidLoad()
         setupWorkingSelectionView()
         setupLocationManager()
-        addressLabel.text = "Bấm vào đây để chọn địa điểm!"
+        addressLabel.text = ConstantString.pickupPlacePlease
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
     }
     override func viewDidAppear(_ animated: Bool) {
         workingSelectionView.isOpen = false
@@ -110,6 +134,16 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
         case SegueIdentifier.showBooking.rawValue:
             let vc = segue.destination as! BookingViewController
             vc.restString = addressLabel.text
+            vc.order = Order(workingType: selectedWorkingType!, place: selectedPlace!)
+            vc.backToHome = { [weak self] in
+                self?.orderStack.append(vc.order!)
+                self?.selectedWorkingType = nil
+                self?.selectedPlace = nil
+            }
+            vc.cancelOrderAction = {  [weak self] in
+                self?.selectedWorkingType = nil
+                self?.selectedPlace = nil
+            }
 
         default:
             return
@@ -121,6 +155,7 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
     }
     
     @IBAction func onClickPromoteButton(_ sender: Any) {
+        
         promoteBox.animate{ (success) in
             
         }
@@ -132,6 +167,8 @@ class HomeViewController: UIViewController, GMSMapViewDelegate {
         placePicker.delegate = self
         present(placePicker, animated: true, completion: nil)
     }
+    
+    
     
 }
 

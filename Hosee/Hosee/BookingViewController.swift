@@ -10,6 +10,7 @@ import UIKit
 
 class BookingViewController: UIViewController {
     
+    var order: Order?
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var loadding: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
@@ -18,6 +19,8 @@ class BookingViewController: UIViewController {
 
     @IBOutlet weak var cancelButton: UIButton!
     
+    var backToHome: (() -> Void)?
+    var cancelOrderAction: (() -> Void)?
     var restString: String?
     var timer = 10
     
@@ -50,16 +53,26 @@ class BookingViewController: UIViewController {
         }
     }
     
+<<<<<<< HEAD
     @IBAction func bookingBtnTap(_ sender: UIButton) {
         let userInfo = UserDefaults.standard.object(forKey: "userInfo") as? UserLoginInfo
         let orderInput = Order(clientID: (userInfo?.data.client.id)!, serviceType: 1, address: "", orderAt: 0, promoCode: "", notes: "", lat: 21.0335302, lng: 105.7678049)
         DataService.shared.callAPICreateOrder(order: orderInput) { (data) in
             print(data.code)
         }
+=======
+    deinit {
+        
+    }
+    
+    @IBAction func backToHome(_ sender: Any) {
+        backToHome?()
+>>>>>>> 6ec24c562e1a29915e90108e7c15dd33ab33e431
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func cancelButtonAction(_ sender: UIButton) {
+    @IBAction func cancelOrder(_ sender: UIButton) {
+        cancelOrderAction?()
         dismiss(animated: true, completion: nil)
     }
     
